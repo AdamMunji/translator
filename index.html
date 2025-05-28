@@ -259,9 +259,7 @@
   <div id="cvPopup" class="cv-popup">
     <div class="cv-popup-content">
       <span id="closePopup" class="cv-close">&times;</span>
-      <h3>السيرة الذاتية / Resume</h3>
-      <img src="images/cv.jpg" alt="السيرة الذاتية" class="cv-image" />
-      <a href="cv.pdf" class="cv-btn" download>تحميل السيرة الذاتية (PDF)</a>
+
     </div>
   </div>
 
@@ -290,6 +288,33 @@
         cvPopup.style.display = 'none';
       }
     });
+
+  
   </script>
+
+
+<script>
+  const cvBtn = document.getElementById('cvBtn');
+  const cvPopup = document.getElementById('cvPopup');
+  const closePopup = document.getElementById('closePopup');
+
+  cvBtn.addEventListener('click', () => {
+    cvPopup.style.display = 'flex';
+  });
+
+  closePopup.addEventListener('click', () => {
+    cvPopup.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === cvPopup) {
+      cvPopup.style.display = 'none';
+    }
+  });
+</script>
+
+
+
+  
 </body>
 </html>
