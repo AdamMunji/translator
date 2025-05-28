@@ -1,38 +1,73 @@
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #0f0f0f;
-  color: #fff;
+  font-family: 'Cairo', sans-serif;
   margin: 0;
-  padding: 2rem;
+  padding: 0;
+  background: #fdfdfd;
+  color: #333;
+  line-height: 1.7;
   direction: rtl;
 }
+
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   padding: 2rem;
-  background: #1a1a1a;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-h1 {
-  font-size: 2.5rem;
+
+header {
   text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #007acc;
+  margin-bottom: 0.5rem;
+}
+
+header h2 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #777;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h3 {
+  font-size: 1.5rem;
+  color: #007acc;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
+
 ul {
-  padding-left: 1.5rem;
+  list-style-type: '✔ ';
+  padding-right: 1.2rem;
 }
+
 a {
-  color: #4dd0e1;
+  color: #007acc;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
+
 footer {
   text-align: center;
-  margin-top: 2rem;
+  padding: 1rem;
   font-size: 0.9rem;
-  color: #bbb;
+  color: #777;
+  border-top: 1px solid #eee;
 }
