@@ -3,383 +3,291 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>أبا الحسن عباس | Aba Al-Hassan Abbas</title>
+  <title>أبا الحسن عباس | تواصل</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     body {
-      margin: 0; font-family: 'Cairo', sans-serif; background-color: #0b1d3f; color: #e0e6f8; direction: rtl;
-      display: flex; flex-direction: column; min-height: 100vh;
+      font-family: 'Cairo', sans-serif, Arial, sans-serif;
+      margin: 0;
+      background: #f0f4ff;
+      color: #002952;
+      direction: rtl;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 50px;
     }
     header {
-      background: linear-gradient(rgba(11,29,63,0.7), rgba(11,29,63,0.7)), url('your-photo.jpg') center/cover no-repeat;
-      height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;
+      background: linear-gradient(135deg, #003366, #0059b3);
+      width: 100%;
+      padding: 30px 20px;
       text-align: center;
-      color: #a8c1ff;
+      color: white;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
-    header img {
-      width: 120px; height: 120px; border-radius: 50%; border: 4px solid #4f6df5; margin-bottom: 1rem;
+    header img.profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid white;
       object-fit: cover;
+      margin-bottom: 15px;
     }
     header h1 {
-      margin: 0.2rem 0;
+      margin: 0;
       font-size: 2.8rem;
-      font-weight: 700;
-      color: #c3d0ff;
+      font-weight: 900;
+      letter-spacing: 1.2px;
     }
     header h2 {
-      margin: 0; font-weight: 400; font-size: 1.1rem; color: #94aaff;
+      font-weight: 400;
+      margin: 5px 0 15px 0;
+      font-size: 1.2rem;
+      color: #a2c4f5;
     }
     header p {
-      max-width: 600px; margin: 0.5rem auto 0 auto; font-size: 1rem; color: #b0bbff;
-    }
-    .cv-btn {
-      margin-top: 15px; padding: 8px 20px; background: #4f6df5; border: none; border-radius: 25px; color: white;
-      cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .cv-btn:hover { background: #324ab7; }
-    nav {
-      margin: 20px auto; text-align: center;
-    }
-    nav button {
-      background: none; border: 2px solid #4f6df5; color: #a8c1ff; padding: 6px 16px; margin: 0 8px;
-      border-radius: 20px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;
-    }
-    nav button.active, nav button:hover {
-      background-color: #4f6df5; color: white;
-      border-color: #324ab7;
-    }
-
-    main {
-      flex-grow: 1;
-      max-width: 900px; margin: auto; padding: 20px;
-    }
-    section.stats {
-      display: flex; gap: 15px; justify-content: center; margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-    .stat-item {
-      background-color: #132757;
-      border-radius: 10px;
-      padding: 20px 30px;
-      flex: 1 1 150px;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(79,109,245,0.6);
-      color: #c3d0ff;
-    }
-    .stat-item h4 { margin-bottom: 10px; font-weight: 700; font-size: 1.2rem; }
-    .stat-item p { font-size: 1.3rem; font-weight: 600; }
-
-    section.contact, section.testimonials, section.comments {
-      background-color: #132757;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 30px;
-      box-shadow: 0 0 20px rgba(79,109,245,0.5);
-    }
-
-    section.contact h3, section.testimonials h3, section.comments h3 {
-      margin-top: 0;
-      font-size: 1.6rem;
-      color: #a8c1ff;
-      text-align: center;
-    }
-
-    .social-links {
-      list-style: none; padding: 0; margin: 15px 0 0 0;
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;
-    }
-    .social-links li {
-      font-size: 1.1rem;
-      color: #c3d0ff;
-      display: flex; align-items: center; gap: 6px;
-    }
-    .social-links li i {
-      color: #4f6df5;
-      font-size: 1.4rem;
-    }
-    .social-links a {
-      color: #c3d0ff; text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .social-links a:hover {
-      color: #85a0ff;
-    }
-
-    form.contact-form, form.comment-form {
-      display: flex; flex-direction: column;
-      gap: 12px;
+      font-size: 1rem;
       max-width: 600px;
       margin: 0 auto;
     }
-    input, textarea {
-      padding: 12px 15px;
-      border-radius: 7px;
-      border: none;
-      font-size: 1rem;
-      resize: vertical;
-      font-family: 'Cairo', sans-serif;
-    }
-    input:focus, textarea:focus {
-      outline: 2px solid #4f6df5;
-      background-color: #1a2c66;
-      color: #e0e6f8;
-    }
-    button.btn-send {
-      background-color: #4f6df5;
-      border: none;
+    .btn-cv {
+      margin-top: 20px;
+      display: inline-block;
+      background-color: #004085;
       color: white;
-      font-weight: 600;
-      padding: 12px;
+      padding: 12px 25px;
       border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
       cursor: pointer;
+      text-decoration: none;
       transition: background-color 0.3s ease;
     }
-    button.btn-send:hover {
-      background-color: #324ab7;
+    .btn-cv:hover {
+      background-color: #002952;
     }
-
-    .form-message {
-      text-align: center;
-      margin: 12px 0 0 0;
-      font-weight: 600;
-      color: #a8c1ff;
-    }
-
-    .testimonial-item {
-      background-color: #0d204c;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      color: #b9c9ff;
-      font-style: italic;
-      box-shadow: 0 0 10px rgba(79,109,245,0.3);
-    }
-
-    .testimonial-item span {
-      display: block;
-      margin-top: 8px;
-      font-style: normal;
+    .lang-switch {
+      position: absolute;
+      top: 25px;
+      left: 20px;
+      cursor: pointer;
+      background: rgba(255 255 255 / 0.15);
+      padding: 6px 12px;
+      border-radius: 20px;
+      color: white;
       font-weight: 700;
-      color: #7e8fc1;
+      user-select: none;
+      transition: background 0.3s ease;
     }
-
-    /* التعليقات */
-    #comments-list {
-      max-width: 600px;
-      margin: 15px auto 0 auto;
-      background-color: #0d204c;
+    .lang-switch:hover {
+      background: rgba(255 255 255 / 0.3);
+    }
+    main {
+      max-width: 900px;
+      width: 100%;
+      margin: 30px 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+      padding: 30px 25px;
+    }
+    h3 {
+      color: #004085;
+      margin-bottom: 15px;
+      text-align: center;
+      font-weight: 700;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 18px;
+      border: 1.5px solid #a9b9ff;
       border-radius: 10px;
-      padding: 15px;
-      max-height: 200px;
-      overflow-y: auto;
-      color: #c3d0ff;
+      font-size: 16px;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.3s ease;
     }
-    .comment-item {
-      border-bottom: 1px solid #324ab7;
-      padding: 8px 0;
-      font-size: 1rem;
+    form input:focus, form textarea:focus {
+      border-color: #004085;
+      box-shadow: 0 0 8px #4c6ef5aa;
     }
-    .comment-item:last-child {
-      border-bottom: none;
+    button.send-btn {
+      width: 100%;
+      background-color: #004085;
+      color: white;
+      padding: 14px;
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
     }
-
-    @media (max-width: 768px) {
-      header { height: 250px; }
-      header h1 { font-size: 2rem; }
-      header h2 { font-size: 1rem; }
-      section.stats {
-        flex-direction: column;
-        gap: 20px;
+    button.send-btn:hover {
+      background-color: #002952;
+    }
+    .comments-section {
+      margin-top: 40px;
+      border-top: 2px solid #004085;
+      padding-top: 25px;
+    }
+    .comments-section h3 {
+      margin-bottom: 20px;
+    }
+    .comment-box {
+      background: #e8f0fe;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+    .comment-box p {
+      margin: 0;
+      font-size: 15px;
+      color: #002952;
+      line-height: 1.4;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      main {
+        margin: 20px 10px;
+        padding: 20px 15px;
       }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="your-photo.jpg" alt="أبا الحسن عباس" />
-  <h1 id="name">أبا الحسن عباس</h1>
-  <h2 id="titles">مترجم | أستاذ لغة إنجليزية | كاتب | محرر | مصمم | مصور | مدير مواقع</h2>
-  <p id="description">أفضل خدمات الترجمة والتعليم باللغتين العربية والإنجليزية. استشارات تصميم وتصوير احترافية.</p>
-  <a href="your-cv.pdf" class="cv-btn" target="_blank" rel="noopener">عرض السيرة الذاتية</a>
-</header>
+  <header>
+    <div class="lang-switch" id="lang-switch">English</div>
+    <img src="https://i.pravatar.cc/150?img=12" alt="أبا الحسن عباس" class="profile-pic" />
+    <h1 id="name">أبا الحسن عباس</h1>
+    <h2 id="title">مترجم | أستاذ لغة إنجليزية | كاتب | محرر | مصمم | مصور | مدير مواقع</h2>
+    <p id="description">أفضل خدمات الترجمة والتعليم باللغتين العربية والإنجليزية. استشارات تصميم وتصوير احترافية.</p>
+    <a href="Aba_AlHassan_Abbas_CV.pdf" target="_blank" class="btn-cv" id="download-cv">تحميل السيرة الذاتية</a>
+  </header>
 
-<nav>
-  <button id="ar-btn" class="active">العربية</button>
-  <button id="en-btn">English</button>
-</nav>
-
-<main>
-  <section class="stats">
-    <div class="stat-item">
-      <h4 id="projects-title">المشاريع المنجزة</h4>
-      <p>500+ مشروع</p>
-    </div>
-    <div class="stat-item">
-      <h4 id="students-title">عدد الطلاب</h4>
-      <p>300+ طالب</p>
-    </div>
-    <div class="stat-item">
-      <h4 id="rating-title">تقييم العملاء</h4>
-      <p>4.8 / 5</p>
-    </div>
-  </section>
-
-  <section class="contact">
-    <h3 id="contact-title">تواصل معي / Contact</h3>
-    <ul class="social-links">
-      <li><i class="fas fa-envelope"></i><a href="mailto:abamunji99@gmail.com">abamunji99@gmail.com</a></li>
-      <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/07735379147" target="_blank" rel="noopener">راسلني على WhatsApp</a></li>
-      <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/aba-al-hassan-abbas-178b85329" target="_blank" rel="noopener">LinkedIn</a></li>
-      <li><i class="fab fa-github"></i><a href="https://github.com/AdamMunji" target="_blank" rel="noopener">GitHub</a></li>
-      <li><i class="fab fa-youtube"></i><a href="https://www.youtube.com/@-aba-alhassanabbas7478" target="_blank" rel="noopener">YouTube</a></li>
-      <li><i class="fab fa-instagram"></i><a href="https://www.instagram.com/engwithaba" target="_blank" rel="noopener">Instagram</a></li>
-      <li><i class="fab fa-facebook"></i><a href="https://www.facebook.com/aba.alhsn.bas" target="_blank" rel="noopener">Facebook</a></li>
-      <li><i class="fab fa-telegram"></i><a href="https://t.me/learn4peace" target="_blank" rel="noopener">Telegram</a></li>
-    </ul>
-
-    <form id="contact-form" class="contact-form">
-      <input type="text" name="user_name" placeholder="اسمك" required />
-      <input type="email" name="user_email" placeholder="بريدك الإلكتروني" required />
-      <textarea name="message" rows="4" placeholder="رسالتك" required></textarea>
-      <button type="submit" class="btn-send" id="send-btn">إرسال</button>
-      <div id="form-msg" class="form-message"></div>
+  <main>
+    <h3 id="contact-title">تواصل معنا</h3>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="اسمك" required />
+      <input type="email" name="email" placeholder="البريد الإلكتروني" required />
+      <textarea name="message" rows="5" placeholder="رسالتك" required></textarea>
+      <button type="submit" class="send-btn">إرسال</button>
     </form>
-  </section>
 
-  <section class="testimonials">
-    <h3 id="comments-title">التعليقات والآراء</h3>
-    <form id="comment-form" class="comment-form">
-      <textarea id="comment-text" placeholder="اكتب تعليقك هنا..." required></textarea>
-      <button type="submit" class="btn-send">إرسال التعليق</button>
-    </form>
-    <div id="comments-list"></div>
-  </section>
-</main>
+    <section class="comments-section" id="comments-section">
+      <h3>آراء وتعليقات</h3>
+      <!-- هنا تظهر التعليقات -->
+    </section>
+  </main>
 
-<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-<script>
-  // نصوص عربية وإنجليزية للتبديل
-  const texts = {
-    ar: {
-      name: 'أبا الحسن عباس',
-      titles: 'مترجم | أستاذ لغة إنجليزية | كاتب | محرر | مصمم | مصور | مدير مواقع',
-      description: 'أفضل خدمات الترجمة والتعليم باللغتين العربية والإنجليزية. استشارات تصميم وتصوير احترافية.',
-      projectsTitle: 'المشاريع المنجزة',
-      studentsTitle: 'عدد الطلاب',
-      ratingTitle: 'تقييم العملاء',
-      contactTitle: 'تواصل معي / Contact',
-      sendBtn: 'إرسال',
-      commentPlaceholder: 'اكتب تعليقك هنا...',
-      commentSendBtn: 'إرسال التعليق',
-      formSuccess: 'تم إرسال رسالتك بنجاح!',
-      formError: 'حدث خطأ أثناء الإرسال، حاول مرة أخرى.',
-      commentEmpty: 'يرجى كتابة تعليق قبل الإرسال.',
-      commentSuccess: 'تم إضافة تعليقك!',
-    },
-    en: {
-      name: 'Aba Al-Hassan Abbas',
-      titles: 'Translator | English Teacher | Writer | Editor | Designer | Photographer | Web Admin',
-      description: 'Best translation and education services in Arabic and English. Professional design and photography consulting.',
-      projectsTitle: 'Completed Projects',
-      studentsTitle: 'Students Count',
-      ratingTitle: 'Customer Rating',
-      contactTitle: 'Contact Me / تواصل معي',
-      sendBtn: 'Send',
-      commentPlaceholder: 'Write your comment here...',
-      commentSendBtn: 'Send Comment',
-      formSuccess: 'Your message has been sent successfully!',
-      formError: 'An error occurred during sending, please try again.',
-      commentEmpty: 'Please write a comment before sending.',
-      commentSuccess: 'Your comment has been added!',
-    }
-  };
+  <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+  <script>
+    // تهيئة EmailJS مع User ID
+    emailjs.init('user_3LeuKhQS79R1bzV8R');
 
-  // تبديل اللغة
-  const arBtn = document.getElementById('ar-btn');
-  const enBtn = document.getElementById('en-btn');
-
-  arBtn.addEventListener('click', () => setLanguage('ar'));
-  enBtn.addEventListener('click', () => setLanguage('en'));
-
-  function setLanguage(lang) {
-    const t = texts[lang];
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-    document.getElementById('name').textContent = t.name;
-    document.getElementById('titles').textContent = t.titles;
-    document.getElementById('description').textContent = t.description;
-    document.getElementById('projects-title').textContent = t.projectsTitle;
-    document.getElementById('students-title').textContent = t.studentsTitle;
-    document.getElementById('rating-title').textContent = t.ratingTitle;
-    document.getElementById('contact-title').textContent = t.contactTitle;
-    document.getElementById('send-btn').textContent = t.sendBtn;
-    document.getElementById('comment-text').placeholder = t.commentPlaceholder;
-    document.querySelector('#comment-form button').textContent = t.commentSendBtn;
-
-    arBtn.classList.toggle('active', lang === 'ar');
-    enBtn.classList.toggle('active', lang === 'en');
-  }
-
-  setLanguage('ar'); // لغة افتراضية
-
-  // تهيئة EmailJS
-  emailjs.init("YOUR_USER_ID"); // غير هنا بـ User ID الخاص بك من EmailJS
-
-  const contactForm = document.getElementById('contact-form');
-  const formMsg = document.getElementById('form-msg');
-
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    formMsg.textContent = '';
-
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-      .then(() => {
-        formMsg.style.color = 'lightgreen';
-        formMsg.textContent = texts[document.documentElement.lang].formSuccess;
-        contactForm.reset();
-      }, () => {
-        formMsg.style.color = 'salmon';
-        formMsg.textContent = texts[document.documentElement.lang].formError;
-      });
-  });
-
-  // تعليقات المستخدم تحفظ محلياً (localStorage)
-  const commentForm = document.getElementById('comment-form');
-  const commentText = document.getElementById('comment-text');
-  const commentsList = document.getElementById('comments-list');
-
-  function loadComments() {
-    const comments = JSON.parse(localStorage.getItem('comments') || '[]');
-    commentsList.innerHTML = '';
-    comments.forEach(c => {
-      const div = document.createElement('div');
-      div.className = 'comment-item';
-      div.textContent = c;
-      commentsList.appendChild(div);
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.sendForm('service_99phbw7', 'template_ej4j9nv', this)
+        .then(() => {
+          alert('تم إرسال الرسالة بنجاح!');
+          form.reset();
+        }, (error) => {
+          alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
+          console.error('EmailJS error:', error);
+        });
     });
-  }
 
-  commentForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const text = commentText.value.trim();
-    if (!text) {
-      alert(texts[document.documentElement.lang].commentEmpty);
-      return;
+    // تبديل اللغة (عربي - إنجليزي)
+    const langSwitch = document.getElementById('lang-switch');
+    let isArabic = true;
+
+    const content = {
+      ar: {
+        name: 'أبا الحسن عباس',
+        title: 'مترجم | أستاذ لغة إنجليزية | كاتب | محرر | مصمم | مصور | مدير مواقع',
+        description: 'أفضل خدمات الترجمة والتعليم باللغتين العربية والإنجليزية. استشارات تصميم وتصوير احترافية.',
+        downloadCV: 'تحميل السيرة الذاتية',
+        contactTitle: 'تواصل معنا',
+        placeholders: {
+          name: 'اسمك',
+          email: 'البريد الإلكتروني',
+          message: 'رسالتك',
+          sendBtn: 'إرسال',
+          commentsTitle: 'آراء وتعليقات'
+        }
+      },
+      en: {
+        name: 'Aba Al-Hassan Abbas',
+        title: 'Translator | English Teacher | Writer | Editor | Designer | Photographer | Web Manager',
+        description: 'Best translation and teaching services in Arabic and English. Professional design & photography consultations.',
+        downloadCV: 'Download CV',
+        contactTitle: 'Contact Us',
+        placeholders: {
+          name: 'Your Name',
+          email: 'Email Address',
+          message: 'Your Message',
+          sendBtn: 'Send',
+          commentsTitle: 'Reviews & Comments'
+        }
+      }
+    };
+
+    langSwitch.addEventListener('click', () => {
+      isArabic = !isArabic;
+      const lang = isArabic ? 'ar' : 'en';
+
+      document.documentElement.lang = isArabic ? 'ar' : 'en';
+      document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+
+      document.getElementById('name').textContent = content[lang].name;
+      document.getElementById('title').textContent = content[lang].title;
+      document.getElementById('description').textContent = content[lang].description;
+      document.getElementById('download-cv').textContent = content[lang].downloadCV;
+      document.getElementById('contact-title').textContent = content[lang].contactTitle;
+
+      form.name.placeholder = content[lang].placeholders.name;
+      form.email.placeholder = content[lang].placeholders.email;
+      form.message.placeholder = content[lang].placeholders.message;
+      form.querySelector('button').textContent = content[lang].placeholders.sendBtn;
+
+      document.getElementById('comments-section').querySelector('h3').textContent = content[lang].placeholders.commentsTitle;
+
+      langSwitch.textContent = isArabic ? 'English' : 'العربية';
+    });
+
+    // مثال تعليقات بسيطة، يمكنك التعديل أو ربطها بقاعدة بيانات لاحقاً
+    const comments = [
+      'موقع جميل واحترافي، أتمنى لك التوفيق!',
+      'خدمة الترجمة كانت ممتازة وسريعة.',
+      'تصميم الموقع بسيط وجذاب جداً.',
+      'Thank you for the great work and support!'
+    ];
+
+    const commentsContainer = document.getElementById('comments-section');
+
+    function displayComments() {
+      comments.forEach(text => {
+        const div = document.createElement('div');
+        div.classList.add('comment-box');
+        div.textContent = text;
+        commentsContainer.appendChild(div);
+      });
     }
-    let comments = JSON.parse(localStorage.getItem('comments') || '[]');
-    comments.push(text);
-    localStorage.setItem('comments', JSON.stringify(comments));
-    commentText.value = '';
-    loadComments();
-    alert(texts[document.documentElement.lang].commentSuccess);
-  });
+    displayComments();
 
-  loadComments();
-</script>
+  </script>
 
 </body>
 </html>
