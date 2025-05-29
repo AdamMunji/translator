@@ -166,10 +166,12 @@
   </style>
 </head>
 <body>
+<button class="btn-cv" onclick="showCV()">عرض السيرة الذاتية</button>
 
   <header>
     <div class="lang-switch" id="lang-switch">English</div>
-    <img src="https://i.pravatar.cc/150?img=12" alt="أبا الحسن عباس" class="profile-pic" />
+    <img src="https://yourdomain.com/images/photo_2025-05-29_18-30-00.jpg" alt="أبا الحسن عباس" class="profile-pic" />
+
     <h1 id="name">أبا الحسن عباس</h1>
     <h2 id="title">مترجم | أستاذ لغة إنجليزية | كاتب | محرر | مصمم | مصور | مدير مواقع</h2>
     <p id="description">أفضل خدمات الترجمة والتعليم باللغتين العربية والإنجليزية. استشارات تصميم وتصوير احترافية.</p>
@@ -289,5 +291,118 @@
 
   </script>
 
+<!-- نافذة عرض السيرة الذاتية -->
+<div id="cv-modal" class="cv-modal">
+  <div class="cv-modal-content">
+    <span class="cv-close" onclick="closeCV()">&times;</span>
+    <img src="images/cv.jpg" alt="السيرة الذاتية" class="cv-img">
+  </div>
+</div>
+
+<style>
+  /* زر عرض السيرة */
+  .btn-cv {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-cv:hover {
+    background-color: #004bb7;
+  }
+
+  /* النافذة المنبثقة */
+  .cv-modal {
+    display: none;
+    position: fixed;
+    z-index: 1002;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cv-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 15px #000;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .cv-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .cv-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    color: #444;
+    cursor: pointer;
+  }
+
+  .cv-close:hover {
+    color: #000;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @media (max-width: 600px) {
+    .btn-cv {
+      font-size: 0.9rem;
+      padding: 10px 20px;
+    }
+
+    .cv-modal-content {
+      width: 95%;
+      padding: 8px;
+    }
+  }
+</style>
+
+<script>
+  function showCV() {
+    document.getElementById("cv-modal").style.display = "flex";
+  }
+
+  function closeCV() {
+    document.getElementById("cv-modal").style.display = "none";
+  }
+
+  // اختياري: إغلاق النافذة عند الضغط خارج الصورة
+  window.onclick = function(event) {
+    const modal = document.getElementById("cv-modal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+
+
+
+
+
+  
 </body>
 </html>
