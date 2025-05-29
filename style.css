@@ -1,270 +1,254 @@
+/* الخطوط والاعدادات */
 body {
   margin: 0;
   font-family: 'Cairo', sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
+  background-color: #0b1120;
+  color: #cdd9f2;
   direction: rtl;
+  line-height: 1.6;
 }
 
 a {
-  color: #0d6efd;
+  color: #4dabf7;
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
 }
 
-.main-header {
-  background: url('https://source.unsplash.com/1600x600/?business,office') center/cover no-repeat;
-  height: 400px;
-  position: relative;
-  color: white;
-  text-align: center;
+.lang-switcher {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 999;
 }
 
-.overlay {
-  background-color: rgba(0, 32, 64, 0.8);
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header-content h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-
-.header-content h2 {
-  font-size: 1.5rem;
-  margin: 0.5rem 0;
-  color: #a2c4f5;
-}
-
-.header-content p {
-  font-size: 1.1rem;
-  margin-top: 1rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 2rem;
-}
-
-h3 {
-  font-size: 1.8rem;
-  color: #002040;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #0d6efd;
-  display: inline-block;
-  padding-bottom: 0.3rem;
-}
-
-.about p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.card {
-  flex: 1 1 250px;
-  background: #e8f0fe;
-  color: #002040;
-  border-left: 4px solid #0d6efd;
-  padding: 1rem;
+.lang-switcher button {
+  background-color: transparent;
+  border: 2px solid #4dabf7;
+  color: #4dabf7;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
 }
 
-.contact ul {
-  list-style: none;
-  padding: 0;
+.lang-switcher button.active,
+.lang-switcher button:hover {
+  background-color: #4dabf7;
+  color: #0b1120;
 }
 
-.contact li {
-  margin: 0.5rem 0;
-  font-size: 1.1rem;
-}
-
-footer {
-  background: #002040;
-  color: white;
+.main-header {
+  background: linear-gradient(135deg, #13274b 0%, #0b1120 100%);
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 20px;
 }
 
-/* ✅ تنسيقات السيرة الذاتية (صورة وزر تحميل) */
-.cv-gallery {
-  margin-top: 2rem;
-  text-align: center;
+.main-header .overlay {
+  max-width: 700px;
+  margin: auto;
+  color: #cdd9f2;
 }
 
-.cv-gallery h3 {
-  font-size: 1.8rem;
-  color: #002040;
-  margin-bottom: 1rem;
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #4dabf7;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
-
-.cv-image {
-  max-width: 90%;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.profile-photo:hover {
+  transform: scale(1.1);
 }
 
 .cv-btn {
   display: inline-block;
-  padding: 0.7rem 1.2rem;
-  background-color: #0d6efd;
-  color: white;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #4dabf7;
+  color: #0b1120;
   font-weight: bold;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-}
-
-.cv-btn:hover {
-  background-color: #084298;
-}
-
-/* زر فتح السيرة الذاتية */
-.cv-toggle-btn {
-  position: fixed;
-  top: 15px;
-  left: 15px; /* لأن الموقع RTL، اجعل الزر باليسار */
-  background-color: #0d6efd;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
-  z-index: 1001;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
   transition: background-color 0.3s ease;
+  user-select: none;
+}
+.cv-btn:hover {
+  background-color: #2b75db;
 }
 
-.cv-toggle-btn:hover {
-  background-color: #084298;
+.container {
+  max-width: 900px;
+  margin: 30px auto 50px auto;
+  padding: 0 15px;
 }
 
-/* النافذة المنبثقة - مخفية افتراضيًا */
-.cv-popup {
-  display: none; /* مخفية */
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
+/* الإحصائيات */
+.stats {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 40px;
 }
 
-/* محتوى النافذة */
-.cv-popup-content {
-  background-color: #fff;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 600px;
+.stat-item {
+  background-color: #1b274f;
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #294b9d88;
+  transition: box-shadow 0.3s ease;
   text-align: center;
-  position: relative;
+}
+.stat-item:hover {
+  box-shadow: 0 0 15px #4dabf7aa;
 }
 
-/* زر الإغلاق */
-.cv-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 2rem;
+.stat-item h4 {
+  margin-bottom: 10px;
+  color: #a5b9db;
+}
+
+/* قسم التواصل */
+.contact h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.contact input,
+.contact textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: 2px solid #4dabf7;
+  background-color: #182644;
+  color: #cdd9f2;
+}
+
+.btn {
+  background-color: #4dabf7;
+  color: #0b1120;
+  padding: 12px 20px;
   font-weight: bold;
-  color: #333;
+  border: none;
+  border-radius: 25px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
   user-select: none;
 }
 
-.cv-close:hover {
-  color: #0d6efd;
+.btn:hover {
+  background-color: #2b75db;
 }
 
-/* صورة داخل النافذة */
-.cv-popup-content .cv-image {
-  max-width: 100%;
-  height: auto;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 1rem;
+.form-message {
+  text-align: center;
+  margin-top: 10px;
+  color: #a5b9db;
 }
 
-/* تحسين شكل الصورة الشخصية */
-.my-photo {
+/* قسم التعليقات */
+.comments {
+  max-width: 600px;
+  margin: 40px auto 80px auto;
+  background-color: #1b274f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #294b9d88;
+}
+
+.comments h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.comments form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#comment-text {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  resize: vertical;
+  font-size: 1rem;
+  background-color: #182644;
+  color: #cdd9f2;
+}
+
+#comment-text:focus {
+  outline: 2px solid #4dabf7;
+}
+
+.comments-list {
+  margin-top: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+  border-top: 1px solid #294b9d8;
+  padding-top: 15px;
+  color: #a5b9db;
+}
+
+.comment-item {
+  border-bottom: 1px solid #294b9d8;
+  padding: 10px 0;
+  word-break: break-word;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+}
+
+/* Footer */
+footer {
+  background-color: #13274b;
+  color: #cdd9f2;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+  }
+  .container {
+    padding: 0 10px;
+  }
+  .main-header {
+    height: auto;
+    padding: 40px 20px 60px 20px;
+  }
+  .profile-photo {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
-    object-fit: cover; /* لضمان أن الصورة لا تتشوه */
-    border: 4px solid #fff; /* إطار أبيض حول الصورة */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* إضافة ظلال للصورة لجعلها مميزة */
-    margin-top: 30px; /* مسافة من الأعلى */
-    transition: transform 0.3s ease-in-out; /* تأثير التحويل عند التمرير */
+  }
 }
-
-.my-photo:hover {
-    transform: scale(1.1); /* تكبير الصورة عند التمرير */
-}
-
-/* تحسين الخلفية وتناسق النصوص */
-.main-header {
-    background: url('https://source.unsplash.com/1600x600/?business,office') center/cover no-repeat;
-    height: 500px;
-    position: relative;
-    color: white;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.overlay {
-    background-color: rgba(0, 32, 64, 0.7); /* جعل الخلفية مظللة قليلاً لظهور النصوص بشكل أوضح */
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.header-content h1 {
-    font-size: 3rem;
-    margin: 10px 0;
-}
-
-.header-content h2 {
-    font-size: 1.5rem;
-    color: #a2c4f5;
-    margin: 0.5rem 0;
-}
-
-.header-content p {
-    font-size: 1.1rem;
-    color: #ddd;
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-}
-
