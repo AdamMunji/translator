@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Il mio sito - Italiano</title>
+  <style>
+    body { font-family: Arial, sans-serif; direction: ltr; padding: 20px; background: #f0f4ff; color: #222; }
+    nav { margin-bottom: 20px; }
+    nav a {
+      text-decoration: none; 
+      margin: 0 10px; 
+      padding: 8px 15px; 
+      background-color: #0d6efd; 
+      color: white; 
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    nav a:hover { background-color: #084bb5; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="ar.html">العربية</a>
+    <a href="en.html">English</a>
+    <a href="it.html" style="background-color:#084bb5;">Italiano</a>
+  </nav>
+
+  <h1>Benvenuto nel mio sito web</h1>
+  <p>Questa è la pagina in italiano. Ogni lingua ha una pagina separata.</p>
+</body>
+</html>
