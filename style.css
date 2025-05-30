@@ -251,11 +251,6 @@ footer {
     width: 120px;
     height: 120px;
   }
-}
-
-
-
-
 .contact {
   text-align: center;
   margin-top: 40px;
@@ -263,6 +258,7 @@ footer {
   background: #e9f1ff;
   border-top: 2px solid #004085;
   border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .contact h3 {
@@ -286,6 +282,7 @@ footer {
   padding: 10px 18px;
   border-radius: 25px;
   transition: background 0.3s;
+  font-size: 15px;
 }
 
 .social-links li:hover {
@@ -297,10 +294,3 @@ footer {
   text-decoration: none;
   font-weight: bold;
 }
-
-
-
-
-
-
-
