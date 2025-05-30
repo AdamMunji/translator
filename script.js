@@ -553,7 +553,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ========== عرض السيرة الذاتية ==========
 window.showCV = function() {
+  // فتح ملف PDF في نافذة جديدة
   window.open('Aba_AlHassan_Abbas_CV.pdf', '_blank');
+  // إذا أردت عرضها كصورة في مودال، أزل التعليق عن الكود التالي وضع صورة cv.jpg في مجلد images:
+  /*
+  if (document.getElementById('cv-modal-bg')) {
+    document.getElementById('cv-modal-bg').remove();
+  }
+  let modal = document.createElement('div');
+  modal.id = 'cv-modal-bg';
+  modal.innerHTML = `
+    <div id="cv-modal-box">
+      <button id="cv-modal-close" title="إغلاق">&times;</button>
+      <img id="cv-modal-img" src="images/cv.jpg" alt="السيرة الذاتية" />
+    </div>
+  `;
+  document.body.appendChild(modal);
+  document.getElementById('cv-modal-close').onclick = () => modal.remove();
+  modal.onclick = function(e) {
+    if (e.target === modal) modal.remove();
+  }
+  */
 }
 
 // ========== إشعار نجاح عند فتح الصفحة ==========
