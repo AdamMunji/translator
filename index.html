@@ -206,16 +206,16 @@
 
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      emailjs.sendForm('service_99phbw7', 'template_ej4j9nv', this)
-        .then(() => {
-          alert('تم إرسال الرسالة بنجاح!');
-          form.reset();
-        }, (error) => {
-          alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
-          console.error('EmailJS error:', error);
-        });
+  e.preventDefault();
+  emailjs.sendForm('service_99phbw7', 'template_ej4j9nv', e.target)
+    .then(() => {
+      alert('تم إرسال الرسالة بنجاح!');
+      form.reset();
+    }, (error) => {
+      alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
+      console.error('EmailJS error:', error);
     });
+});
 
     // تبديل اللغة (عربي - إنجليزي)
     const langSwitch = document.getElementById('lang-switch');
