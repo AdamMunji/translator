@@ -172,6 +172,73 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ========== مكتبة صور الترجمة ==========
+document.addEventListener("DOMContentLoaded", function() {
+  const btn = document.getElementById('open-translation-gallery');
+  if (btn) {
+    btn.onclick = function() {
+      if (document.getElementById('translation-gallery-modal-bg')) {
+        document.getElementById('translation-gallery-modal-bg').remove();
+      }
+      let modal = document.createElement('div');
+      modal.id = 'translation-gallery-modal-bg';
+      modal.innerHTML = `
+        <div id="translation-gallery-modal-box">
+          <button id="translation-gallery-modal-close" title="إغلاق">&times;</button>
+          <div class="translation-gallery-grid">
+            ${translationFilenames.map((name, idx) => `
+              <div class="translation-gallery-img-wrap">
+                <img 
+                  class="translation-gallery-img"
+                  src="images/translation/${name}"
+                  data-big="images/translation/${name}"
+                  data-title="ترجمة رقم ${(idx + 1)}"
+                  alt="ترجمة رقم ${(idx + 1)}"
+                  loading="lazy"
+                  />
+                <div class="translation-gallery-img-title">ترجمة رقم ${(idx + 1)}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      document.getElementById('translation-gallery-modal-close').onclick = () => modal.remove();
+      modal.onclick = function(e) {
+        if (e.target === modal) modal.remove();
+      }
+      // تكبير الصورة عند الضغط عليها
+      modal.querySelectorAll('.translation-gallery-img').forEach(img => {
+        img.onclick = function(e) {
+          e.stopPropagation();
+          showBigTranslationImg(this.dataset.big, this.dataset.title);
+        }
+      });
+    };
+  }
+
+  // مودال تكبير صورة واحدة من المعرض
+  window.showBigTranslationImg = function(imgSrc, title) {
+    if (document.getElementById('translation-big-img-modal-bg')) {
+      document.getElementById('translation-big-img-modal-bg').remove();
+    }
+    let m = document.createElement('div');
+    m.id = 'translation-big-img-modal-bg';
+    m.innerHTML = `
+      <div id="translation-big-img-modal-box">
+        <button id="translation-big-img-modal-close" title="إغلاق">&times;</button>
+        <img id="translation-big-img-modal-img" src="${imgSrc}" alt="${title}" />
+        <div id="translation-big-img-modal-title">${title}</div>
+      </div>
+    `;
+    document.body.appendChild(m);
+    document.getElementById('translation-big-img-modal-close').onclick = () => m.remove();
+    m.onclick = function(e) {
+      if (e.target === m) m.remove();
+    }
+  }
+});
+
 // ========== شهادات العملاء ==========
 const testimonialsList = [
   {
@@ -491,6 +558,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ========== عرض السيرة الذاتية ==========
 window.showCV = function() {
+  // عندك طريقتان:
+  // 1. عرض PDF: window.open('Aba_AlHassan_Abbas_CV.pdf', '_blank');
+  // 2. عرض صورة في مودال (حسب الكود الرئيسي)، استخدم التالي إذا كانت صورة:
+  // window.open('images/cv.jpg', '_blank');
+  // أو مودال مخصص حسب الأكواد أعلاه.
+  // إذا عندك زر للعرض في HTML استخدم الطريقة التي تناسبك.
   window.open('Aba_AlHassan_Abbas_CV.pdf', '_blank');
 }
 
