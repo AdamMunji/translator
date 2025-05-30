@@ -188,15 +188,16 @@
   </header>
 
   <main>
-
-  <main>
-    <h3 id="contact-title">تواصل معنا</h3>
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="اسمك" required />
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required />
-      <textarea name="message" rows="5" placeholder="رسالتك" required></textarea>
-      <button type="submit" class="send-btn">إرسال</button>
-    </form>
+  <h3 id="contact-title">تواصل معنا</h3>
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="اسمك" required />
+    <input type="email" name="email" placeholder="البريد الإلكتروني" required />
+    <input type="text" name="title" placeholder="عنوان الرسالة (اختياري)" />
+    <input type="text" name="time" placeholder="الوقت (اختياري)" />
+    <textarea name="message" rows="5" placeholder="رسالتك" required></textarea>
+    <button type="submit" class="send-btn">إرسال</button>
+  </form>
+</main>
 
 
   <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
