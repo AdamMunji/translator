@@ -4,183 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>أبا الحسن عباس | تواصل</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <style>
-    body {
-      font-family: 'Cairo', sans-serif, Arial, sans-serif;
-      margin: 0;
-      background: #f0f4ff;
-      color: #002952;
-      direction: rtl;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 50px;
-    }
-    header {
-      background: linear-gradient(135deg, #003366, #0059b3);
-      width: 100%;
-      padding: 30px 20px;
-      text-align: center;
-      color: white;
-      position: relative;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    header img.profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid white;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-    }
-    header h2 {
-      font-weight: 400;
-      margin: 5px 0 15px 0;
-      font-size: 1.2rem;
-      color: #a2c4f5;
-    }
-    header p {
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .btn-cv {
-      margin-top: 20px;
-      display: inline-block;
-      background-color: #004085;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .btn-cv:hover {
-      background-color: #002952;
-    }
-    .lang-switch {
-      position: absolute;
-      top: 25px;
-      left: 20px;
-      cursor: pointer;
-      background: rgba(255 255 255 / 0.15);
-      padding: 6px 12px;
-      border-radius: 20px;
-      color: white;
-      font-weight: 700;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-    .lang-switch:hover {
-      background: rgba(255 255 255 / 0.3);
-    }
-    main {
-      max-width: 900px;
-      width: 100%;
-      margin: 30px 20px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-      padding: 30px 25px;
-    }
-    h3 {
-      color: #004085;
-      margin-bottom: 15px;
-      text-align: center;
-      font-weight: 700;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 12px 15px;
-      margin-bottom: 18px;
-      border: 1.5px solid #a9b9ff;
-      border-radius: 10px;
-      font-size: 16px;
-      outline: none;
-      resize: vertical;
-      transition: border-color 0.3s ease;
-    }
-    form input:focus, form textarea:focus {
-      border-color: #004085;
-      box-shadow: 0 0 8px #4c6ef5aa;
-    }
-    button.send-btn {
-      width: 100%;
-      background-color: #004085;
-      color: white;
-      padding: 14px;
-      font-size: 18px;
-      font-weight: 700;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background-color 0.25s ease;
-    }
-    button.send-btn:hover {
-      background-color: #002952;
-    }
-    .comments-section {
-      margin-top: 40px;
-      border-top: 2px solid #004085;
-      padding-top: 25px;
-    }
-    .comments-section h3 {
-      margin-bottom: 20px;
-    }
-    .comment-box {
-      background: #e8f0fe;
-      border-radius: 8px;
-      padding: 15px 20px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-    }
-    .comment-box p {
-      margin: 0;
-      font-size: 15px;
-      color: #002952;
-      line-height: 1.4;
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      main {
-        margin: 20px 10px;
-        padding: 20px 15px;
-      }
-    }
-  </style>
 </head>
 <body>
-
-<nav style="text-align: center; margin-top: 20px;">
-  <a href="ar.html" style="padding: 10px; background-color: #0d6efd; color: white; text-decoration: none; border-radius: 5px; margin: 5px;">العربية</a>
-  <a href="en.html" style="padding: 10px; background-color: #0d6efd; color: white; text-decoration: none; border-radius: 5px; margin: 5px;">English</a>
-  <a href="it.html" style="padding: 10px; background-color: #0d6efd; color: white; text-decoration: none; border-radius: 5px; margin: 5px;">Italiano</a>
-</nav>
-
-
-  
-<button class="btn-cv" onclick="showCV()">عرض السيرة الذاتية</button>
 
   <header>
     <div class="lang-switch" id="lang-switch">English</div>
     <img src="me.jpg" alt="أبا الحسن عباس" class="profile-pic" />
-
     <h1 id="name">أبا الحسن عباس</h1>
     <h2 id="title">مترجم | أستاذ لغة إنجليزية | كاتب | محرر | مصمم | مصور | مدير مواقع</h2>
     <p id="description">أفضل خدمات الترجمة والتعليم باللغتين العربية والإنجليزية. استشارات تصميم وتصوير احترافية.</p>
@@ -188,244 +20,39 @@
   </header>
 
   <main>
+    <section class="contact">
+      <h3>تواصل معي</h3>
+      <ul class="social-links">
+        <li>📧 <a href="mailto:abamunji99@gmail.com">abamunji99@gmail.com</a></li>
+        <li>💬 <a href="https://wa.me/9647735379147" target="_blank">راسلني على WhatsApp</a></li>
+        <li>💼 <a href="https://www.linkedin.com/in/aba-al-hassan-abbas-178b85329" target="_blank">LinkedIn</a></li>
+        <li>💻 <a href="https://github.com/AdamMunji" target="_blank">GitHub</a></li>
+        <li>▶️ <a href="https://www.youtube.com/@-aba-alhassanabbas7478" target="_blank">YouTube</a></li>
+        <li>📸 <a href="https://www.instagram.com/engwithaba" target="_blank">Instagram</a></li>
+        <li>📘 <a href="https://www.facebook.com/aba.alhsn.bas" target="_blank">Facebook</a></li>
+        <li>✈️ <a href="https://t.me/learn4peace" target="_blank">Telegram</a></li>
+      </ul>
+    </section>
 
-<section class="contact">
-  <h3>تواصل معي / Contact</h3>
-  <ul class="social-links">
-    <li>📧 <a href="mailto:abamunji99@gmail.com">abamunji99@gmail.com</a></li>
-    <li>💬 <a href="https://wa.me/9647735379147" target="_blank">راسلني على WhatsApp</a></li>
-    <li>💼 <a href="https://www.linkedin.com/in/aba-al-hassan-abbas-178b85329" target="_blank">LinkedIn</a></li>
-    <li>💻 <a href="https://github.com/AdamMunji" target="_blank">GitHub</a></li>
-    <li>▶️ <a href="https://www.youtube.com/@-aba-alhassanabbas7478" target="_blank">YouTube</a></li>
-    <li>📸 <a href="https://www.instagram.com/engwithaba" target="_blank">Instagram</a></li>
-    <li>📘 <a href="https://www.facebook.com/aba.alhsn.bas" target="_blank">Facebook</a></li>
-    <li>✈️ <a href="https://t.me/learn4peace" target="_blank">Telegram</a></li>
-  </ul>
-</section>
+    <section class="contact-form">
+      <h3 id="contact-title">تواصل معنا</h3>
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="اسمك" required />
+        <input type="email" name="email" placeholder="البريد الإلكتروني" required />
+        <input type="text" name="title" placeholder="عنوان الرسالة (اختياري)" />
+        <input type="text" name="time" placeholder="الوقت (اختياري)" />
+        <textarea name="message" rows="5" placeholder="رسالتك" required></textarea>
+        <button type="submit" class="send-btn">إرسال</button>
+      </form>
+    </section>
 
-
-    
-    
-    
-  <h3 id="contact-title">تواصل معنا</h3>
-  <form id="contact-form">
-    <input type="text" name="name" placeholder="اسمك" required />
-    <input type="email" name="email" placeholder="البريد الإلكتروني" required />
-    <input type="text" name="title" placeholder="عنوان الرسالة (اختياري)" />
-    <input type="text" name="time" placeholder="الوقت (اختياري)" />
-    <textarea name="message" rows="5" placeholder="رسالتك" required></textarea>
-    <button type="submit" class="send-btn">إرسال</button>
-  </form>
-</main>
-
+    <section class="comments-section" id="comments-section">
+      <h3>آراء وتعليقات</h3>
+      <!-- سيتم إضافة التعليقات هنا عبر JavaScript -->
+    </section>
+  </main>
 
   <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-  <script>
-    // تهيئة EmailJS مع Public Key
-    emailjs.init('3LeuKhQS79R1bzV8R'); // Public Key الخاصة بك
-
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  emailjs.sendForm('service_99phbw7', 'template_ej4j9nv', e.target)
-    .then(() => {
-      alert('تم إرسال الرسالة بنجاح!');
-      form.reset();
-    }, (error) => {
-      alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
-      console.error('EmailJS error:', error);
-    });
-});
-
-    // تبديل اللغة (عربي - إنجليزي)
-    const langSwitch = document.getElementById('lang-switch');
-    let isArabic = true;
-
-    const content = {
-      ar: {
-        name: 'أبا الحسن عباس',
-        title: 'مترجم | أستاذ لغة إنجليزية | كاتب | محرر | مصمم | مصور | مدير مواقع',
-        description: 'أفضل خدمات الترجمة والتعليم باللغتين العربية والإنجليزية. استشارات تصميم وتصوير احترافية.',
-        downloadCV: 'تحميل السيرة الذاتية',
-        contactTitle: 'تواصل معنا',
-        placeholders: {
-          name: 'اسمك',
-          email: 'البريد الإلكتروني',
-          message: 'رسالتك',
-          sendBtn: 'إرسال',
-          commentsTitle: 'آراء وتعليقات'
-        }
-      },
-      en: {
-        name: 'Aba Al-Hassan Abbas',
-        title: 'Translator | English Teacher | Writer | Editor | Designer | Photographer | Web Manager',
-        description: 'Best translation and teaching services in Arabic and English. Professional design & photography consultations.',
-        downloadCV: 'Download CV',
-        contactTitle: 'Contact Us',
-        placeholders: {
-          name: 'Your Name',
-          email: 'Email Address',
-          message: 'Your Message',
-          sendBtn: 'Send',
-          commentsTitle: 'Reviews & Comments'
-        }
-      }
-    };
-
-    langSwitch.addEventListener('click', () => {
-      isArabic = !isArabic;
-      const lang = isArabic ? 'ar' : 'en';
-
-      document.documentElement.lang = isArabic ? 'ar' : 'en';
-      document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
-
-      document.getElementById('name').textContent = content[lang].name;
-      document.getElementById('title').textContent = content[lang].title;
-      document.getElementById('description').textContent = content[lang].description;
-      document.getElementById('download-cv').textContent = content[lang].downloadCV;
-      document.getElementById('contact-title').textContent = content[lang].contactTitle;
-
-      form.name.placeholder = content[lang].placeholders.name;
-      form.email.placeholder = content[lang].placeholders.email;
-      form.message.placeholder = content[lang].placeholders.message;
-      form.querySelector('button').textContent = content[lang].placeholders.sendBtn;
-
-      document.getElementById('comments-section').querySelector('h3').textContent = content[lang].placeholders.commentsTitle;
-
-      langSwitch.textContent = isArabic ? 'English' : 'العربية';
-    });
-
-    // مثال تعليقات بسيطة، يمكنك التعديل أو ربطها بقاعدة بيانات لاحقاً
-    const comments = [
-      'موقع جميل واحترافي، أتمنى لك التوفيق!',
-      'خدمة الترجمة كانت ممتازة وسريعة.',
-      'تصميم الموقع بسيط وجذاب جداً.',
-      'Thank you for the great work and support!'
-    ];
-
-    const commentsContainer = document.getElementById('comments-section');
-
-    function displayComments() {
-      comments.forEach(text => {
-        const div = document.createElement('div');
-        div.classList.add('comment-box');
-        div.textContent = text;
-        commentsContainer.appendChild(div);
-      });
-    }
-    displayComments();
-
-  </script>
-
-<!-- نافذة عرض السيرة الذاتية -->
-<div id="cv-modal" class="cv-modal">
-  <div class="cv-modal-content">
-    <span class="cv-close" onclick="closeCV()">&times;</span>
-    <img src="images/cv.jpg" alt="السيرة الذاتية" class="cv-img">
-  </div>
-</div>
-
-<style>
-  /* زر عرض السيرة */
-  .btn-cv {
-    background-color: #0d6efd;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn-cv:hover {
-    background-color: #004bb7;
-  }
-
-  /* النافذة المنبثقة */
-  .cv-modal {
-    display: none;
-    position: fixed;
-    z-index: 1002;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cv-modal-content {
-    position: relative;
-    width: 90%;
-    max-width: 700px;
-    max-height: 90vh;
-    overflow: auto;
-    background: white;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 0 15px #000;
-    animation: fadeIn 0.4s ease;
-  }
-
-  .cv-img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-  }
-
-  .cv-close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 30px;
-    color: #444;
-    cursor: pointer;
-  }
-
-  .cv-close:hover {
-    color: #000;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  @media (max-width: 600px) {
-    .btn-cv {
-      font-size: 0.9rem;
-      padding: 10px 20px;
-    }
-
-    .cv-modal-content {
-      width: 95%;
-      padding: 8px;
-    }
-  }
-</style>
-
-<script>
-  function showCV() {
-    document.getElementById("cv-modal").style.display = "flex";
-  }
-
-  function closeCV() {
-    document.getElementById("cv-modal").style.display = "none";
-  }
-
-  // اختياري: إغلاق النافذة عند الضغط خارج الصورة
-  window.onclick = function(event) {
-    const modal = document.getElementById("cv-modal");
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
-
-
-
-  
+  <script src="script.js"></script>
 </body>
 </html>
