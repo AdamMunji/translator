@@ -52,6 +52,43 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ========== مصفوفة صور الترجمة (أسماء الصور) ==========
+const translationFilenames = [
+  "photo_30_2025-05-30_23-01-12.jpg",
+  "photo_31_2025-05-30_23-01-12.jpg",
+  "photo_32_2025-05-30_23-01-12.jpg",
+  "photo_33_2025-05-30_23-01-12.jpg",
+  "photo_1_2025-05-30_23-01-11.jpg",
+  "photo_2_2025-05-30_23-01-11.jpg",
+  "photo_3_2025-05-30_23-01-11.jpg",
+  "photo_4_2025-05-30_23-01-11.jpg",
+  "photo_5_2025-05-30_23-01-11.jpg",
+  "photo_6_2025-05-30_23-01-11.jpg",
+  "photo_7_2025-05-30_23-01-11.jpg",
+  "photo_8_2025-05-30_23-01-11.jpg",
+  "photo_9_2025-05-30_23-01-11.jpg",
+  "photo_10_2025-05-30_23-01-11.jpg",
+  "photo_11_2025-05-30_23-01-11.jpg",
+  "photo_12_2025-05-30_23-01-11.jpg",
+  "photo_13_2025-05-30_23-01-11.jpg",
+  "photo_14_2025-05-30_23-01-11.jpg",
+  "photo_15_2025-05-30_23-01-11.jpg",
+  "photo_16_2025-05-30_23-01-11.jpg",
+  "photo_17_2025-05-30_23-01-11.jpg",
+  "photo_18_2025-05-30_23-01-11.jpg",
+  "photo_19_2025-05-30_23-01-12.jpg",
+  "photo_20_2025-05-30_23-01-12.jpg",
+  "photo_21_2025-05-30_23-01-12.jpg",
+  "photo_22_2025-05-30_23-01-12.jpg",
+  "photo_23_2025-05-30_23-01-12.jpg",
+  "photo_24_2025-05-30_23-01-12.jpg",
+  "photo_25_2025-05-30_23-01-12.jpg",
+  "photo_26_2025-05-30_23-01-12.jpg",
+  "photo_27_2025-05-30_23-01-12.jpg",
+  "photo_28_2025-05-30_23-01-12.jpg",
+  "photo_29_2025-05-30_23-01-12.jpg"
+];
+
 // ========== معرض الأعمال ==========
 const portfolioList = [
   {
@@ -90,6 +127,17 @@ const portfolioList = [
     link: "#"
   }
 ];
+
+// أضف كل صور الترجمة تلقائيًا لمعرض الأعمال
+const translationWorks = translationFilenames.map((name, idx) => ({
+  title: "ترجمة رقم " + (idx + 1),
+  image: `images/translation/${name}`,
+  tags: ["translation"],
+  desc: "عمل ترجمة رقم " + (idx + 1),
+  link: `images/translation/${name}`
+}));
+portfolioList.push(...translationWorks);
+
 function renderPortfolio(filter="all") {
   const gallery = document.getElementById('portfolio-gallery');
   if (!gallery) return;
@@ -124,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ========== شهادات العملاء (Testimonials) ==========
+// ========== شهادات العملاء ==========
 const testimonialsList = [
   {
     name: "محمد علي",
@@ -470,34 +518,5 @@ document.querySelectorAll('.scroll-link').forEach(link => {
         target.scrollIntoView({behavior:'smooth'});
       }
     }
-
-
-if (typeof emailjs !== "undefined") {
-  emailjs.init('Abc123DEF456GhI789'); // ضع هنا public key الخاص بك
-  const form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      emailjs.sendForm('service_xxxxxxx', 'template_yyyyyyy', this) // ضع هنا serviceID و templateID الخاصة بك
-        .then(() => {
-          document.getElementById('contact-success').textContent = 'تم إرسال الرسالة بنجاح!';
-          form.reset();
-        }, (error) => {
-          document.getElementById('contact-success').textContent = 'حدث خطأ أثناء الإرسال: ' + error.text;
-        });
-    });
-  }
-}
-
-
-
-
-
-
-
-
-
-
-    
   });
 });
