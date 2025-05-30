@@ -204,21 +204,25 @@
 
   <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
   <script>
-    // تهيئة EmailJS مع User ID
-    emailjs.init('user_3LeuKhQS79R1bzV8R');
+// تهيئة EmailJS مع الـ Public API Key
+emailjs.init('3LeuKhQS79R1bzV8R');  // Public API Key الخاص بك
 
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      emailjs.sendForm('service_99phbw7', 'template_ej4j9nv', this)
-        .then(() => {
-          alert('تم إرسال الرسالة بنجاح!');
-          form.reset();
-        }, (error) => {
-          alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
-          console.error('EmailJS error:', error);
-        });
+// تخصيص النموذج
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // منع الإرسال الافتراضي للنموذج
+
+  // إرسال البيانات باستخدام EmailJS
+  emailjs.sendForm('service_99phbw7', 'template_ej4j9nv', this)
+    .then(() => {
+      alert('تم إرسال الرسالة بنجاح!');
+      form.reset(); // إعادة تعيين النموذج بعد الإرسال
+    }, (error) => {
+      alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
+      console.error('EmailJS error:', error); // طباعة الخطأ في الكونسول
     });
+});
+
 
     // تبديل اللغة (عربي - إنجليزي)
     const langSwitch = document.getElementById('lang-switch');
