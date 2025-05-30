@@ -128,10 +128,10 @@ const portfolioList = [
 // أضف كل صور الترجمة تلقائيًا لمعرض الأعمال
 const translationWorks = translationFilenames.map((name, idx) => ({
   title: "ترجمة رقم " + (idx + 1),
-  image: `images/translation/${name}`,
+  image: `translation/${name}`,
   tags: ["translation"],
   desc: "عمل ترجمة رقم " + (idx + 1),
-  link: `images/translation/${name}`
+  link: `translation/${name}`
 }));
 portfolioList.push(...translationWorks);
 
@@ -187,8 +187,8 @@ document.addEventListener("DOMContentLoaded", function() {
               <div class="translation-gallery-img-wrap">
                 <img 
                   class="translation-gallery-img"
-                  src="images/translation/${name}"
-                  data-big="images/translation/${name}"
+                  src="translation/${name}"
+                  data-big="translation/${name}"
                   data-title="ترجمة رقم ${(idx + 1)}"
                   alt="ترجمة رقم ${(idx + 1)}"
                   loading="lazy"
