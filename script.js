@@ -470,5 +470,34 @@ document.querySelectorAll('.scroll-link').forEach(link => {
         target.scrollIntoView({behavior:'smooth'});
       }
     }
+
+
+if (typeof emailjs !== "undefined") {
+  emailjs.init('Abc123DEF456GhI789'); // ضع هنا public key الخاص بك
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.sendForm('service_xxxxxxx', 'template_yyyyyyy', this) // ضع هنا serviceID و templateID الخاصة بك
+        .then(() => {
+          document.getElementById('contact-success').textContent = 'تم إرسال الرسالة بنجاح!';
+          form.reset();
+        }, (error) => {
+          document.getElementById('contact-success').textContent = 'حدث خطأ أثناء الإرسال: ' + error.text;
+        });
+    });
+  }
+}
+
+
+
+
+
+
+
+
+
+
+    
   });
 });
