@@ -553,19 +553,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ========== عرض السيرة الذاتية ==========
 window.showCV = function() {
-  // فتح ملف PDF في نافذة جديدة
-  window.open('Aba_AlHassan_Abbas_CV.pdf', '_blank');
-  // إذا أردت عرضها كصورة في مودال، أزل التعليق عن الكود التالي وضع صورة cv.jpg في مجلد images:
-  /*
+  // عرض السيرة الذاتية كصورة في نافذة مودال
   if (document.getElementById('cv-modal-bg')) {
     document.getElementById('cv-modal-bg').remove();
   }
   let modal = document.createElement('div');
   modal.id = 'cv-modal-bg';
   modal.innerHTML = `
-    <div id="cv-modal-box">
-      <button id="cv-modal-close" title="إغلاق">&times;</button>
-      <img id="cv-modal-img" src="images/cv.jpg" alt="السيرة الذاتية" />
+    <div id="cv-modal-box" style="background:#fff;border-radius:18px;box-shadow:0 8px 32px #0005;max-width:96vw;max-height:94vh;display:flex;flex-direction:column;align-items:flex-end;position:relative;">
+      <button id="cv-modal-close" title="إغلاق" style="position:absolute;top:11px;right:15px;font-size:2rem;color:#444;background:none;border:none;cursor:pointer;z-index:2;transition:color 0.15s;">&times;</button>
+      <img id="cv-modal-img" src="images/cv.jpg" alt="السيرة الذاتية" style="display:block;max-width:88vw;max-height:80vh;margin:46px auto 16px auto;border-radius:10px;box-shadow:0 1px 24px #0002;background:#f6f6f6;object-fit:contain;width:auto;height:auto;" />
     </div>
   `;
   document.body.appendChild(modal);
@@ -573,7 +570,6 @@ window.showCV = function() {
   modal.onclick = function(e) {
     if (e.target === modal) modal.remove();
   }
-  */
 }
 
 // ========== إشعار نجاح عند فتح الصفحة ==========
