@@ -3,56 +3,207 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>أبا الحسن عباس | تواصل</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <title>أبا الحسن عباس | الترجمة والتدريس</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
 </head>
 <body>
-
-  <header>
-    <div class="lang-switch" id="lang-switch">English</div>
-    <img src="me.jpg" alt="أبا الحسن عباس" class="profile-pic" />
+  <!-- شريط تغيير اللغة -->
+  <div class="fixed-lang-switcher">
+    <button class="lang-btn" onclick="switchLang('ar')" title="العربية">
+      <img class="lang-flag-img" src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/sa.svg" alt="العربية" />
+      <span>العربية</span>
+    </button>
+    <button class="lang-btn" onclick="switchLang('en')" title="English">
+      <img class="lang-flag-img" src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/gb.svg" alt="English" />
+      <span>English</span>
+    </button>
+    <button class="lang-btn" onclick="switchLang('it')" title="Italiano">
+      <img class="lang-flag-img" src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/it.svg" alt="Italiano" />
+      <span>Italiano</span>
+    </button>
+  </div>
+  <!-- القائمة الرئيسية -->
+  <nav class="main-nav">
+    <a href="#about" class="nav-btn scroll-link">عنّي</a>
+    <a href="#portfolio" class="nav-btn scroll-link">الأعمال</a>
+    <a href="#testimonials" class="nav-btn scroll-link">شهادات العملاء</a>
+    <a href="#counters" class="nav-btn scroll-link">الإحصائيات</a>
+    <a href="#faq" class="nav-btn scroll-link">الأسئلة</a>
+    <a href="#blog" class="nav-btn scroll-link">المدونة</a>
+    <a href="#resources" class="nav-btn scroll-link">الملفات</a>
+    <a href="#contact" class="nav-btn scroll-link">تواصل</a>
+    <button class="toggle-mode" id="toggle-mode"><i class="fa-solid fa-moon"></i></button>
+    <button class="share-btn" title="مشاركة الصفحة"><i class="fa-solid fa-share-nodes"></i></button>
+    <button class="qr-btn" title="QR لموقعي"><i class="fa-solid fa-qrcode"></i></button>
+  </nav>
+  <header class="main-header" id="about">
+    <img src="me.jpg" alt="أبا الحسن عباس" class="profile-pic" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=%D8%A3%D8%A8%D8%A7+%D8%A7%D9%84%D8%AD%D8%B3%D9%86+%D8%B9%D8%A8%D8%A7%D8%B3&background=0059b3&color=fff&rounded=true&size=128';" />
     <h1 id="name">أبا الحسن عباس</h1>
     <h2 id="title">مترجم | أستاذ لغة إنجليزية | كاتب | محرر | مصمم | مصور | مدير مواقع</h2>
     <p id="description">أفضل خدمات الترجمة والتعليم باللغتين العربية والإنجليزية. استشارات تصميم وتصوير احترافية.</p>
-    <a href="Aba_AlHassan_Abbas_CV.pdf" target="_blank" class="btn-cv" id="download-cv">تحميل السيرة الذاتية</a>
+    <a href="Aba_AlHassan_Abbas_CV.pdf" target="_blank" class="btn-cv" id="download-cv"><i class="fa-solid fa-download"></i> تحميل السيرة الذاتية</a>
+    <button class="btn-cv" onclick="showCV()"><i class="fa-solid fa-eye"></i> عرض السيرة الذاتية</button>
+    <button class="intro-video-btn" onclick="showIntroVideo()"><i class="fa-solid fa-play"></i> فيديو تعريفي</button>
   </header>
-
-  <main>
-    <section class="contact">
-      <h3>تواصل معي</h3>
-      <ul class="social-links">
-        <li>📧 <a href="mailto:abamunji99@gmail.com">abamunji99@gmail.com</a></li>
-        <li>💬 <a href="https://wa.me/9647735379147" target="_blank">راسلني على WhatsApp</a></li>
-        <li>💼 <a href="https://www.linkedin.com/in/aba-al-hassan-abbas-178b85329" target="_blank">LinkedIn</a></li>
-        <li>💻 <a href="https://github.com/AdamMunji" target="_blank">GitHub</a></li>
-        <li>▶️ <a href="https://www.youtube.com/@-aba-alhassanabbas7478" target="_blank">YouTube</a></li>
-        <li>📸 <a href="https://www.instagram.com/engwithaba" target="_blank">Instagram</a></li>
-        <li>📘 <a href="https://www.facebook.com/aba.alhsn.bas" target="_blank">Facebook</a></li>
-        <li>✈️ <a href="https://t.me/learn4peace" target="_blank">Telegram</a></li>
-      </ul>
-    </section>
-
-    <section class="contact-form">
-      <h3 id="contact-title">تواصل معنا</h3>
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="اسمك" required />
-        <input type="email" name="email" placeholder="البريد الإلكتروني" required />
-        <input type="text" name="title" placeholder="عنوان الرسالة (اختياري)" />
-        <input type="text" name="time" placeholder="الوقت (اختياري)" />
-        <textarea name="message" rows="5" placeholder="رسالتك" required></textarea>
-        <button type="submit" class="send-btn">إرسال</button>
+  <section class="counters-section" id="counters">
+    <div class="stats-cards">
+      <div class="stat-card"><i class="fa-solid fa-language"></i><span class="counter" data-target="10">0</span><small>سنوات خبرة</small></div>
+      <div class="stat-card"><i class="fa-solid fa-users"></i><span class="counter" data-target="250">0</span><small>عميل سعيد</small></div>
+      <div class="stat-card"><i class="fa-solid fa-award"></i><span class="counter" data-target="20">0</span><small>مشروع مكتمل</small></div>
+      <div class="stat-card"><i class="fa-solid fa-certificate"></i><span class="counter" data-target="8">0</span><small>شهادة احترافية</small></div>
+    </div>
+  </section>
+  <section class="portfolio-section" id="portfolio">
+    <h3><i class="fa-solid fa-briefcase"></i> معرض الأعمال</h3>
+    <div class="portfolio-filters">
+      <button class="portfolio-filter active" data-filter="all">الكل</button>
+      <button class="portfolio-filter" data-filter="translation">ترجمة</button>
+      <button class="portfolio-filter" data-filter="design">تصميم</button>
+      <button class="portfolio-filter" data-filter="photography">تصوير</button>
+      <button class="portfolio-filter" data-filter="teaching">تدريس</button>
+      <button class="portfolio-filter" data-filter="web">مواقع</button>
+    </div>
+    <div class="portfolio-gallery" id="portfolio-gallery">
+      <!-- الأعمال ستُولّد تلقائيًا من جافاسكربت -->
+    </div>
+  </section>
+  <section class="testimonials-section" id="testimonials">
+    <h3><i class="fa-solid fa-comment-dots"></i> شهادات العملاء</h3>
+    <div class="swiper testimonials-swiper">
+      <div class="swiper-wrapper" id="testimonials-wrapper">
+        <!-- الشهادات ستُولّد تلقائيًا من جافاسكربت -->
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  <section class="certificates-section" id="certificates">
+    <h3><i class="fa-solid fa-graduation-cap"></i> شهاداتي الاحترافية</h3>
+    <div class="certificates-gallery" id="certificates-gallery">
+      <!-- الشهادات ستُولّد تلقائيًا من جافاسكربت -->
+    </div>
+  </section>
+  <section class="faq-section" id="faq">
+    <h3><i class="fa-solid fa-circle-question"></i> الأسئلة المتكررة</h3>
+    <div class="faq-list" id="faq-list">
+      <!-- الأسئلة ستُولّد تلقائيًا من جافاسكربت -->
+    </div>
+  </section>
+  <section class="blog-section" id="blog">
+    <h3><i class="fa-solid fa-newspaper"></i> المدونة</h3>
+    <div class="blog-list" id="blog-list">
+      <!-- المقالات ستُولّد تلقائيًا من جافاسكربت -->
+    </div>
+  </section>
+  <section class="resources-section" id="resources">
+    <h3><i class="fa-solid fa-download"></i> مكتبة الملفات المجانية</h3>
+    <div class="resources-list" id="resources-list">
+      <!-- الملفات ستُولّد تلقائيًا من جافاسكربت -->
+    </div>
+  </section>
+  <section class="booking-section" id="booking">
+    <h3><i class="fa-solid fa-calendar-check"></i> احجز موعدك معي</h3>
+    <iframe src="https://calendly.com/abamunji/30min" width="100%" height="480" frameborder="0" style="border-radius:14px;" scrolling="no"></iframe>
+  </section>
+  <section class="suggest-section" id="suggest">
+    <h3><i class="fa-solid fa-lightbulb"></i> شاركنا اقتراحك</h3>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJ7y4tK5wL6n3zP6w3rP4qXW-Iu2cI3WqSmJH2VwWjvW7x0w/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">جارٍ تحميل…</iframe>
+  </section>
+  <section class="contact-section" id="contact">
+    <h3 id="contact-title">تواصل معي</h3>
+    <div class="contact-flex-wrap">
+      <div class="contact-social">
+        <ul class="contact-social-list">
+          <li><a href="mailto:abamunji99@gmail.com"><span class="icon icon-mail"><i class="fa-solid fa-envelope"></i></span> abamunji99@gmail.com</a></li>
+          <li><a href="https://wa.me/9647735379147" target="_blank"><span class="icon icon-wa"><i class="fa-brands fa-whatsapp"></i></span> واتساب</a></li>
+          <li><a href="https://www.linkedin.com/in/aba-al-hassan-abbas-178b85329" target="_blank"><span class="icon icon-li"><i class="fa-brands fa-linkedin-in"></i></span> LinkedIn</a></li>
+          <li><a href="https://github.com/AdamMunji" target="_blank"><span class="icon icon-gh"><i class="fa-brands fa-github"></i></span> GitHub</a></li>
+          <li><a href="https://www.youtube.com/@-aba-alhassanabbas7478" target="_blank"><span class="icon icon-yt"><i class="fa-brands fa-youtube"></i></span> YouTube</a></li>
+          <li><a href="https://www.instagram.com/engwithaba" target="_blank"><span class="icon icon-ig"><i class="fa-brands fa-instagram"></i></span> Instagram</a></li>
+          <li><a href="https://www.facebook.com/aba.alhsn.bas" target="_blank"><span class="icon icon-fb"><i class="fa-brands fa-facebook-f"></i></span> Facebook</a></li>
+          <li><a href="https://t.me/learn4peace" target="_blank"><span class="icon icon-tg"><i class="fa-brands fa-telegram"></i></span> Telegram</a></li>
+        </ul>
+      </div>
+      <form id="contact-form" class="contact-form-modern" autocomplete="off">
+        <div class="form-row">
+          <div class="input-group">
+            <label for="inputName"><i class="fa-solid fa-user"></i></label>
+            <input type="text" name="name" id="inputName" placeholder="الاسم" autocomplete="off" required />
+          </div>
+          <div class="input-group">
+            <label for="inputEmail"><i class="fa-solid fa-envelope"></i></label>
+            <input type="email" name="email" id="inputEmail" placeholder="البريد الإلكتروني" autocomplete="off" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-group">
+            <label for="inputTitle"><i class="fa-solid fa-heading"></i></label>
+            <input type="text" name="title" id="inputTitle" placeholder="عنوان الرسالة (اختياري)" autocomplete="off" />
+          </div>
+          <div class="input-group">
+            <label for="inputTime"><i class="fa-solid fa-clock"></i></label>
+            <input type="text" name="time" id="inputTime" placeholder="الوقت (اختياري)" autocomplete="off" />
+          </div>
+        </div>
+        <div class="input-group textarea-group">
+          <label for="inputMessage"><i class="fa-solid fa-message"></i></label>
+          <textarea name="message" id="inputMessage" rows="4" placeholder="رسالتك" required autocomplete="off"></textarea>
+        </div>
+        <button type="submit" class="send-btn"><i class="fa-solid fa-paper-plane"></i> إرسال</button>
+        <div class="contact-success" id="contact-success"></div>
       </form>
-    </section>
-
-    <section class="comments-section" id="comments-section">
-      <h3>آراء وتعليقات</h3>
-      <!-- سيتم إضافة التعليقات هنا عبر JavaScript -->
-    </section>
-  </main>
-
+    </div>
+  </section>
+  <section class="public-comments-section" id="public-comments">
+    <h3><i class="fa-solid fa-comments"></i> التعليقات العامة للزوار</h3>
+    <form id="visitor-comment-form" class="visitor-comment-form">
+      <input type="text" id="visitor-name" placeholder="اسمك (اختياري)" maxlength="30" />
+      <textarea id="visitor-comment" placeholder="اكتب تعليقك هنا..." rows="3" required maxlength="300"></textarea>
+      <button type="submit"><i class="fa-solid fa-comment-dots"></i> أضف تعليقك</button>
+    </form>
+    <div id="visitor-comments-list" class="visitor-comments-list"></div>
+  </section>
+  <footer class="main-footer">
+    <p>© <span id="year"></span> أبا الحسن عباس | جميع الحقوق محفوظة.</p>
+  </footer>
+  <!-- Toastify -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <!-- Swiper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- QR Code Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
+  <!-- EmailJS -->
   <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
   <script src="script.js"></script>
+  <!-- دردشة Tawk.to -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/662ca51e1ec1082f04e5b8e1/1ht4l7up7';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!-- Matomo Analytics -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://matomo.example.com/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
 </body>
 </html>
