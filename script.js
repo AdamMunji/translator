@@ -16,14 +16,11 @@ const modeBtn = document.getElementById('toggle-mode');
 if (modeBtn) {
   modeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-    // غيّر الأيقونة
     modeBtn.innerHTML = document.body.classList.contains('dark-mode') 
       ? '<i class="fa-solid fa-sun"></i>'
       : '<i class="fa-solid fa-moon"></i>';
-    // احفظ التفضيل
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? '1' : '0');
   });
-  // استرجاع التفضيل تلقائيًا
   if (localStorage.getItem('darkMode') === '1') {
     document.body.classList.add('dark-mode');
     modeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
@@ -52,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ========== مصفوفة صور الترجمة (أسماء الصور) ==========
+// ========== مصفوفة صور الترجمة ==========
 const translationFilenames = [
   "photo_30_2025-05-30_23-01-12.jpg",
   "photo_31_2025-05-30_23-01-12.jpg",
@@ -217,7 +214,6 @@ document.addEventListener("DOMContentLoaded", function() {
     };
   }
 
-  // مودال تكبير صورة واحدة من المعرض
   window.showBigTranslationImg = function(imgSrc, title) {
     if (document.getElementById('translation-big-img-modal-bg')) {
       document.getElementById('translation-big-img-modal-bg').remove();
@@ -276,7 +272,6 @@ function renderTestimonials() {
       </div>
     `;
   });
-  // تفعيل السلايدر
   new Swiper('.testimonials-swiper', {
     loop: true,
     autoplay: { delay: 4500 },
@@ -558,12 +553,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ========== عرض السيرة الذاتية ==========
 window.showCV = function() {
-  // عندك طريقتان:
-  // 1. عرض PDF: window.open('Aba_AlHassan_Abbas_CV.pdf', '_blank');
-  // 2. عرض صورة في مودال (حسب الكود الرئيسي)، استخدم التالي إذا كانت صورة:
-  // window.open('images/cv.jpg', '_blank');
-  // أو مودال مخصص حسب الأكواد أعلاه.
-  // إذا عندك زر للعرض في HTML استخدم الطريقة التي تناسبك.
   window.open('Aba_AlHassan_Abbas_CV.pdf', '_blank');
 }
 
