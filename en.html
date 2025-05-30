@@ -3,349 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aba Al-Hassan Abbas | Contact</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <title>Aba Al Hassan Abbas | Translation & Teaching</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <style>
-    body {
-      font-family: 'Cairo', sans-serif, Arial, sans-serif;
-      margin: 0;
-      background: #f0f4ff;
-      color: #002952;
-      direction: ltr;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 50px;
-    }
-    header {
-      background: linear-gradient(135deg, #003366, #0059b3);
-      width: 100%;
-      padding: 30px 20px;
-      text-align: center;
-      color: white;
-      position: relative;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    header img.profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid white;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-    }
-    header h2 {
-      font-weight: 400;
-      margin: 5px 0 15px 0;
-      font-size: 1.2rem;
-      color: #a2c4f5;
-    }
-    header p {
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .btn-cv {
-      margin-top: 20px;
-      display: inline-block;
-      background-color: #004085;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .btn-cv:hover {
-      background-color: #002952;
-    }
-    .lang-switch {
-      position: absolute;
-      top: 25px;
-      right: 20px;
-      cursor: pointer;
-      background: rgba(255 255 255 / 0.15);
-      padding: 6px 12px;
-      border-radius: 20px;
-      color: white;
-      font-weight: 700;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-    .lang-switch:hover {
-      background: rgba(255 255 255 / 0.3);
-    }
-    main {
-      max-width: 900px;
-      width: 100%;
-      margin: 30px 20px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-      padding: 30px 25px;
-    }
-    h3 {
-      color: #004085;
-      margin-bottom: 15px;
-      text-align: center;
-      font-weight: 700;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 12px 15px;
-      margin-bottom: 18px;
-      border: 1.5px solid #a9b9ff;
-      border-radius: 10px;
-      font-size: 16px;
-      outline: none;
-      resize: vertical;
-      transition: border-color 0.3s ease;
-    }
-    form input:focus, form textarea:focus {
-      border-color: #004085;
-      box-shadow: 0 0 8px #4c6ef5aa;
-    }
-    button.send-btn {
-      width: 100%;
-      background-color: #004085;
-      color: white;
-      padding: 14px;
-      font-size: 18px;
-      font-weight: 700;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background-color 0.25s ease;
-    }
-    button.send-btn:hover {
-      background-color: #002952;
-    }
-    .comments-section {
-      margin-top: 40px;
-      border-top: 2px solid #004085;
-      padding-top: 25px;
-    }
-    .comments-section h3 {
-      margin-bottom: 20px;
-    }
-    .comment-box {
-      background: #e8f0fe;
-      border-radius: 8px;
-      padding: 15px 20px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-    }
-    .comment-box p {
-      margin: 0;
-      font-size: 15px;
-      color: #002952;
-      line-height: 1.4;
-    }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      main {
-        margin: 20px 10px;
-        padding: 20px 15px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
 </head>
 <body>
-
-<nav style="text-align: center; margin-top: 20px;">
-  <a href="ar.html" class="btn-cv">العربية</a>
-  <a href="en.html" class="btn-cv">English</a>
-  <a href="it.html" class="btn-cv">Italiano</a>
-</nav>
-
-<button class="btn-cv" onclick="showCV()">View Resume</button>
-
-<header>
-  <div class="lang-switch" id="lang-switch">العربية</div>
-  <img src="me.jpg" alt="Aba Al-Hassan Abbas" class="profile-pic" />
-
-  <h1 id="name">Aba Al-Hassan Abbas</h1>
-  <h2 id="title">Translator | Interpreter | English Teacher | Writer | Editor | Designer | Photographer | Web Manager | Social Media Manger | Content Creator </h2>
-  <p id="description">Top-quality translation and English/Arabic/Italian education services. Professional design and photography consulting.</p>
-  <a href="Aba_AlHassan_Abbas_CV.pdf" target="_blank" class="btn-cv" id="download-cv">Download Resume</a>
-</header>
-
-<main>
-<section class="contact">
-  <h3>Contact Me</h3>
-  <ul class="social-links">
-    <li>📧 <a href="mailto:abamunji99@gmail.com">abamunji99@gmail.com</a></li>
-    <li>💬 <a href="https://wa.me/07735379147" target="_blank">Message me on WhatsApp</a></li>
-    <li>💼 <a href="https://www.linkedin.com/in/aba-al-hassan-abbas-178b85329" target="_blank">LinkedIn</a></li>
-    <li>💻 <a href="https://github.com/AdamMunji" target="_blank">GitHub</a></li>
-    <li>▶️ <a href="https://www.youtube.com/@-aba-alhassanabbas7478" target="_blank">YouTube</a></li>
-    <li>📸 <a href="https://www.instagram.com/engwithaba" target="_blank">Instagram</a></li>
-    <li>📘 <a href="https://www.facebook.com/aba.alhsn.bas" target="_blank">Facebook</a></li>
-    <li>✈️ <a href="https://t.me/learn4peace" target="_blank">Telegram</a></li>
-  </ul>
-</section>
-
-
-  <section class="comments-section" id="comments-section">
-    <h3>Feedback & Comments</h3>
-  </section>
-</main>
-
-<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-
-
-  
-<script>
-
-
-<script>
-  emailjs.init('user_3LeuKhQS79R1bzV8R');  // استبدل بالـ User ID الخاص بك
-
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('service_99phbw7', 'template_ej4j9nv', this)
-      .then(() => {
-        alert('Message sent successfully!');
-        form.reset();
-      }, (error) => {
-        alert('Failed to send message. Please try again.');
-        console.error('EmailJS error:', error);
-      });
-  });
-</script>
-
-
-  
-  emailjs.init('user_3LeuKhQS79R1bzV8R');
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    emailjs.sendForm('service_99phbw7', 'template_ej4j9nv', this)
-      .then(() => {
-        alert('Message sent successfully!');
-        form.reset();
-      }, (error) => {
-        alert('An error occurred. Please try again.');
-        console.error('EmailJS error:', error);
-      });
-  });
-
-  const langSwitch = document.getElementById('lang-switch');
-  langSwitch.addEventListener('click', () => {
-    window.location.href = 'ar.html';
-  });
-
-  const comments = [
-    'Very professional and clean website. Best of luck!',
-    'The translation service was excellent and fast.',
-    'The design is very modern and attractive.',
-    'Great experience and support!'
-  ];
-
-  const commentsContainer = document.getElementById('comments-section');
-  function displayComments() {
-    comments.forEach(text => {
-      const div = document.createElement('div');
-      div.classList.add('comment-box');
-      div.textContent = text;
-      commentsContainer.appendChild(div);
-    });
-  }
-  displayComments();
-</script>
-
-<!-- CV Modal -->
-<div id="cv-modal" class="cv-modal">
-  <div class="cv-modal-content">
-    <span class="cv-close" onclick="closeCV()">&times;</span>
-    <img src="images/cv.jpg" alt="Resume" class="cv-img">
+  <!-- Language Switcher -->
+  <div class="fixed-lang-switcher">
+    <button class="lang-btn" onclick="switchLang('ar')" title="العربية">
+      <img class="lang-flag-img" src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/sa.svg" alt="العربية" />
+      <span>العربية</span>
+    </button>
+    <button class="lang-btn" onclick="switchLang('en')" title="English">
+      <img class="lang-flag-img" src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/gb.svg" alt="English" />
+      <span>English</span>
+    </button>
+    <button class="lang-btn" onclick="switchLang('it')" title="Italiano">
+      <img class="lang-flag-img" src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/it.svg" alt="Italiano" />
+      <span>Italiano</span>
+    </button>
   </div>
-</div>
-
-<style>
-  .cv-modal {
-    display: none;
-    position: fixed;
-    z-index: 1002;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cv-modal-content {
-    position: relative;
-    width: 90%;
-    max-width: 700px;
-    max-height: 90vh;
-    overflow: auto;
-    background: white;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 0 15px #000;
-    animation: fadeIn 0.4s ease;
-  }
-
-  .cv-img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-  }
-
-  .cv-close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 30px;
-    color: #444;
-    cursor: pointer;
-  }
-
-  .cv-close:hover {
-    color: #000;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-  }
-</style>
-
-<script>
-  function showCV() {
-    document.getElementById("cv-modal").style.display = "flex";
-  }
-
-  function closeCV() {
-    document.getElementById("cv-modal").style.display = "none";
-  }
-
-  window.onclick = function(event) {
-    const modal = document.getElementById("cv-modal");
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
-
+  <nav class="main-nav">
+    <a href="#about" class="nav-btn scroll-link">About Me</a>
+    <a href="#portfolio" class="nav-btn scroll-link">Portfolio</a>
+    <a href="#testimonials" class="nav-btn scroll-link">Testimonials</a>
+    <a href="#counters" class="nav-btn scroll-link">Statistics</a>
+    <a href="#faq" class="nav-btn scroll-link">FAQ</a>
+    <a href="#blog" class="nav-btn scroll-link">Blog</a>
+    <a href="#resources" class="nav-btn scroll-link">Resources</a>
+    <a href="#contact" class="nav-btn scroll-link">Contact</a>
+    <button class="toggle-mode" id="toggle-mode"><i class="fa-solid fa-moon"></i></button>
+    <button class="share-btn" title="Share this page"><i class="fa-solid fa-share-nodes"></i></button>
+    <button class="qr-btn" title="My QR code"><i class="fa-solid fa-qrcode"></i></button>
+  </nav>
+  <header class="main-header" id="about">
+    <img src="me.jpg" alt="Aba Al Hassan Abbas" class="profile-pic" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Aba+Al+Hassan+Abbas&background=0059b3&color=fff&rounded=true&size=128';" />
+    <h1 id="name">Aba Al Hassan Abbas</h1>
+    <h2 id="title">Translator | English Teacher | Writer | Editor | Designer | Photographer | Web Manager</h2>
+    <p id="description">Top-quality translation and teaching services in both Arabic and English. Professional consulting in design and photography.</p>
+    <a href="Aba_AlHassan_Abbas_CV.pdf" target="_blank" class="btn-cv" id="download-cv"><i class="fa-solid fa-download"></i> Download CV</a>
+    <button class="btn-cv" onclick="showCV()"><i class="fa-solid fa-eye"></i> View CV</button>
+    <button class="intro-video-btn" onclick="showIntroVideo()"><i class="fa-solid fa-play"></i> Intro Video</button>
+  </header>
+  <section class="counters-section" id="counters">
+    <div class="stats-cards">
+      <div class="stat-card"><i class="fa-solid fa-language"></i><span class="counter" data-target="10">0</span><small>Years of Experience</small></div>
+      <div class="stat-card"><i class="fa-solid fa-users"></i><span class="counter" data-target="250">0</span><small>Satisfied Clients</small></div>
+      <div class="stat-card"><i class="fa-solid fa-award"></i><span class="counter" data-target="20">0</span><small>Completed Projects</small></div>
+      <div class="stat-card"><i class="fa-solid fa-certificate"></i><span class="counter" data-target="8">0</span><small>Professional Certificates</small></div>
+    </div>
+  </section>
+  <section class="portfolio-section" id="portfolio">
+    <h3><i class="fa-solid fa-briefcase"></i> Portfolio</h3>
+    <div class="portfolio-filters">
+      <button class="portfolio-filter active" data-filter="all">All</button>
+      <button class="portfolio-filter" data-filter="translation">Translation</button>
+      <button class="portfolio-filter" data-filter="design">Design</button>
+      <button class="portfolio-filter" data-filter="photography">Photography</button>
+      <button class="portfolio-filter" data-filter="teaching">Teaching</button>
+      <button class="portfolio-filter" data-filter="web">Websites</button>
+    </div>
+    <div class="portfolio-gallery" id="portfolio-gallery"></div>
+  </section>
+  <section class="testimonials-section" id="testimonials">
+    <h3><i class="fa-solid fa-comment-dots"></i> Testimonials</h3>
+    <div class="swiper testimonials-swiper">
+      <div class="swiper-wrapper" id="testimonials-wrapper"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  <section class="certificates-section" id="certificates">
+    <h3><i class="fa-solid fa-graduation-cap"></i> My Certificates</h3>
+    <div class="certificates-gallery" id="certificates-gallery"></div>
+  </section>
+  <section class="faq-section" id="faq">
+    <h3><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</h3>
+    <div class="faq-list" id="faq-list"></div>
+  </section>
+  <section class="blog-section" id="blog">
+    <h3><i class="fa-solid fa-newspaper"></i> Blog</h3>
+    <div class="blog-list" id="blog-list"></div>
+  </section>
+  <section class="resources-section" id="resources">
+    <h3><i class="fa-solid fa-download"></i> Free Resources Library</h3>
+    <div class="resources-list" id="resources-list"></div>
+  </section>
+  <section class="booking-section" id="booking">
+    <h3><i class="fa-solid fa-calendar-check"></i> Book a Meeting with Me</h3>
+    <iframe src="https://calendly.com/abamunji/30min" width="100%" height="480" frameborder="0" style="border-radius:14px;" scrolling="no"></iframe>
+  </section>
+  <section class="suggest-section" id="suggest">
+    <h3><i class="fa-solid fa-lightbulb"></i> Suggestions</h3>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJ7y4tK5wL6n3zP6w3rP4qXW-Iu2cI3WqSmJH2VwWjvW7x0w/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </section>
+  <section class="contact-section" id="contact">
+    <h3 id="contact-title">Contact Me</h3>
+    <div class="contact-flex-wrap">
+      <div class="contact-social">
+        <ul class="contact-social-list">
+          <li><a href="mailto:abamunji99@gmail.com"><span class="icon icon-mail"><i class="fa-solid fa-envelope"></i></span> abamunji99@gmail.com</a></li>
+          <li><a href="https://wa.me/9647735379147" target="_blank"><span class="icon icon-wa"><i class="fa-brands fa-whatsapp"></i></span> WhatsApp</a></li>
+          <li><a href="https://www.linkedin.com/in/aba-al-hassan-abbas-178b85329" target="_blank"><span class="icon icon-li"><i class="fa-brands fa-linkedin-in"></i></span> LinkedIn</a></li>
+          <li><a href="https://github.com/AdamMunji" target="_blank"><span class="icon icon-gh"><i class="fa-brands fa-github"></i></span> GitHub</a></li>
+          <li><a href="https://www.youtube.com/@-aba-alhassanabbas7478" target="_blank"><span class="icon icon-yt"><i class="fa-brands fa-youtube"></i></span> YouTube</a></li>
+          <li><a href="https://www.instagram.com/engwithaba" target="_blank"><span class="icon icon-ig"><i class="fa-brands fa-instagram"></i></span> Instagram</a></li>
+          <li><a href="https://www.facebook.com/aba.alhsn.bas" target="_blank"><span class="icon icon-fb"><i class="fa-brands fa-facebook-f"></i></span> Facebook</a></li>
+          <li><a href="https://t.me/learn4peace" target="_blank"><span class="icon icon-tg"><i class="fa-brands fa-telegram"></i></span> Telegram</a></li>
+        </ul>
+      </div>
+      <form id="contact-form" class="contact-form-modern" autocomplete="off">
+        <div class="form-row">
+          <div class="input-group">
+            <label for="inputName"><i class="fa-solid fa-user"></i></label>
+            <input type="text" name="name" id="inputName" placeholder="Name" autocomplete="off" required />
+          </div>
+          <div class="input-group">
+            <label for="inputEmail"><i class="fa-solid fa-envelope"></i></label>
+            <input type="email" name="email" id="inputEmail" placeholder="Email" autocomplete="off" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-group">
+            <label for="inputTitle"><i class="fa-solid fa-heading"></i></label>
+            <input type="text" name="title" id="inputTitle" placeholder="Subject (optional)" autocomplete="off" />
+          </div>
+          <div class="input-group">
+            <label for="inputTime"><i class="fa-solid fa-clock"></i></label>
+            <input type="text" name="time" id="inputTime" placeholder="Time (optional)" autocomplete="off" />
+          </div>
+        </div>
+        <div class="input-group textarea-group">
+          <label for="inputMessage"><i class="fa-solid fa-message"></i></label>
+          <textarea name="message" id="inputMessage" rows="4" placeholder="Your message" required autocomplete="off"></textarea>
+        </div>
+        <button type="submit" class="send-btn"><i class="fa-solid fa-paper-plane"></i> Send</button>
+        <div class="contact-success" id="contact-success"></div>
+      </form>
+    </div>
+  </section>
+  <section class="public-comments-section" id="public-comments">
+    <h3><i class="fa-solid fa-comments"></i> Visitor Comments</h3>
+    <form id="visitor-comment-form" class="visitor-comment-form">
+      <input type="text" id="visitor-name" placeholder="Your name (optional)" maxlength="30" />
+      <textarea id="visitor-comment" placeholder="Write your comment here..." rows="3" required maxlength="300"></textarea>
+      <button type="submit"><i class="fa-solid fa-comment-dots"></i> Add your comment</button>
+    </form>
+    <div id="visitor-comments-list" class="visitor-comments-list"></div>
+  </section>
+  <footer class="main-footer">
+    <p>© <span id="year"></span> Aba Al Hassan Abbas | All rights reserved.</p>
+  </footer>
+  <!-- Toastify -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <!-- Swiper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- QR Code Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+  <!-- Features Script -->
+  <script src="script.js"></script>
+  <!-- Tawk.to Chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/662ca51e1ec1082f04e5b8e1/1ht4l7up7';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!-- Matomo Analytics -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://matomo.example.com/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
 </body>
 </html>
