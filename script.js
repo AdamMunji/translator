@@ -275,6 +275,48 @@ const testimonialsList = [
     role: "مصمم جرافيك",
     avatar: "https://ui-avatars.com/api/?name=أحمد+يوسف&background=0d6efd&color=fff",
     content: "التعامل راقٍ جدًا، والتسليم في الوقت المحدد."
+  },
+  {
+    name: "هبة خالد",
+    role: "كاتبة محتوى",
+    avatar: "https://ui-avatars.com/api/?name=هبة+خالد&background=0d6efd&color=fff",
+    content: "سعدت بالعمل معه، الترجمة ممتازة والاتصال سلس."
+  },
+  {
+    name: "زهراء سعد",
+    role: "باحث أكاديمي",
+    avatar: "https://ui-avatars.com/api/?name=عمر+سعد&background=0d6efd&color=fff",
+    content: "مهني ودقيق بالمواعيد، أنصح بالتعامل معه."
+  },
+  {
+    name: "دعاء فؤاد",
+    role: "طالبة جامعية",
+    avatar: "https://ui-avatars.com/api/?name=دعاء+فؤاد&background=0d6efd&color=fff",
+    content: "استفدت كثيرًا من الدروس، شرح رائع وسهل."
+  },
+  {
+    name: "علي حسين",
+    role: "باحث أكاديمي",
+    avatar: "https://ui-avatars.com/api/?name=علي+حسين&background=0d6efd&color=fff",
+    content: "الترجمة الأكاديمية ممتازة ومطابقة للمصادر."
+  },
+  {
+    name: "فرح سامي",
+    role: "مديرة موارد بشرية",
+    avatar: "https://ui-avatars.com/api/?name=فرح+سامي&background=0d6efd&color=fff",
+    content: "دقة واحترافية في التعامل مع المستندات."
+  },
+  {
+    name: "أمجد علاء",
+    role: "مصور فوتوغرافي",
+    avatar: "https://ui-avatars.com/api/?name=أمجد+علاء&background=0d6efd&color=fff",
+    content: "خدمة سريعة وجودة رائعة في التصاميم."
+  },
+  {
+    name: "نجوى مازن",
+    role: "طالبة",
+    avatar: "https://ui-avatars.com/api/?name=نجوى+مازن&background=0d6efd&color=fff",
+    content: "خبرة ممتازة في الترجمة والتعليم، أنصح الجميع."
   }
 ];
 function renderTestimonials() {
