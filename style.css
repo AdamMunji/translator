@@ -236,6 +236,13 @@ h3 {
 }
 .portfolio-item .portfolio-link:hover { color: #0d6efd; }
 
+/* إظهار/إخفاء معرض الأعمال */
+#portfolio-content {
+  transition: max-height 0.3s;
+  overflow: hidden;
+  max-height: 0;
+}
+
 /* شهادات العملاء */
 .testimonials-section {
   padding-bottom: 10px;
