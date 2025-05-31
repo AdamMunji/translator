@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
   <style>
+    /* ... جميع التنسيقات كما هي ... */
     /* مودال السيرة الذاتية */
     #cv-modal-bg {
       position: fixed;
@@ -238,6 +239,7 @@
 <body>
   <!-- شريط تغيير اللغة -->
   <div class="fixed-lang-switcher">
+    <!-- ... كما هو ... -->
     <button class="lang-btn" onclick="switchLang('ar')" title="العربية">
       <img class="lang-flag-img" src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/sa.svg" alt="العربية" />
       <span>العربية</span>
@@ -253,6 +255,7 @@
   </div>
   <!-- القائمة الرئيسية -->
   <nav class="main-nav">
+    <!-- ... القائمة ... -->
     <a href="#about" class="nav-btn scroll-link">عنّي</a>
     <a href="#portfolio" class="nav-btn scroll-link">الأعمال</a>
     <a href="#translation-gallery" class="nav-btn scroll-link"> المكتبة الصوريّة - ترجمة</a>
@@ -267,6 +270,7 @@
     <button class="qr-btn" title="QR لموقعي"><i class="fa-solid fa-qrcode"></i></button>
   </nav>
   <header class="main-header" id="about">
+    <!-- ... كود الهيدر ... -->
     <img src="me.jpg" alt="أبا الحسن عباس" class="profile-pic" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=%D8%A3%D8%A8%D8%A7+%D8%A7%D9%84%D8%AD%D8%B3%D9%86+%D8%B9%D8%A8%D8%A7%D8%B3&background=0059b3&color=fff&rounded=true&size=128';" />
     <h1 id="name">أبا الحسن عباس</h1>
     <h2 id="title">مترجم | أستاذ لغة إنجليزية | كاتب | محرر | مصمم | مصور | مدير مواقع</h2>
@@ -278,6 +282,7 @@
 
   <!-- قسم مكتبة الصورة - ترجمة -->
   <section class="translation-gallery-section" id="translation-gallery">
+    <!-- ... كود مكتبة الصور كما هو ... -->
     <h3><i class="fa-solid fa-images"></i> مكتبة الصورة - ترجمة</h3>
     <button class="translation-gallery-btn" id="open-translation-gallery">
       <i class="fa-solid fa-eye"></i> اضغط هنا لعرض جميع صور الترجمة
@@ -285,6 +290,7 @@
   </section>
 
   <section class="counters-section" id="counters">
+    <!-- ... كود الإحصائيات ... -->
     <div class="stats-cards">
       <div class="stat-card"><i class="fa-solid fa-language"></i><span class="counter" data-target="10">0</span><small>سنوات خبرة</small></div>
       <div class="stat-card"><i class="fa-solid fa-users"></i><span class="counter" data-target="250">0</span><small>عميل سعيد</small></div>
@@ -294,6 +300,7 @@
   </section>
 
   <section class="portfolio-section" id="portfolio">
+    <!-- ... كود معرض الأعمال ... -->
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <h3 style="margin-bottom:0;"><i class="fa-solid fa-briefcase"></i> معرض الأعمال</h3>
       <button id="toggle-portfolio-btn" style="font-size:1.4rem;background:none;border:none;cursor:pointer;" title="إظهار/إخفاء معرض الأعمال">
@@ -316,6 +323,7 @@
   </section>
   
   <section class="testimonials-section" id="testimonials">
+    <!-- ... كود شهادات العملاء ... -->
     <h3><i class="fa-solid fa-comment-dots"></i> شهادات العملاء</h3>
     <div class="swiper testimonials-swiper">
       <div class="swiper-wrapper" id="testimonials-wrapper">
@@ -352,6 +360,7 @@
   </section>
   
   <section class="contact-section" id="contact">
+    <!-- ... كود تواصل معي ... -->
     <h3 id="contact-title">تواصل معي</h3>
     <div class="contact-flex-wrap">
       <div class="contact-social">
@@ -396,6 +405,7 @@
       </form>
     </div>
   </section>
+
   <section class="public-comments-section" id="public-comments">
     <h3><i class="fa-solid fa-comments"></i> التعليقات العامة للزوار</h3>
     <form id="visitor-comment-form" class="visitor-comment-form">
@@ -404,7 +414,28 @@
       <button type="submit"><i class="fa-solid fa-comment-dots"></i> أضف تعليقك</button>
     </form>
     <div id="visitor-comments-list" class="visitor-comments-list"></div>
+
+    <!-- إضافة Giscus أسفل التعليقات للزوار -->
+    <div style="margin-top:40px"></div>
+    <div class="giscus"></div>
+    <script src="https://giscus.app/client.js"
+        data-repo="AdamMunji/translator"
+        data-repo-id="R_kgDOOyMe3A"
+        data-category="General"
+        data-category-id="DIC_kwDOOyMe3M4Cq2M4"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="ar"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+    </script>
   </section>
+
   <footer class="main-footer">
     <p>© <span id="year"></span> أبا الحسن عباس | جميع الحقوق محفوظة.</p>
   </footer>
