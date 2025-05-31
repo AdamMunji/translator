@@ -4,242 +4,65 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>أبا الحسن عباس | الترجمة والتدريس</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  
+  <!-- تحسين تحميل الموارد -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  
   <style>
-    /* ... جميع التنسيقات كما هي ... */
-    /* مودال السيرة الذاتية */
-    #cv-modal-bg {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.82);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
+    /* تحسين التنسيقات الأساسية */
+    :root {
+      --primary-color: #004085;
+      --secondary-color: #006ad7;
+      --text-color: #333;
+      --background-color: #fff;
+      --shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-    #cv-modal-box {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px #0005;
-      padding: 0;
-      max-width: 96vw;
-      max-height: 94vh;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      position: relative;
+
+    /* تحسين الأداء */
+    .lazy-load {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
-    #cv-modal-close {
-      position: absolute;
-      top: 11px;
-      right: 15px;
-      font-size: 2rem;
-      color: #444;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 2;
-      transition: color 0.15s;
+    .lazy-load.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
-    #cv-modal-close:hover { color: #e00; }
-    #cv-modal-img {
-      display: block;
-      max-width: 88vw;
-      max-height: 80vh;
-      margin: 46px auto 16px auto;
-      border-radius: 10px;
-      box-shadow: 0 1px 24px #0002;
-      background: #f6f6f6;
-      object-fit: contain;
-      width: auto;
-      height: auto;
-    }
-    @media(max-width: 600px) {
-      #cv-modal-box { max-width: 99vw; max-height: 98vh; }
-      #cv-modal-img { max-width: 97vw; max-height: 74vh; }
-    }
-    /* معرض صور الترجمة */
-    .translation-gallery-section {
-      margin: 44px auto 0 auto;
-      max-width: 1110px;
-      padding: 0 18px 40px 18px;
-      text-align: center;
-    }
-    .translation-gallery-section h3 {
-      font-size: 1.5rem;
-      margin-bottom: 18px;
-      color: #004085;
-      font-weight: 800;
-      letter-spacing: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    .translation-gallery-btn {
-      background: #004085;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 11px 26px;
-      font-size: 1.1rem;
-      margin-bottom: 26px;
-      cursor: pointer;
-      margin-top: 8px;
-      font-family: inherit;
-      transition: background 0.18s;
-      display: inline-block;
-    }
-    .translation-gallery-btn:hover { background: #006ad7; }
-    #translation-gallery-modal-bg {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,.94);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 10002;
-      padding: 0;
-    }
-    #translation-gallery-modal-box {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px #0005;
-      max-width: 99vw;
-      max-height: 98vh;
-      position: relative;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    #translation-gallery-modal-close {
-      position: absolute;
-      top: 11px;
-      right: 18px;
-      font-size: 2.2rem;
-      color: #444;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 2;
-      transition: color 0.15s;
-    }
-    #translation-gallery-modal-close:hover { color: #e00; }
-    .translation-gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
-      gap: 18px;
-      max-width: 94vw;
-      padding: 38px 32px 25px 32px;
-      background: #fff;
-      border-radius: 18px;
-      margin-top: 23px;
-      margin-bottom: 20px;
-      overflow-y: auto;
-      max-height: 80vh;
-      box-sizing: border-box;
-    }
-    .translation-gallery-img-wrap {
-      background: #f7faff;
-      border-radius: 10px;
-      box-shadow: 0 3px 16px #00408522;
-      padding: 9px 9px 16px 9px;
-      position: relative;
-      transition: box-shadow 0.12s;
-    }
-    .translation-gallery-img-wrap:hover {
-      box-shadow: 0 5px 24px #00408533;
-    }
-    .translation-gallery-img-title {
-      font-size: 1.11rem;
-      margin: 7px 0 3px 0;
-      color: #004085;
-      font-weight: 700;
-      text-align: center;
-    }
-    .translation-gallery-img {
-      max-width: 100%;
-      max-height: 260px;
-      border-radius: 7px;
-      box-shadow: 0 1px 10px #0001;
-      object-fit: contain;
-      background: #f2f6fa;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      cursor: pointer;
-      transition: box-shadow 0.13s;
-    }
-    .translation-gallery-img:active {
-      box-shadow: 0 0px 0px #0000;
-    }
-    @media(max-width: 900px) {
-      .translation-gallery-grid { padding: 18px 2vw 17px 2vw; }
-      .translation-gallery-img { max-height: 210px; }
-    }
-    @media(max-width: 600px) {
-      .translation-gallery-section { padding: 0 3vw 32px 3vw; }
-      .translation-gallery-grid { grid-template-columns: 1fr; padding: 9px 0 8px 0; }
-      .translation-gallery-img { max-height: 55vw; }
-    }
-    /* مودال تكبير الصورة داخل معرض الصور */
-    #translation-big-img-modal-bg {
-      position: fixed;
-      top:0;left:0;right:0;bottom:0;
-      background: rgba(0,0,0,0.94);
-      z-index: 10011;
-      display: flex; align-items: center; justify-content: center;
-    }
-    #translation-big-img-modal-box {
-      position: relative;
-      max-width: 98vw;
-      max-height: 97vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: transparent;
-    }
-    #translation-big-img-modal-close {
-      position: absolute;
-      top: 10px;
-      right: 18px;
-      font-size: 2.7rem;
-      color: #fff;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 2;
-      transition: color 0.13s;
-      filter: drop-shadow(0 0 10px #000);
-    }
-    #translation-big-img-modal-close:hover { color: #e00; }
-    #translation-big-img-modal-img {
-      display: block;
-      max-width: 95vw;
-      max-height: 85vh;
-      border-radius: 13px;
-      object-fit: contain;
-      background: #fff;
-      margin: 0 auto;
-      box-shadow: 0 4px 42px #00408566;
-    }
-    #translation-big-img-modal-title {
-      color: #fff;
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-top: 12px;
-      text-align: center;
-      text-shadow: 0 1px 10px #000;
+
+    /* تحسين تجربة الهاتف المحمول */
+    @media (max-width: 768px) {
+      .main-nav {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 8px;
+        border-radius: 15px 15px 0 0;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      }
+      
+      .nav-btn {
+        font-size: 14px;
+        padding: 8px;
+        margin: 4px;
+      }
+      
+      .contact-form-modern {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
     }
   </style>
 </head>
 <body>
   <!-- شريط تغيير اللغة -->
   <div class="fixed-lang-switcher">
-    <!-- ... كما هو ... -->
     <button class="lang-btn" onclick="switchLang('ar')" title="العربية">
       <img class="lang-flag-img" src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/sa.svg" alt="العربية" />
       <span>العربية</span>
@@ -253,9 +76,9 @@
       <span>Italiano</span>
     </button>
   </div>
+
   <!-- القائمة الرئيسية -->
   <nav class="main-nav">
-    <!-- ... القائمة ... -->
     <a href="#about" class="nav-btn scroll-link">عنّي</a>
     <a href="#portfolio" class="nav-btn scroll-link">الأعمال</a>
     <a href="#translation-gallery" class="nav-btn scroll-link"> المكتبة الصوريّة - ترجمة</a>
@@ -269,9 +92,10 @@
     <button class="share-btn" title="مشاركة الصفحة"><i class="fa-solid fa-share-nodes"></i></button>
     <button class="qr-btn" title="QR لموقعي"><i class="fa-solid fa-qrcode"></i></button>
   </nav>
+
   <header class="main-header" id="about">
-    <!-- ... كود الهيدر ... -->
-    <img src="me.jpg" alt="أبا الحسن عباس" class="profile-pic" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=%D8%A3%D8%A8%D8%A7+%D8%A7%D9%84%D8%AD%D8%B3%D9%86+%D8%B9%D8%A8%D8%A7%D8%B3&background=0059b3&color=fff&rounded=true&size=128';" />
+    <img src="me.jpg" alt="أبا الحسن عباس" class="profile-pic lazy-load" 
+         onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=%D8%A3%D8%A8%D8%A7+%D8%A7%D9%84%D8%AD%D8%B3%D9%86+%D8%B9%D8%A8%D8%A7%D8%B3&background=0059b3&color=fff&rounded=true&size=128';">
     <h1 id="name">أبا الحسن عباس</h1>
     <h2 id="title">مترجم | أستاذ لغة إنجليزية | كاتب | محرر | مصمم | مصور | مدير مواقع</h2>
     <p id="description">أفضل خدمات الترجمة والتعليم باللغتين العربية والإنجليزية. استشارات تصميم وتصوير احترافية.</p>
@@ -282,7 +106,6 @@
 
   <!-- قسم مكتبة الصورة - ترجمة -->
   <section class="translation-gallery-section" id="translation-gallery">
-    <!-- ... كود مكتبة الصور كما هو ... -->
     <h3><i class="fa-solid fa-images"></i> مكتبة الصورة - ترجمة</h3>
     <button class="translation-gallery-btn" id="open-translation-gallery">
       <i class="fa-solid fa-eye"></i> اضغط هنا لعرض جميع صور الترجمة
@@ -290,7 +113,6 @@
   </section>
 
   <section class="counters-section" id="counters">
-    <!-- ... كود الإحصائيات ... -->
     <div class="stats-cards">
       <div class="stat-card"><i class="fa-solid fa-language"></i><span class="counter" data-target="10">0</span><small>سنوات خبرة</small></div>
       <div class="stat-card"><i class="fa-solid fa-users"></i><span class="counter" data-target="250">0</span><small>عميل سعيد</small></div>
@@ -300,7 +122,6 @@
   </section>
 
   <section class="portfolio-section" id="portfolio">
-    <!-- ... كود معرض الأعمال ... -->
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <h3 style="margin-bottom:0;"><i class="fa-solid fa-briefcase"></i> معرض الأعمال</h3>
       <button id="toggle-portfolio-btn" style="font-size:1.4rem;background:none;border:none;cursor:pointer;" title="إظهار/إخفاء معرض الأعمال">
@@ -321,9 +142,8 @@
       </div>
     </div>
   </section>
-  
+
   <section class="testimonials-section" id="testimonials">
-    <!-- ... كود شهادات العملاء ... -->
     <h3><i class="fa-solid fa-comment-dots"></i> شهادات العملاء</h3>
     <div class="swiper testimonials-swiper">
       <div class="swiper-wrapper" id="testimonials-wrapper">
@@ -334,33 +154,36 @@
       <div class="swiper-pagination"></div>
     </div>
   </section>
+
   <section class="certificates-section" id="certificates">
     <h3><i class="fa-solid fa-graduation-cap"></i> شهاداتي الاحترافية</h3>
     <div class="certificates-gallery" id="certificates-gallery">
       <!-- الشهادات ستُولّد تلقائيًا من جافاسكربت -->
     </div>
   </section>
+
   <section class="faq-section" id="faq">
     <h3><i class="fa-solid fa-circle-question"></i> الأسئلة المتكررة</h3>
     <div class="faq-list" id="faq-list">
       <!-- الأسئلة ستُولّد تلقائيًا من جافاسكربت -->
     </div>
   </section>
+
   <section class="blog-section" id="blog">
     <h3><i class="fa-solid fa-newspaper"></i> المدونة</h3>
     <div class="blog-list" id="blog-list">
       <!-- المقالات ستُولّد تلقائيًا من جافاسكربت -->
     </div>
   </section>
+
   <section class="resources-section" id="resources">
     <h3><i class="fa-solid fa-download"></i> مكتبة الملفات المجانية</h3>
     <div class="resources-list" id="resources-list">
       <!-- الملفات ستُولّد تلقائيًا من جافاسكربت -->
     </div>
   </section>
-  
+
   <section class="contact-section" id="contact">
-    <!-- ... كود تواصل معي ... -->
     <h3 id="contact-title">تواصل معي</h3>
     <div class="contact-flex-wrap">
       <div class="contact-social">
@@ -430,189 +253,161 @@
         data-input-position="top"
         data-theme="preferred_color_scheme"
         data-lang="ar"
-        data-loading="lazy"
         crossorigin="anonymous"
-        async>
-    </script>
+        async></script>
   </section>
 
   <footer class="main-footer">
     <p>© <span id="year"></span> أبا الحسن عباس | جميع الحقوق محفوظة.</p>
   </footer>
-  <!-- Toastify -->
-  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  <!-- Swiper.js -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- QR Code Library -->
-  <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
-  <!-- EmailJS -->
-  <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-  <!-- سكربت المميزات، لا تلمسه -->
-  <script src="script.js"></script>
-  <!-- دردشة Tawk.to -->
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/662ca51e1ec1082f04e5b8e1/1ht4l7up7';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
-  </script>
-  <!-- Matomo Analytics -->
+
+  <!-- تحسين تحميل المكتبات -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js" defer></script>
+  <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js" defer></script>
+  <script src="script.js" defer></script>
+
+  <!-- تحسين تحميل الصور -->
   <script>
-    var _paq = window._paq = window._paq || [];
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u="https://matomo.example.com/";
-      _paq.push(['setTrackerUrl', u+'matomo.php']);
-      _paq.push(['setSiteId', '1']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <script>
-    // ========== مودال عرض السيرة الذاتية ==========
-    window.showCV = function() {
-      if (document.getElementById('cv-modal-bg')) {
-        document.getElementById('cv-modal-bg').remove();
-      }
-      let modal = document.createElement('div');
-      modal.id = 'cv-modal-bg';
-      modal.innerHTML = `
-        <div id="cv-modal-box">
-          <button id="cv-modal-close" title="إغلاق">&times;</button>
-          <img id="cv-modal-img" src="images/cv.jpg" alt="السيرة الذاتية" />
-        </div>
-      `;
-      document.body.appendChild(modal);
-      document.getElementById('cv-modal-close').onclick = () => modal.remove();
-      modal.onclick = function(e) {
-        if (e.target === modal) modal.remove();
-      }
-    }
-
-    // ========== مكتبة صور الترجمة ==========
-    const translationFilenames = [
-      "photo_30_2025-05-30_23-01-12.jpg",
-      "photo_31_2025-05-30_23-01-12.jpg",
-      "photo_32_2025-05-30_23-01-12.jpg",
-      "photo_33_2025-05-30_23-01-12.jpg",
-      "photo_1_2025-05-30_23-01-11.jpg",
-      "photo_2_2025-05-30_23-01-11.jpg",
-      "photo_3_2025-05-30_23-01-11.jpg",
-      "photo_4_2025-05-30_23-01-11.jpg",
-      "photo_5_2025-05-30_23-01-11.jpg",
-      "photo_6_2025-05-30_23-01-11.jpg",
-      "photo_7_2025-05-30_23-01-11.jpg",
-      "photo_8_2025-05-30_23-01-11.jpg",
-      "photo_9_2025-05-30_23-01-11.jpg",
-      "photo_10_2025-05-30_23-01-11.jpg",
-      "photo_11_2025-05-30_23-01-11.jpg",
-      "photo_12_2025-05-30_23-01-11.jpg",
-      "photo_13_2025-05-30_23-01-11.jpg",
-      "photo_14_2025-05-30_23-01-11.jpg",
-      "photo_15_2025-05-30_23-01-11.jpg",
-      "photo_16_2025-05-30_23-01-11.jpg",
-      "photo_17_2025-05-30_23-01-11.jpg",
-      "photo_18_2025-05-30_23-01-11.jpg",
-      "photo_19_2025-05-30_23-01-12.jpg",
-      "photo_20_2025-05-30_23-01-12.jpg",
-      "photo_21_2025-05-30_23-01-12.jpg",
-      "photo_22_2025-05-30_23-01-12.jpg",
-      "photo_23_2025-05-30_23-01-12.jpg",
-      "photo_24_2025-05-30_23-01-12.jpg",
-      "photo_25_2025-05-30_23-01-12.jpg",
-      "photo_26_2025-05-30_23-01-12.jpg",
-      "photo_27_2025-05-30_23-01-12.jpg",
-      "photo_28_2025-05-30_23-01-12.jpg",
-      "photo_29_2025-05-30_23-01-12.jpg"
-    ];
-    document.getElementById('open-translation-gallery').onclick = function() {
-      if (document.getElementById('translation-gallery-modal-bg')) {
-        document.getElementById('translation-gallery-modal-bg').remove();
-      }
-      let modal = document.createElement('div');
-      modal.id = 'translation-gallery-modal-bg';
-      modal.innerHTML = `
-        <div id="translation-gallery-modal-box">
-          <button id="translation-gallery-modal-close" title="إغلاق">&times;</button>
-          <div class="translation-gallery-grid">
-            ${translationFilenames.map((name, idx) => `
-              <div class="translation-gallery-img-wrap">
-                <img 
-                  class="translation-gallery-img"
-                  src="images/translation/${name}"
-                  data-big="images/translation/${name}"
-                  data-title="ترجمة رقم ${(idx + 1)}"
-                  alt="ترجمة رقم ${(idx + 1)}"
-                  loading="lazy"
-                  />
-                <div class="translation-gallery-img-title">ترجمة رقم ${(idx + 1)}</div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      `;
-      document.body.appendChild(modal);
-      document.getElementById('translation-gallery-modal-close').onclick = () => modal.remove();
-      modal.onclick = function(e) {
-        if (e.target === modal) modal.remove();
-      }
-      // تكبير الصورة عند الضغط عليها
-      modal.querySelectorAll('.translation-gallery-img').forEach(img => {
-        img.onclick = function(e) {
-          e.stopPropagation();
-          showBigTranslationImg(this.dataset.big, this.dataset.title);
-        }
-      });
-    };
-
-    // مودال تكبير صورة واحدة من المعرض
-    function showBigTranslationImg(imgSrc, title) {
-      if (document.getElementById('translation-big-img-modal-bg')) {
-        document.getElementById('translation-big-img-modal-bg').remove();
-      }
-      let m = document.createElement('div');
-      m.id = 'translation-big-img-modal-bg';
-      m.innerHTML = `
-        <div id="translation-big-img-modal-box">
-          <button id="translation-big-img-modal-close" title="إغلاق">&times;</button>
-          <img id="translation-big-img-modal-img" src="${imgSrc}" alt="${title}" />
-          <div id="translation-big-img-modal-title">${title}</div>
-        </div>
-      `;
-      document.body.appendChild(m);
-      document.getElementById('translation-big-img-modal-close').onclick = () => m.remove();
-      m.onclick = function(e) {
-        if (e.target === m) m.remove();
-      }
-    }
-
-    // ========== زر إظهار/إخفاء معرض الأعمال ==========
+    // تحسين تحميل الصور
     document.addEventListener('DOMContentLoaded', function() {
-      const btn = document.getElementById('toggle-portfolio-btn');
-      const content = document.getElementById('portfolio-content');
-      let opened = false; // مغلق افتراضياً
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            observer.unobserve(img);
+          }
+        });
+      }, {
+        rootMargin: '50px',
+        threshold: 0.1
+      });
 
-      // اجعل المحتوى مخفي عند التحميل
-      content.style.maxHeight = "0";
-      btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
-
-      btn.onclick = function() {
-        opened = !opened;
-        if (opened) {
-          content.style.maxHeight = content.scrollHeight + "px";
-          btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
-        } else {
-          content.style.maxHeight = "0";
-          btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
-        }
-      };
+      document.querySelectorAll('img.lazy').forEach(img => {
+        observer.observe(img);
+      });
     });
+  </script>
+
+  <!-- تحسين الأداء -->
+  <script>
+    // تحسين الأداء
+    function optimizePerformance() {
+      // تحسين تحميل الصور
+      document.querySelectorAll('img.lazy').forEach(img => {
+        img.loading = 'lazy';
+        img.decoding = 'async';
+      });
+
+      // تحسين التنقل
+      document.querySelectorAll('a.scroll-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        });
+      });
+
+      // تحسين مودال السيرة الذاتية
+      function showCV() {
+        const modal = document.createElement('div');
+        modal.id = 'cv-modal-bg';
+        modal.innerHTML = `
+          <div id="cv-modal-box" class="modal-content">
+            <button id="cv-modal-close" class="close-button">×</button>
+            <div class="modal-loader" id="cv-loader"></div>
+            <img id="cv-modal-img" src="images/cv.jpg" alt="السيرة الذاتية" loading="lazy">
+          </div>
+        `;
+        
+        // إضافة حركات انتقالية
+        requestAnimationFrame(() => {
+          modal.querySelector('#cv-modal-box').style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+          modal.querySelector('#cv-modal-box').style.opacity = 1;
+          modal.querySelector('#cv-modal-box').style.transform = 'scale(1)';
+        });
+        
+        document.body.appendChild(modal);
+      }
+
+      // تحسين معرض الصور
+      const translationFilenames = [
+        "photo_30_2025-05-30_23-01-12.jpg",
+        "photo_31_2025-05-30_23-01-12.jpg",
+        "photo_32_2025-05-30_23-01-12.jpg",
+        "photo_33_2025-05-30_23-01-12.jpg",
+        "photo_1_2025-05-30_23-01-11.jpg",
+        "photo_2_2025-05-30_23-01-11.jpg",
+        "photo_3_2025-05-30_23-01-11.jpg",
+        "photo_4_2025-05-30_23-01-11.jpg",
+        "photo_5_2025-05-30_23-01-11.jpg",
+        "photo_6_2025-05-30_23-01-11.jpg",
+        "photo_7_2025-05-30_23-01-11.jpg",
+        "photo_8_2025-05-30_23-01-11.jpg",
+        "photo_9_2025-05-30_23-01-11.jpg",
+        "photo_10_2025-05-30_23-01-11.jpg",
+        "photo_11_2025-05-30_23-01-11.jpg",
+        "photo_12_2025-05-30_23-01-11.jpg",
+        "photo_13_2025-05-30_23-01-11.jpg",
+        "photo_14_2025-05-30_23-01-11.jpg",
+        "photo_15_2025-05-30_23-01-11.jpg",
+        "photo_16_2025-05-30_23-01-11.jpg",
+        "photo_17_2025-05-30_23-01-11.jpg",
+        "photo_18_2025-05-30_23-01-11.jpg",
+        "photo_19_2025-05-30_23-01-12.jpg",
+        "photo_20_2025-05-30_23-01-12.jpg",
+        "photo_21_2025-05-30_23-01-12.jpg",
+        "photo_22_2025-05-30_23-01-12.jpg",
+        "photo_23_2025-05-30_23-01-12.jpg",
+        "photo_24_2025-05-30_23-01-12.jpg",
+        "photo_25_2025-05-30_23-01-12.jpg",
+        "photo_26_2025-05-30_23-01-12.jpg",
+        "photo_27_2025-05-30_23-01-12.jpg",
+        "photo_28_2025-05-30_23-01-12.jpg",
+        "photo_29_2025-05-30_23-01-12.jpg"
+      ];
+
+      // تحسين معرض الصور
+      document.getElementById('open-translation-gallery').onclick = function() {
+        if (document.getElementById('translation-gallery-modal-bg')) {
+          document.getElementById('translation-gallery-modal-bg').remove();
+        }
+        let modal = document.createElement('div');
+        modal.id = 'translation-gallery-modal-bg';
+        modal.innerHTML = `
+          <div id="translation-gallery-modal-box">
+            <button id="translation-gallery-modal-close" class="close-button">×</button>
+            <div class="translation-gallery-grid">
+              ${translationFilenames.map((name, idx) => `
+                <div class="translation-gallery-img-wrap">
+                  <img 
+                    class="translation-gallery-img lazy"
+                    src="placeholder.jpg"
+                    data-src="images/translation/${name}"
+                    data-big="images/translation/${name}"
+                    data-title="ترجمة رقم ${(idx + 1)}"
+                    alt="ترجمة رقم ${(idx + 1)}"
+                    loading="lazy"
+                  />
+                  <div class="translation-gallery-img-title">ترجمة رقم ${(idx + 1)}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(modal);
+        observer.observe(modal.querySelector('.translation-gallery-grid'));
+      };
+    }
+
+    // تشغيل التحسينات
+    optimizePerformance();
   </script>
 </body>
 </html>
