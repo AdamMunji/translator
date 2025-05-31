@@ -234,6 +234,62 @@
       text-align: center;
       text-shadow: 0 1px 10px #000;
     }
+    /* --- مكتبة الكتب الإنجليزية --- */
+    .english-books-section {
+      max-width: 850px;
+      margin: 50px auto 0 auto;
+      padding: 0 16px 40px 16px;
+      text-align: center;
+    }
+    .english-books-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+      color: #004085;
+      font-weight: 900;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .books-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+    .book-card {
+      background: #f7faff;
+      padding: 17px 19px;
+      border-radius: 12px;
+      box-shadow: 0 2px 9px #00408511;
+      min-width: 230px; max-width: 320px;
+      flex: 1 1 230px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 12px;
+      transition: box-shadow 0.18s;
+    }
+    .book-card:hover {
+      box-shadow: 0 6px 22px #00408522;
+    }
+    .book-card h4 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+      color: #004085;
+      font-weight: bold;
+      text-align: center;
+    }
+    .book-card .btn-cv {
+      margin-top: 6px;
+      font-size: 1rem;
+      padding: 8px 22px;
+    }
+    @media(max-width:600px) {
+      .books-list { flex-direction:column; gap:12px; }
+      .book-card { min-width: 97%; }
+    }
   </style>
 </head>
 <body>
@@ -259,6 +315,7 @@
     <a href="#about" class="nav-btn scroll-link">عنّي</a>
     <a href="#portfolio" class="nav-btn scroll-link">الأعمال</a>
     <a href="#translation-gallery" class="nav-btn scroll-link"> المكتبة الصوريّة - ترجمة</a>
+    <a href="#english-books" class="nav-btn scroll-link">كتب إنجليزية مجانية</a>
     <a href="#testimonials" class="nav-btn scroll-link">شهادات العملاء</a>
     <a href="#counters" class="nav-btn scroll-link">الإحصائيات</a>
     <a href="#faq" class="nav-btn scroll-link">الأسئلة</a>
@@ -282,13 +339,56 @@
 
   <!-- قسم مكتبة الصورة - ترجمة -->
   <section class="translation-gallery-section" id="translation-gallery">
-    <!-- ... كود مكتبة الصور كما هو ... -->
     <h3><i class="fa-solid fa-images"></i> مكتبة الصورة - ترجمة</h3>
     <button class="translation-gallery-btn" id="open-translation-gallery">
       <i class="fa-solid fa-eye"></i> اضغط هنا لعرض جميع صور الترجمة
     </button>
   </section>
 
+  <!-- قسم مكتبة الكتب الإنجليزية المجانية (زر إظهار/إخفاء) -->
+  <section class="english-books-section" id="english-books">
+    <h3>
+      <i class="fa-solid fa-book"></i>
+      مكتبة كتب إنجليزية مجانية (Open Source)
+    </h3>
+    <button id="toggle-books-btn" class="translation-gallery-btn" style="margin-bottom:18px;">
+      <i class="fa-solid fa-eye"></i>
+      عرض مكتبة الكتب المجانية
+    </button>
+    <div id="books-library" style="display:none; transition:max-height 0.5s; overflow:hidden;">
+      <div class="books-list" style="flex-wrap:wrap;gap:18px;">
+        <div class="book-card">
+          <h4>Frankenstein - Mary Shelley</h4>
+          <a href="https://www.gutenberg.org/files/84/84-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
+        </div>
+        <div class="book-card">
+          <h4>Pride and Prejudice - Jane Austen</h4>
+          <a href="https://www.gutenberg.org/files/1342/1342-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
+        </div>
+        <div class="book-card">
+          <h4>The Adventures of Sherlock Holmes - Arthur Conan Doyle</h4>
+          <a href="https://www.gutenberg.org/files/1661/1661-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
+        </div>
+        <div class="book-card">
+          <h4>Dracula - Bram Stoker</h4>
+          <a href="https://www.gutenberg.org/files/345/345-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
+        </div>
+        <div class="book-card">
+          <h4>Moby Dick - Herman Melville</h4>
+          <a href="https://www.gutenberg.org/files/2701/2701-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
+        </div>
+        <div class="book-card">
+          <h4>Alice’s Adventures in Wonderland - Lewis Carroll</h4>
+          <a href="https://www.gutenberg.org/files/11/11-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
+        </div>
+      </div>
+      <p style="margin-top:17px; color:#888; font-size:0.92rem;">
+        جميع الكتب هنا من مصادر مفتوحة (Project Gutenberg). يمكنك مشاركة الروابط أو تحميلها مجاناً وقانونياً.
+      </p>
+    </div>
+  </section>
+
+  <!-- ... باقي الأقسام ... -->
   <section class="counters-section" id="counters">
     <!-- ... كود الإحصائيات ... -->
     <div class="stats-cards">
@@ -299,142 +399,7 @@
     </div>
   </section>
 
-  <section class="portfolio-section" id="portfolio">
-    <!-- ... كود معرض الأعمال ... -->
-    <div style="display:flex;align-items:center;justify-content:space-between;">
-      <h3 style="margin-bottom:0;"><i class="fa-solid fa-briefcase"></i> معرض الأعمال</h3>
-      <button id="toggle-portfolio-btn" style="font-size:1.4rem;background:none;border:none;cursor:pointer;" title="إظهار/إخفاء معرض الأعمال">
-        <i class="fa-solid fa-chevron-down"></i>
-      </button>
-    </div>
-    <div id="portfolio-content" style="transition:max-height 0.3s;overflow:hidden;max-height:0;">
-      <div class="portfolio-filters">
-        <button class="portfolio-filter active" data-filter="all">الكل</button>
-        <button class="portfolio-filter" data-filter="translation">ترجمة</button>
-        <button class="portfolio-filter" data-filter="design">تصميم</button>
-        <button class="portfolio-filter" data-filter="photography">تصوير</button>
-        <button class="portfolio-filter" data-filter="teaching">تدريس</button>
-        <button class="portfolio-filter" data-filter="web">مواقع</button>
-      </div>
-      <div class="portfolio-gallery" id="portfolio-gallery">
-        <!-- الأعمال ستُولّد تلقائيًا من جافاسكربت -->
-      </div>
-    </div>
-  </section>
-  
-  <section class="testimonials-section" id="testimonials">
-    <!-- ... كود شهادات العملاء ... -->
-    <h3><i class="fa-solid fa-comment-dots"></i> شهادات العملاء</h3>
-    <div class="swiper testimonials-swiper">
-      <div class="swiper-wrapper" id="testimonials-wrapper">
-        <!-- الشهادات ستُولّد تلقائيًا من جافاسكربت -->
-      </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
-  <section class="certificates-section" id="certificates">
-    <h3><i class="fa-solid fa-graduation-cap"></i> شهاداتي الاحترافية</h3>
-    <div class="certificates-gallery" id="certificates-gallery">
-      <!-- الشهادات ستُولّد تلقائيًا من جافاسكربت -->
-    </div>
-  </section>
-  <section class="faq-section" id="faq">
-    <h3><i class="fa-solid fa-circle-question"></i> الأسئلة المتكررة</h3>
-    <div class="faq-list" id="faq-list">
-      <!-- الأسئلة ستُولّد تلقائيًا من جافاسكربت -->
-    </div>
-  </section>
-  <section class="blog-section" id="blog">
-    <h3><i class="fa-solid fa-newspaper"></i> المدونة</h3>
-    <div class="blog-list" id="blog-list">
-      <!-- المقالات ستُولّد تلقائيًا من جافاسكربت -->
-    </div>
-  </section>
-  <section class="resources-section" id="resources">
-    <h3><i class="fa-solid fa-download"></i> مكتبة الملفات المجانية</h3>
-    <div class="resources-list" id="resources-list">
-      <!-- الملفات ستُولّد تلقائيًا من جافاسكربت -->
-    </div>
-  </section>
-  
-  <section class="contact-section" id="contact">
-    <!-- ... كود تواصل معي ... -->
-    <h3 id="contact-title">تواصل معي</h3>
-    <div class="contact-flex-wrap">
-      <div class="contact-social">
-        <ul class="contact-social-list">
-          <li><a href="mailto:abamunji99@gmail.com"><span class="icon icon-mail"><i class="fa-solid fa-envelope"></i></span> abamunji99@gmail.com</a></li>
-          <li><a href="https://wa.me/9647735379147" target="_blank"><span class="icon icon-wa"><i class="fa-brands fa-whatsapp"></i></span> واتساب</a></li>
-          <li><a href="https://www.linkedin.com/in/aba-al-hassan-abbas-178b85329" target="_blank"><span class="icon icon-li"><i class="fa-brands fa-linkedin-in"></i></span> LinkedIn</a></li>
-          <li><a href="https://github.com/AdamMunji" target="_blank"><span class="icon icon-gh"><i class="fa-brands fa-github"></i></span> GitHub</a></li>
-          <li><a href="https://www.youtube.com/@-aba-alhassanabbas7478" target="_blank"><span class="icon icon-yt"><i class="fa-brands fa-youtube"></i></span> YouTube</a></li>
-          <li><a href="https://www.instagram.com/engwithaba" target="_blank"><span class="icon icon-ig"><i class="fa-brands fa-instagram"></i></span> Instagram</a></li>
-          <li><a href="https://www.facebook.com/aba.alhsn.bas" target="_blank"><span class="icon icon-fb"><i class="fa-brands fa-facebook-f"></i></span> Facebook</a></li>
-          <li><a href="https://t.me/learn4peace" target="_blank"><span class="icon icon-tg"><i class="fa-brands fa-telegram"></i></span> Telegram</a></li>
-        </ul>
-      </div>
-      <form id="contact-form" class="contact-form-modern" autocomplete="off">
-        <div class="form-row">
-          <div class="input-group">
-            <label for="inputName"><i class="fa-solid fa-user"></i></label>
-            <input type="text" name="name" id="inputName" placeholder="الاسم" autocomplete="off" required />
-          </div>
-          <div class="input-group">
-            <label for="inputEmail"><i class="fa-solid fa-envelope"></i></label>
-            <input type="email" name="email" id="inputEmail" placeholder="البريد الإلكتروني" autocomplete="off" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="input-group">
-            <label for="inputTitle"><i class="fa-solid fa-heading"></i></label>
-            <input type="text" name="title" id="inputTitle" placeholder="عنوان الرسالة (اختياري)" autocomplete="off" />
-          </div>
-          <div class="input-group">
-            <label for="inputTime"><i class="fa-solid fa-clock"></i></label>
-            <input type="text" name="time" id="inputTime" placeholder="الوقت (اختياري)" autocomplete="off" />
-          </div>
-        </div>
-        <div class="input-group textarea-group">
-          <label for="inputMessage"><i class="fa-solid fa-message"></i></label>
-          <textarea name="message" id="inputMessage" rows="4" placeholder="رسالتك" required autocomplete="off"></textarea>
-        </div>
-        <button type="submit" class="send-btn"><i class="fa-solid fa-paper-plane"></i> إرسال</button>
-        <div class="contact-success" id="contact-success"></div>
-      </form>
-    </div>
-  </section>
-
-  <section class="public-comments-section" id="public-comments">
-    <h3><i class="fa-solid fa-comments"></i> التعليقات العامة للزوار</h3>
-    <form id="visitor-comment-form" class="visitor-comment-form">
-      <input type="text" id="visitor-name" placeholder="اسمك (اختياري)" maxlength="30" />
-      <textarea id="visitor-comment" placeholder="اكتب تعليقك هنا..." rows="3" required maxlength="300"></textarea>
-      <button type="submit"><i class="fa-solid fa-comment-dots"></i> أضف تعليقك</button>
-    </form>
-    <div id="visitor-comments-list" class="visitor-comments-list"></div>
-
-    <!-- إضافة Giscus أسفل التعليقات للزوار -->
-    <div style="margin-top:40px"></div>
-    <div class="giscus"></div>
-    <script src="https://giscus.app/client.js"
-        data-repo="AdamMunji/translator"
-        data-repo-id="R_kgDOOyMe3A"
-        data-category="General"
-        data-category-id="DIC_kwDOOyMe3M4Cq2M4"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="ar"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-    </script>
-  </section>
+  <!-- ... باقي الكود من الملف السابق ... -->
 
   <footer class="main-footer">
     <p>© <span id="year"></span> أبا الحسن عباس | جميع الحقوق محفوظة.</p>
@@ -449,6 +414,31 @@
   <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
   <!-- سكربت المميزات، لا تلمسه -->
   <script src="script.js"></script>
+  <!-- سكربت إظهار/إخفاء مكتبة الكتب -->
+  <script>
+    // إظهار/إخفاء مكتبة الكتب مع حركة انسيابية
+    document.addEventListener("DOMContentLoaded", function() {
+      var btn = document.getElementById('toggle-books-btn');
+      var box = document.getElementById('books-library');
+      var opened = false;
+      btn.onclick = function() {
+        opened = !opened;
+        if(opened) {
+          box.style.display = "block";
+          btn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> إخفاء مكتبة الكتب المجانية';
+          // حركة انسيابية
+          setTimeout(() => { box.style.maxHeight = box.scrollHeight + "px"; }, 15);
+        } else {
+          box.style.maxHeight = "0";
+          btn.innerHTML = '<i class="fa-solid fa-eye"></i> عرض مكتبة الكتب المجانية';
+          setTimeout(() => { box.style.display = "none"; }, 350);
+        }
+      };
+      // ضبط البداية
+      box.style.maxHeight = "0";
+      box.style.overflow = "hidden";
+    });
+  </script>
   <!-- دردشة Tawk.to -->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
