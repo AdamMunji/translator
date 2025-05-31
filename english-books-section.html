@@ -1,0 +1,303 @@
+<section class="english-books-section" id="english-books">
+  <h3>
+    <i class="fa-solid fa-book"></i>
+    مكتبة كتب إنجليزية مجانية (بحث + تحميل مباشر)
+  </h3>
+  <button id="toggle-books-btn" class="translation-gallery-btn" style="margin-bottom:18px;">
+    <i class="fa-solid fa-eye"></i>
+    عرض مكتبة الكتب المجانية
+  </button>
+  <!-- مربع البحث -->
+  <div id="book-search-area" style="display:none;margin-bottom:20px;">
+    <input type="text" id="book-search-input" placeholder="ابحث عن كتاب أو كلمة مفتاحية مثل: YouTube" style="padding:10px 15px;width:95%;max-width:350px;border:1px solid #bbb;border-radius:7px;font-family:inherit;font-size:1rem;direction:ltr;">
+  </div>
+  <div id="books-library" style="display:none; transition:max-height 0.5s; overflow:hidden;">
+    <div id="books-list-area">
+      <div class="books-list" id="books-list">
+        <!-- الكتب ستُولّد تلقائياً من الجافاسكربت -->
+      </div>
+      <div id="book-pagination" style="margin:24px auto 0 auto;display:flex;justify-content:center;gap:7px;flex-wrap:wrap;"></div>
+    </div>
+    <p style="margin-top:17px; color:#888; font-size:0.92rem;">
+      جميع الكتب هنا من مصادر مفتوحة (Project Gutenberg, Standard Ebooks, Internet Archive). يمكنك مشاركة الروابط أو تحميلها مجاناً وقانونياً.
+    </p>
+  </div>
+</section>
+
+<style>
+  .english-books-section {
+    max-width: 850px;
+    margin: 50px auto 0 auto;
+    padding: 0 16px 40px 16px;
+    text-align: center;
+  }
+  .english-books-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+    color: #004085;
+    font-weight: 900;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .books-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+  }
+  .book-card {
+    background: #f7faff;
+    padding: 17px 19px;
+    border-radius: 12px;
+    box-shadow: 0 2px 9px #00408511;
+    min-width: 230px; max-width: 320px;
+    flex: 1 1 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 12px;
+    transition: box-shadow 0.18s;
+  }
+  .book-card:hover {
+    box-shadow: 0 6px 22px #00408522;
+  }
+  .book-card h4 {
+    font-size: 1.08rem;
+    margin-bottom: 8px;
+    color: #004085;
+    font-weight: bold;
+    text-align: center;
+    min-height: 44px;
+  }
+  .book-card small {
+    font-size: 0.93rem;
+    color: #888;
+    margin-bottom: 7px;
+    display: block;
+  }
+  .book-card .btn-cv {
+    margin-top: 6px;
+    font-size: 1rem;
+    padding: 8px 22px;
+    background: #198754;
+    border-radius: 7px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s;
+    display: inline-block;
+  }
+  .book-card .btn-cv:hover {
+    background: #145c35;
+    text-decoration: none;
+    color: #fff;
+  }
+  .book-pagination-btn {
+    background: #f0f6fb;
+    border: 1px solid #bbb;
+    color: #004085;
+    font-size: 1.04rem;
+    font-family: inherit;
+    border-radius: 6px;
+    padding: 6px 15px;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: background 0.13s, color 0.13s;
+    min-width: 38px;
+  }
+  .book-pagination-btn.active,
+  .book-pagination-btn:hover {
+    background: #004085;
+    color: #fff;
+    border-color: #004085;
+  }
+  @media(max-width:600px) {
+    .books-list { flex-direction:column; gap:12px; }
+    .book-card { min-width: 97%; }
+  }
+</style>
+
+<script>
+  // قائمة كتب مفتوحة المصدر (يمكنك الإضافة بلا نهاية)
+  const allBooks = [
+    // --- أمثلة --- (أضف أي عدد تريد)
+    {
+      title: "Pride and Prejudice",
+      author: "Jane Austen",
+      keywords: "classic, love, society, youtube",
+      pdf: "https://www.gutenberg.org/ebooks/1342.pdf.utf-8"
+    },
+    {
+      title: "Frankenstein",
+      author: "Mary Shelley",
+      keywords: "science, horror, monster, classic",
+      pdf: "https://www.gutenberg.org/ebooks/84.pdf.utf-8"
+    },
+    {
+      title: "The Adventures of Sherlock Holmes",
+      author: "Arthur Conan Doyle",
+      keywords: "detective, mystery, crime, sherlock",
+      pdf: "https://www.gutenberg.org/ebooks/1661.pdf.utf-8"
+    },
+    {
+      title: "Dracula",
+      author: "Bram Stoker",
+      keywords: "horror, vampire, classic",
+      pdf: "https://www.gutenberg.org/ebooks/345.pdf.utf-8"
+    },
+    {
+      title: "Moby Dick",
+      author: "Herman Melville",
+      keywords: "sea, whale, adventure, classic",
+      pdf: "https://www.gutenberg.org/ebooks/2701.pdf.utf-8"
+    },
+    {
+      title: "Alice’s Adventures in Wonderland",
+      author: "Lewis Carroll",
+      keywords: "fantasy, children, adventure, rabbit",
+      pdf: "https://www.gutenberg.org/ebooks/11.pdf.utf-8"
+    },
+    {
+      title: "Jane Eyre",
+      author: "Charlotte Brontë",
+      keywords: "romance, classic, orphan",
+      pdf: "https://www.gutenberg.org/ebooks/1260.pdf.utf-8"
+    },
+    {
+      title: "Great Expectations",
+      author: "Charles Dickens",
+      keywords: "classic, coming of age, orphan",
+      pdf: "https://www.gutenberg.org/ebooks/1400.pdf.utf-8"
+    },
+    {
+      title: "Around the World in 80 Days",
+      author: "Jules Verne",
+      keywords: "adventure, travel, classic, world",
+      pdf: "https://www.gutenberg.org/ebooks/103.pdf.utf-8"
+    },
+    {
+      title: "The Art of War",
+      author: "Sun Tzu",
+      keywords: "strategy, military, ancient, philosophy",
+      pdf: "https://www.gutenberg.org/ebooks/132.pdf.utf-8"
+    },
+    {
+      title: "The Picture of Dorian Gray",
+      author: "Oscar Wilde",
+      keywords: "philosophy, classic, art",
+      pdf: "https://www.gutenberg.org/ebooks/174.pdf.utf-8"
+    },
+    {
+      title: "YouTube: An Insider's Guide to Climbing the Charts",
+      author: "Alan Lastufka, Michael W. Dean",
+      keywords: "youtube, video, media, guide",
+      pdf: "https://archive.org/download/YouTubeAnInsidersGuideToClimbingTheCharts/YouTube%20-%20An%20Insiders%20Guide%20to%20Climbing%20the%20Charts.pdf"
+    },
+    // --- أضف المزيد بلا حدود ---
+  ];
+
+  // ====== PAGINATION & RENDER ======
+  const PAGE_SIZE = 20; // كل حقل فيه 20 كتاب
+
+  let filteredBooks = allBooks.slice();
+  let currentPage = 1;
+  let totalPages = 1;
+
+  function renderBooks(books, page = 1) {
+    const booksListDiv = document.getElementById('books-list');
+    booksListDiv.innerHTML = "";
+    totalPages = Math.ceil(books.length / PAGE_SIZE);
+    currentPage = Math.max(1, Math.min(page, totalPages));
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const end = start + PAGE_SIZE;
+    const booksToShow = books.slice(start, end);
+
+    if (booksToShow.length === 0) {
+      booksListDiv.innerHTML = "<div style='color:#b00;margin:24px;'>لم يتم العثور على كتب بهذه الكلمات.</div>";
+      document.getElementById('book-pagination').innerHTML = "";
+      return;
+    }
+    booksToShow.forEach((book, idx) => {
+      booksListDiv.innerHTML += `
+        <div class="book-card">
+          <h4>${start + idx + 1}. ${book.title}</h4>
+          <small>by ${book.author}${book.keywords ? " | <span style='color:#0059b3'>" + book.keywords.split(",")[0] + "</span>" : ""}</small>
+          <a href="${book.pdf}" target="_blank" class="btn-cv" download>تحميل PDF</a>
+        </div>
+      `;
+    });
+    renderPagination(books, page);
+  }
+
+  function renderPagination(books, page) {
+    const paginationDiv = document.getElementById('book-pagination');
+    paginationDiv.innerHTML = "";
+    const nPages = Math.ceil(books.length / PAGE_SIZE);
+    if (nPages <= 1) return;
+    for (let i = 1; i <= nPages; i++) {
+      const btn = document.createElement('button');
+      btn.className = "book-pagination-btn" + (i === page ? " active" : "");
+      btn.innerText = i;
+      btn.onclick = function() {
+        renderBooks(filteredBooks, i);
+        // scroll to books section for usability
+        document.getElementById('english-books').scrollIntoView({behavior:"smooth"});
+      };
+      paginationDiv.appendChild(btn);
+    }
+  }
+
+  // زر إظهار/إخفاء مكتبة الكتب + مربع البحث
+  document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.getElementById('toggle-books-btn');
+    const box = document.getElementById('books-library');
+    const searchArea = document.getElementById('book-search-area');
+    const searchInput = document.getElementById('book-search-input');
+    let opened = false;
+    btn.onclick = function() {
+      opened = !opened;
+      if(opened) {
+        box.style.display = "block";
+        searchArea.style.display = "block";
+        btn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> إخفاء مكتبة الكتب المجانية';
+        setTimeout(() => { box.style.maxHeight = box.scrollHeight + "px"; }, 15);
+        filteredBooks = allBooks.slice();
+        renderBooks(filteredBooks, 1);
+      } else {
+        box.style.maxHeight = "0";
+        searchArea.style.display = "none";
+        btn.innerHTML = '<i class="fa-solid fa-eye"></i> عرض مكتبة الكتب المجانية';
+        setTimeout(() => { box.style.display = "none"; }, 350);
+      }
+    };
+    box.style.maxHeight = "0";
+    box.style.overflow = "hidden";
+
+    // البحث الفوري
+    searchInput && searchInput.addEventListener("input", function() {
+      const val = searchInput.value.trim().toLowerCase();
+      filteredBooks = (val)
+        ? allBooks.filter(book =>
+          book.title.toLowerCase().includes(val) ||
+          book.author.toLowerCase().includes(val) ||
+          (book.keywords && book.keywords.toLowerCase().includes(val))
+        )
+        : allBooks.slice();
+      renderBooks(filteredBooks, 1);
+    });
+  });
+
+  // =========== طريقة ربط الملف مع اندكس في المستودع ===========
+  // ضع ملف الكتب مثلا باسم english-books-section.html أو books.html في مجلد المستودع (repo)
+  // ثم في index.html أضف هذا السطر في المكان المطلوب:
+  // <div id="books-section-container"></div>
+  // <script>
+  // fetch('english-books-section.html').then(r=>r.text()).then(html=>{document.getElementById('books-section-container').innerHTML = html;});
+  // </script>
+  // الآن يتم ربط القسم ديناميكياً، وأي تحديث للملف يظهر تلقائياً في الصفحة.
+</script>
