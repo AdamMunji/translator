@@ -167,6 +167,27 @@ document.addEventListener('DOMContentLoaded', () => {
       renderPortfolio(this.dataset.filter);
     });
   });
+
+  // ========== زر إظهار/إخفاء معرض الأعمال ==========
+  const btn = document.getElementById('toggle-portfolio-btn');
+  const content = document.getElementById('portfolio-content');
+  let opened = false; // مغلق افتراضياً
+
+  // اخفاء المعرض عند التحميل
+  if(content) {
+    content.style.maxHeight = "0";
+    btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+    btn.onclick = function() {
+      opened = !opened;
+      if (opened) {
+        content.style.maxHeight = content.scrollHeight + "px";
+        btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+      } else {
+        content.style.maxHeight = "0";
+        btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+      }
+    };
+  }
 });
 
 // ========== مكتبة صور الترجمة ==========
