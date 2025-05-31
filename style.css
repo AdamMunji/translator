@@ -129,22 +129,39 @@ body {
   flex-wrap: wrap;
 }
 .stat-card {
-  background: #fff2;
+  background: #e8f0fe;
   border-radius: 13px;
   padding: 13px 18px;
-  color: #fff;
+  color: #004085;
   min-width: 90px;
   box-shadow: 0 2px 10px #0001;
   font-size: 1.1rem;
   text-align: center;
+  transition: background 0.2s, color 0.2s;
 }
 .stat-card i {
   font-size: 1.3rem;
   margin-bottom: 7px;
   display: block;
+  color: #0d6efd;
+  transition: color 0.2s;
 }
-.stat-card span { font-size: 1.4rem; font-weight: bold; display: block;}
-.stat-card small { font-size: 0.9rem; color: #daf0ff; }
+.stat-card span { font-size: 1.4rem; font-weight: bold; display: block; color: #0d6efd; transition: color 0.2s;}
+.stat-card small { font-size: 0.9rem; color: #5b82b8; transition: color 0.2s;}
+
+body.dark-mode .stat-card {
+  background: #1e293b;
+  color: #e2eaf6;
+}
+body.dark-mode .stat-card i {
+  color: #60a5fa;
+}
+body.dark-mode .stat-card span {
+  color: #60a5fa;
+}
+body.dark-mode .stat-card small {
+  color: #b6c5e3;
+}
 
 section {
   max-width: 900px;
