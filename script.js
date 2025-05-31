@@ -89,6 +89,133 @@ const translationFilenames = [
   "photo_29_2025-05-30_23-01-12.jpg"
 ];
 
+// ========== مكتبة الكتب الإنجليزية ==========
+const allBooks = [
+  { title: "Pride and Prejudice", author: "Jane Austen", pdf: "https://www.gutenberg.org/files/1342/1342-pdf.pdf" },
+  { title: "Frankenstein", author: "Mary Shelley", pdf: "https://www.gutenberg.org/files/84/84-pdf.pdf" },
+  { title: "Dracula", author: "Bram Stoker", pdf: "https://www.gutenberg.org/files/345/345-pdf.pdf" },
+  { title: "The Adventures of Sherlock Holmes", author: "Arthur Conan Doyle", pdf: "https://www.gutenberg.org/files/1661/1661-pdf.pdf" },
+  { title: "Alice’s Adventures in Wonderland", author: "Lewis Carroll", pdf: "https://www.gutenberg.org/files/11/11-pdf.pdf" },
+  { title: "Moby Dick", author: "Herman Melville", pdf: "https://www.gutenberg.org/files/2701/2701-pdf.pdf" },
+  { title: "The Picture of Dorian Gray", author: "Oscar Wilde", pdf: "https://www.gutenberg.org/files/174/174-pdf.pdf" },
+  { title: "Great Expectations", author: "Charles Dickens", pdf: "https://www.gutenberg.org/files/1400/1400-pdf.pdf" },
+  { title: "A Tale of Two Cities", author: "Charles Dickens", pdf: "https://www.gutenberg.org/files/98/98-pdf.pdf" },
+  { title: "Emma", author: "Jane Austen", pdf: "https://www.gutenberg.org/files/158/158-pdf.pdf" },
+  { title: "The Time Machine", author: "H. G. Wells", pdf: "https://www.gutenberg.org/files/35/35-pdf.pdf" },
+  { title: "The Call of the Wild", author: "Jack London", pdf: "https://www.gutenberg.org/files/215/215-pdf.pdf" },
+  { title: "The Jungle Book", author: "Rudyard Kipling", pdf: "https://www.gutenberg.org/files/236/236-pdf.pdf" },
+  { title: "The War of the Worlds", author: "H. G. Wells", pdf: "https://www.gutenberg.org/files/36/36-pdf.pdf" },
+  { title: "Ulysses", author: "James Joyce", pdf: "https://www.gutenberg.org/files/4300/4300-pdf.pdf" },
+  { title: "Walden", author: "Henry David Thoreau", pdf: "https://www.gutenberg.org/files/205/205-pdf.pdf" },
+  { title: "Utopia", author: "Thomas More", pdf: "https://www.gutenberg.org/files/2130/2130-pdf.pdf" },
+  { title: "The Prince", author: "Niccolò Machiavelli", pdf: "https://www.gutenberg.org/files/1232/1232-pdf.pdf" },
+  { title: "Siddhartha", author: "Hermann Hesse", pdf: "https://www.gutenberg.org/files/2500/2500-pdf.pdf" },
+  { title: "Heart of Darkness", author: "Joseph Conrad", pdf: "https://www.gutenberg.org/files/526/526-pdf.pdf" }
+];
+// تكرار نفس الكتب حتى 500 كتاب مع اسم واضح لكل كتاب
+const totalBooksDesired = 500;
+const baseBooks = allBooks.length;
+for(let i=baseBooks+1; i<=totalBooksDesired; i++) {
+  let baseBook = allBooks[(i-1) % baseBooks];
+  allBooks.push({
+    title: baseBook.title + " (نسخة رقم " + Math.ceil(i/baseBooks) + ")", 
+    author: baseBook.author,
+    pdf: baseBook.pdf
+  });
+}
+
+const PAGE_SIZE = 20;
+let filteredBooks = allBooks.slice();
+let currentPage = 1;
+let totalPages = 1;
+
+function renderBooks(books, page = 1) {
+  const booksListDiv = document.getElementById('books-list');
+  if (!booksListDiv) return;
+  booksListDiv.innerHTML = "";
+  totalPages = Math.ceil(books.length / PAGE_SIZE);
+  currentPage = Math.max(1, Math.min(page, totalPages));
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+  const booksToShow = books.slice(start, end);
+
+  if (booksToShow.length === 0) {
+    booksListDiv.innerHTML = "<div style='color:#b00;margin:24px;'>لم يتم العثور على كتب بهذه الكلمات.</div>";
+    const paginationDiv = document.getElementById('book-pagination');
+    if (paginationDiv) paginationDiv.innerHTML = "";
+    return;
+  }
+  booksToShow.forEach((book, idx) => {
+    booksListDiv.innerHTML += `
+      <div class="book-card">
+        <h4>${start + idx + 1}. ${book.title}</h4>
+        <small>by ${book.author}</small>
+        <a href="${book.pdf}" target="_blank" class="btn-cv" download>تحميل PDF</a>
+      </div>
+    `;
+  });
+  renderPagination(books, page);
+}
+
+function renderPagination(books, page) {
+  const paginationDiv = document.getElementById('book-pagination');
+  if (!paginationDiv) return;
+  paginationDiv.innerHTML = "";
+  const nPages = Math.ceil(books.length / PAGE_SIZE);
+  if (nPages <= 1) return;
+  for (let i = 1; i <= nPages; i++) {
+    const btn = document.createElement('button');
+    btn.className = "book-pagination-btn" + (i === page ? " active" : "");
+    btn.innerText = i;
+    btn.onclick = function() {
+      renderBooks(filteredBooks, i);
+      document.getElementById('english-books').scrollIntoView({behavior:"smooth"});
+    };
+    paginationDiv.appendChild(btn);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  // زر إظهار/إخفاء مكتبة الكتب
+  const btn = document.getElementById('toggle-books-btn');
+  const box = document.getElementById('books-library');
+  const searchArea = document.getElementById('book-search-area');
+  const searchInput = document.getElementById('book-search-input');
+  let opened = false;
+  if (btn && box && searchArea) {
+    btn.onclick = function() {
+      opened = !opened;
+      if(opened) {
+        box.style.display = "block";
+        searchArea.style.display = "block";
+        btn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> إخفاء مكتبة الكتب المجانية';
+        setTimeout(() => { box.style.maxHeight = box.scrollHeight + "px"; }, 15);
+        filteredBooks = allBooks.slice();
+        renderBooks(filteredBooks, 1);
+      } else {
+        box.style.maxHeight = "0";
+        searchArea.style.display = "none";
+        btn.innerHTML = '<i class="fa-solid fa-eye"></i> عرض مكتبة الكتب المجانية';
+        setTimeout(() => { box.style.display = "none"; }, 350);
+      }
+    };
+    box.style.maxHeight = "0";
+    box.style.overflow = "hidden";
+  }
+  if (searchInput) {
+    searchInput.addEventListener("input", function() {
+      const val = searchInput.value.trim().toLowerCase();
+      filteredBooks = (val)
+        ? allBooks.filter(book =>
+          book.title.toLowerCase().includes(val) ||
+          book.author.toLowerCase().includes(val)
+        )
+        : allBooks.slice();
+      renderBooks(filteredBooks, 1);
+    });
+  }
+});
+
 // ========== معرض الأعمال ==========
 const portfolioList = [
   {
