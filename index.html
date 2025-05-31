@@ -294,26 +294,26 @@
   </section>
 
   <section class="portfolio-section" id="portfolio">
-  <div style="display:flex;align-items:center;justify-content:space-between;">
-    <h3 style="margin-bottom:0;"><i class="fa-solid fa-briefcase"></i> معرض الأعمال</h3>
-    <button id="toggle-portfolio-btn" style="font-size:1.4rem;background:none;border:none;cursor:pointer;" title="إظهار/إخفاء معرض الأعمال">
-      <i class="fa-solid fa-chevron-down"></i>
-    </button>
-  </div>
-  <div id="portfolio-content" style="transition:max-height 0.3s;overflow:hidden;">
-    <div class="portfolio-filters">
-      <button class="portfolio-filter active" data-filter="all">الكل</button>
-      <button class="portfolio-filter" data-filter="translation">ترجمة</button>
-      <button class="portfolio-filter" data-filter="design">تصميم</button>
-      <button class="portfolio-filter" data-filter="photography">تصوير</button>
-      <button class="portfolio-filter" data-filter="teaching">تدريس</button>
-      <button class="portfolio-filter" data-filter="web">مواقع</button>
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <h3 style="margin-bottom:0;"><i class="fa-solid fa-briefcase"></i> معرض الأعمال</h3>
+      <button id="toggle-portfolio-btn" style="font-size:1.4rem;background:none;border:none;cursor:pointer;" title="إظهار/إخفاء معرض الأعمال">
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
     </div>
-    <div class="portfolio-gallery" id="portfolio-gallery">
-      <!-- الأعمال ستُولّد تلقائيًا من جافاسكربت -->
+    <div id="portfolio-content" style="transition:max-height 0.3s;overflow:hidden;max-height:0;">
+      <div class="portfolio-filters">
+        <button class="portfolio-filter active" data-filter="all">الكل</button>
+        <button class="portfolio-filter" data-filter="translation">ترجمة</button>
+        <button class="portfolio-filter" data-filter="design">تصميم</button>
+        <button class="portfolio-filter" data-filter="photography">تصوير</button>
+        <button class="portfolio-filter" data-filter="teaching">تدريس</button>
+        <button class="portfolio-filter" data-filter="web">مواقع</button>
+      </div>
+      <div class="portfolio-gallery" id="portfolio-gallery">
+        <!-- الأعمال ستُولّد تلقائيًا من جافاسكربت -->
+      </div>
     </div>
-  </div>
-</section>
+  </section>
   
   <section class="testimonials-section" id="testimonials">
     <h3><i class="fa-solid fa-comment-dots"></i> شهادات العملاء</h3>
@@ -560,6 +560,28 @@
         if (e.target === m) m.remove();
       }
     }
+
+    // ========== زر إظهار/إخفاء معرض الأعمال ==========
+    document.addEventListener('DOMContentLoaded', function() {
+      const btn = document.getElementById('toggle-portfolio-btn');
+      const content = document.getElementById('portfolio-content');
+      let opened = false; // مغلق افتراضياً
+
+      // اجعل المحتوى مخفي عند التحميل
+      content.style.maxHeight = "0";
+      btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+
+      btn.onclick = function() {
+        opened = !opened;
+        if (opened) {
+          content.style.maxHeight = content.scrollHeight + "px";
+          btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+        } else {
+          content.style.maxHeight = "0";
+          btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+        }
+      };
+    });
   </script>
 </body>
 </html>
