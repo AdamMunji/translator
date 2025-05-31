@@ -345,48 +345,27 @@
     </button>
   </section>
 
-  <!-- قسم مكتبة الكتب الإنجليزية المجانية (زر إظهار/إخفاء) -->
-  <section class="english-books-section" id="english-books">
-    <h3>
-      <i class="fa-solid fa-book"></i>
-      مكتبة كتب إنجليزية مجانية (Open Source)
-    </h3>
-    <button id="toggle-books-btn" class="translation-gallery-btn" style="margin-bottom:18px;">
-      <i class="fa-solid fa-eye"></i>
-      عرض مكتبة الكتب المجانية
-    </button>
-    <div id="books-library" style="display:none; transition:max-height 0.5s; overflow:hidden;">
-      <div class="books-list" style="flex-wrap:wrap;gap:18px;">
-        <div class="book-card">
-          <h4>Frankenstein - Mary Shelley</h4>
-          <a href="https://www.gutenberg.org/files/84/84-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
-        </div>
-        <div class="book-card">
-          <h4>Pride and Prejudice - Jane Austen</h4>
-          <a href="https://www.gutenberg.org/files/1342/1342-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
-        </div>
-        <div class="book-card">
-          <h4>The Adventures of Sherlock Holmes - Arthur Conan Doyle</h4>
-          <a href="https://www.gutenberg.org/files/1661/1661-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
-        </div>
-        <div class="book-card">
-          <h4>Dracula - Bram Stoker</h4>
-          <a href="https://www.gutenberg.org/files/345/345-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
-        </div>
-        <div class="book-card">
-          <h4>Moby Dick - Herman Melville</h4>
-          <a href="https://www.gutenberg.org/files/2701/2701-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
-        </div>
-        <div class="book-card">
-          <h4>Alice’s Adventures in Wonderland - Lewis Carroll</h4>
-          <a href="https://www.gutenberg.org/files/11/11-pdf.pdf" target="_blank" class="btn-cv">تحميل PDF</a>
-        </div>
-      </div>
-      <p style="margin-top:17px; color:#888; font-size:0.92rem;">
-        جميع الكتب هنا من مصادر مفتوحة (Project Gutenberg). يمكنك مشاركة الروابط أو تحميلها مجاناً وقانونياً.
-      </p>
-    </div>
-  </section>
+  <!-- قسم مكتبة الكتب الإنجليزية المجانية (يتم جلبه من ملف منفصل) -->
+  <div id="books-section-container"></div>
+  <script>
+    // جلب القسم ديناميكيًا من english-books-section.html
+    fetch('english-books-section.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('books-section-container').innerHTML = html;
+        // تفعيل السكربت بعد الإدراج
+        const scriptBlocks = document.getElementById('books-section-container').querySelectorAll('script');
+        scriptBlocks.forEach(oldScript => {
+          const newScript = document.createElement('script');
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+          } else {
+            newScript.textContent = oldScript.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
+      });
+  </script>
 
   <!-- ... باقي الأقسام ... -->
   <section class="counters-section" id="counters">
@@ -414,31 +393,6 @@
   <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
   <!-- سكربت المميزات، لا تلمسه -->
   <script src="script.js"></script>
-  <!-- سكربت إظهار/إخفاء مكتبة الكتب -->
-  <script>
-    // إظهار/إخفاء مكتبة الكتب مع حركة انسيابية
-    document.addEventListener("DOMContentLoaded", function() {
-      var btn = document.getElementById('toggle-books-btn');
-      var box = document.getElementById('books-library');
-      var opened = false;
-      btn.onclick = function() {
-        opened = !opened;
-        if(opened) {
-          box.style.display = "block";
-          btn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> إخفاء مكتبة الكتب المجانية';
-          // حركة انسيابية
-          setTimeout(() => { box.style.maxHeight = box.scrollHeight + "px"; }, 15);
-        } else {
-          box.style.maxHeight = "0";
-          btn.innerHTML = '<i class="fa-solid fa-eye"></i> عرض مكتبة الكتب المجانية';
-          setTimeout(() => { box.style.display = "none"; }, 350);
-        }
-      };
-      // ضبط البداية
-      box.style.maxHeight = "0";
-      box.style.overflow = "hidden";
-    });
-  </script>
   <!-- دردشة Tawk.to -->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
