@@ -572,19 +572,6 @@ window.showCV = function() {
   }
 }
 
-// ========== إشعار نجاح عند فتح الصفحة ==========
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    Toastify({
-      text: "مرحباً بك في موقعي الشخصي! 🚀",
-      duration: 4200,
-      gravity: "top",
-      position: "right",
-      backgroundColor: "#004085"
-    }).showToast();
-  }, 1400);
-});
-
 // ========== Scroll to section smoothly ==========
 document.querySelectorAll('.scroll-link').forEach(link => {
   link.addEventListener('click', function(e){
