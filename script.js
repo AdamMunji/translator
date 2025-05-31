@@ -13,18 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ========== الوضع الليلي ==========
 const modeBtn = document.getElementById('toggle-mode');
-if (modeBtn) {
-  modeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    modeBtn.innerHTML = document.body.classList.contains('dark-mode') 
+function setDarkMode(active) {
+  document.body.classList.toggle('dark', active);
+  if (modeBtn) {
+    modeBtn.innerHTML = active
       ? '<i class="fa-solid fa-sun"></i>'
       : '<i class="fa-solid fa-moon"></i>';
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? '1' : '0');
-  });
-  if (localStorage.getItem('darkMode') === '1') {
-    document.body.classList.add('dark-mode');
-    modeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
   }
+  localStorage.setItem('darkMode', active ? '1' : '0');
+}
+if (modeBtn) {
+  modeBtn.addEventListener('click', () => {
+    setDarkMode(!document.body.classList.contains('dark'));
+  });
+  // تحميل الوضع الليلي من LocalStorage
+  setDarkMode(localStorage.getItem('darkMode') === '1');
 }
 
 // ========== عدادات متحركة ==========
@@ -124,8 +127,7 @@ const portfolioList = [
     link: "#"
   }
 ];
-
-// أضف كل صور الترجمة تلقائيًا لمعرض الأعمال
+// أضف صور الترجمة لمعرض الأعمال
 const translationWorks = translationFilenames.map((name, idx) => ({
   title: "ترجمة رقم " + (idx + 1),
   image: `translation/${name}`,
@@ -173,8 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const content = document.getElementById('portfolio-content');
   let opened = false; // مغلق افتراضياً
 
-  // اخفاء المعرض عند التحميل
-  if(content) {
+  if(content && btn) {
     content.style.maxHeight = "0";
     btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
     btn.onclick = function() {
@@ -335,12 +336,14 @@ function renderTestimonials() {
       </div>
     `;
   });
-  new Swiper('.testimonials-swiper', {
-    loop: true,
-    autoplay: { delay: 4500 },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    pagination: { el: '.swiper-pagination', clickable: true }
-  });
+  if(window.Swiper) {
+    new Swiper('.testimonials-swiper', {
+      loop: true,
+      autoplay: { delay: 4500 },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      pagination: { el: '.swiper-pagination', clickable: true }
+    });
+  }
 }
 document.addEventListener('DOMContentLoaded', renderTestimonials);
 
@@ -496,7 +499,11 @@ document.querySelectorAll('.share-btn').forEach(btn => {
       });
     } else {
       navigator.clipboard.writeText(window.location.href);
-      Toastify({ text: "تم نسخ رابط الصفحة!", duration: 2500, gravity: "top", position: "right", backgroundColor: "#004085" }).showToast();
+      if (window.Toastify) {
+        Toastify({ text: "تم نسخ رابط الصفحة!", duration: 2500, gravity: "top", position: "right", backgroundColor: "#004085" }).showToast();
+      } else {
+        alert("تم نسخ رابط الصفحة!");
+      }
     }
   });
 });
@@ -518,11 +525,13 @@ document.querySelectorAll('.qr-btn').forEach(btn => {
         </div>`;
       document.body.appendChild(modal);
       document.getElementById('close-qr').onclick = () => modal.remove();
-      const qr = new QRious({
-        element: document.getElementById('qr-canvas'),
-        value: window.location.href,
-        size: 180
-      });
+      if (window.QRious) {
+        const qr = new QRious({
+          element: document.getElementById('qr-canvas'),
+          value: window.location.href,
+          size: 180
+        });
+      }
     }
   });
 });
