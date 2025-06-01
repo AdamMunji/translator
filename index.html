@@ -234,6 +234,71 @@
       text-align: center;
       text-shadow: 0 1px 10px #000;
     }
+
+    /* ----------- أزرار زووم ومييت ----------- */
+    .meeting-links-box {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 32px auto 12px auto;
+      padding: 18px 0;
+      background: #f6f8fa;
+      border-radius: 18px;
+      max-width: 430px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .meeting-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17px;
+      font-weight: bold;
+      padding: 13px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+    }
+    .zoom-btn {
+      background: #2D8CFF;
+      color: #fff;
+    }
+    .zoom-btn:hover {
+      background: #1569c7;
+      transform: scale(1.05);
+    }
+    .meet-btn {
+      background: #00ac47;
+      color: #fff;
+    }
+    .meet-btn:hover {
+      background: #008037;
+      transform: scale(1.05);
+    }
+    .meeting-icon {
+      width: 26px;
+      height: 26px;
+      background: #fff;
+      border-radius: 4px;
+      object-fit: contain;
+    }
+    @media(max-width: 600px) {
+      .meeting-links-box {
+        flex-direction: column;
+        gap: 13px;
+        max-width: 96vw;
+      }
+      .meeting-btn {
+        font-size: 15.7px;
+        padding: 11px 12px;
+        justify-content: center;
+      }
+      .meeting-icon {
+        width: 22px;
+        height: 22px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -279,6 +344,19 @@
     <button class="btn-cv" onclick="showCV()"><i class="fa-solid fa-eye"></i> عرض السيرة الذاتية</button>
     <button class="intro-video-btn" onclick="showIntroVideo()"><i class="fa-solid fa-play"></i> فيديو تعريفي</button>
   </header>
+
+  <!-- أزرار زووم وGoogle Meet في مكان مميز -->
+  <div class="meeting-links-box">
+    <a href="https://zoom.us/j/your_zoom_meeting_id" target="_blank" class="meeting-btn zoom-btn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" class="meeting-icon">
+      دخول عبر Zoom
+    </a>
+    <a href="https://meet.google.com/your_meet_id" target="_blank" class="meeting-btn meet-btn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_Meet_logo.png" alt="Meet" class="meeting-icon">
+      دخول عبر Google Meet
+    </a>
+  </div>
+  <!-- نهاية أزرار الاجتماعات -->
 
   <!-- قسم مكتبة الصورة - ترجمة -->
   <section class="translation-gallery-section" id="translation-gallery">
