@@ -783,4 +783,26 @@ document.querySelectorAll('.scroll-link').forEach(link => {
       }
     }
   });
+
+// ========== أزرار نسخ أرقام الدعم الذهبي ==========
+document.querySelectorAll('.support-gold-copy-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var numberElem = btn.closest('.support-gold-card').querySelector('.support-gold-number');
+    var number = numberElem ? numberElem.textContent.trim() : '';
+    if (number) {
+      navigator.clipboard.writeText(number).then(function() {
+        btn.textContent = '✔ تم النسخ!';
+        setTimeout(function() {
+          btn.textContent = 'نسخ';
+        }, 1200);
+      }, function() {
+        btn.textContent = 'حدث خطأ';
+        setTimeout(function() {
+          btn.textContent = 'نسخ';
+        }, 1200);
+      });
+    }
+  });
+});
+  
 });
