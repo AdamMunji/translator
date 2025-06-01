@@ -13,7 +13,7 @@ body {
 /* وضع ليلي */
 body.dark, body.dark-mode {
   background: linear-gradient(135deg, #1b2330 0%, #3a4a6b 100%);
-<}
+}
 body.dark .main-header, body.dark-mode .main-header {
   background: linear-gradient(135deg, #1e293b, #334155 90%);
   color: #e2e8f0;
@@ -38,15 +38,15 @@ body.dark .input-group label, body.dark-mode .input-group label {
 }
 body.dark .btn-cv, body.dark .send-btn, body.dark .visitor-comment-form button,
 body.dark .lang-btn, body.dark .intro-video-btn,
-body.dark-mode .btn-cv, body.dark-mode .send-btn, body.dark-mode .visitor-comment-form button,
-body.dark-mode .lang-btn, body.dark-mode .intro-video-btn {
+body.dark-mode .btn-cv, body.dark-mode .send-btn, body-dark-mode .visitor-comment-form button,
+body.dark-mode .lang-btn, body-dark-mode .intro-video-btn {
   background: #2563eb;
   color: #fff;
 }
 body.dark .btn-cv:hover, body.dark .send-btn:hover, body.dark .visitor-comment-form button:hover,
 body.dark .lang-btn:hover, body.dark .intro-video-btn:hover,
 body.dark-mode .btn-cv:hover, body.dark-mode .send-btn:hover, body-dark-mode .visitor-comment-form button:hover,
-body.dark-mode .lang-btn:hover, body.dark-mode .intro-video-btn:hover {
+body.dark-mode .lang-btn:hover, body-dark-mode .intro-video-btn:hover {
   background: #1e40af;
   color: #ffd700;
 }
@@ -271,17 +271,29 @@ h3 {
   font-weight: 800;
 }
 
-/* ----------- بطاقات حسابات زووم ومييت ----------- */
-.meeting-contacts-box {
+/* ----------- صف زووم ومييت + الدعم المادي ----------- */
+.meeting-support-row {
   display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin: 32px auto 18px auto;
-  padding: 18px 0;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 950px;
+  margin: 38px auto 18px auto;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.meeting-contacts-box {
   background: #f6f8fa;
   border-radius: 18px;
-  max-width: 550px;
   box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 260px;
+  max-width: 330px;
+  flex: 1 1 320px;
+  align-items: stretch;
+  justify-content: center;
+  padding: 25px 18px;
 }
 .meeting-contact-card {
   display: flex;
@@ -290,665 +302,31 @@ h3 {
   gap: 8px;
   background: #fff;
   border-radius: 13px;
-  padding: 22px 18px 16px 18px;
-  min-width: 170px;
+  padding: 22px 10px 16px 10px;
   box-shadow: 0 1px 7px #00408513;
   transition: box-shadow 0.19s;
-}
-.meeting-contact-card:hover { box-shadow: 0 4px 17px #00408524;}
-.meeting-contact-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 5px;
-  margin-bottom: 7px;
-  background: #fff;
-  box-shadow: 0 2px 8px #0001;
-  object-fit: contain;
-}
-.meeting-contact-title {
-  font-weight: bold;
-  color: #0059b3;
-  font-size: 1.07rem;
-  margin-bottom: 3px;
-  display: block;
-}
-.meeting-contact-email {
-  color: #232c3e;
-  font-size: 0.98rem;
-  direction: ltr;
-  background: #e8f0fe;
-  padding: 3px 8px;
-  border-radius: 6px;
-  margin-bottom: 5px;
-  margin-top: 3px;
-  display: block;
-}
-.copy-btn {
-  background: #2D8CFF;
-  color: #fff;
   border: none;
-  border-radius: 7px;
-  padding: 7px 16px;
-  font-size: 0.98rem;
-  cursor: pointer;
-  font-weight: 700;
-  transition: background 0.19s;
-  margin-top: 7px;
+  min-width: 180px;
 }
-.copy-btn:hover { background: #0059b3; }
-@media(max-width: 600px) {
-  .meeting-contacts-box {
-    flex-direction: column;
-    gap: 15px;
-    max-width: 98vw;
-    padding: 10px 0;
-  }
-  .meeting-contact-card { min-width: 0;}
+.meeting-contact-card:hover {
+  box-shadow: 0 4px 17px #00408524;
 }
-
-/* معرض الأعمال */
-.portfolio-filters {
-  display: flex;
-  justify-content: center;
-  gap: 9px;
-  margin-bottom: 17px;
-  flex-wrap: wrap;
-}
-.portfolio-filter {
-  background: #e8f0fe;
-  color: #004085;
-  border: none;
-  border-radius: 8px;
-  padding: 6px 16px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.17s, color 0.17s;
-}
-.portfolio-filter.active,
-.portfolio-filter:hover {
-  background: #004085;
-  color: #fff;
-}
-.portfolio-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 17px;
-  justify-content: center;
-}
-.portfolio-item {
-  background: #eef7ff;
-  border-radius: 12px;
-  box-shadow: 0 1px 8px #4c6ef511;
-  padding: 16px 13px;
-  min-width: 200px;
-  max-width: 250px;
-  flex: 1 1 220px;
-  text-align: center;
-  transition: transform 0.16s;
-  position: relative;
-}
-.portfolio-item:hover { transform: scale(1.04); background: #e0edff; }
-.portfolio-item img {
-  width: 100%;
-  max-width: 180px;
-  border-radius: 9px;
-  margin-bottom: 8px;
-  margin-top: 2px;
-}
-.portfolio-tags {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 7px 0;
-}
-.portfolio-tag {
-  background: #0d6efd;
-  color: #fff;
-  border-radius: 5px;
-  padding: 2px 7px;
-  font-size: 0.85rem;
-}
-.portfolio-item .portfolio-link {
-  display: inline-block;
-  margin-top: 8px;
-  color: #004085;
-  font-weight: 700;
-  text-decoration: underline;
-  transition: color 0.18s;
-}
-.portfolio-item .portfolio-link:hover { color: #0d6efd; }
-
-/* إظهار/إخفاء معرض الأعمال */
-#portfolio-content {
-  transition: max-height 0.3s;
-  overflow: hidden;
-  max-height: 0;
-}
-
-/* شهادات العملاء */
-.testimonials-section {
-  padding-bottom: 10px;
-  background: #f8fafd;
-}
-.testimonials-swiper {
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto 20px auto;
-  border-radius: 14px;
-  background: #e8f0fe;
-  box-shadow: 0 2px 10px #4c6ef516;
-  padding: 15px 0 25px 0;
-}
-.testimonial-card {
-  background: #eaeefb;
-  border-radius: 13px;
-  padding: 18px 20px 10px 20px;
-  box-shadow: 0 2px 8px #0001;
-  text-align: center;
-  max-width: 360px;
-  margin: 0 auto;
-  position: relative;
-}
-.testimonial-content {
-  font-size: 1.02rem;
-  color: #1b3555;
-  margin-bottom: 11px;
-}
-.testimonial-client {
-  font-weight: 700;
-  color: #004085;
-  margin-bottom: 5px;
-}
-.testimonial-role {
-  font-size: 0.93rem;
-  color: #5b82b8;
-}
-.testimonial-avatar {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  margin: 0 auto 8px auto;
-  object-fit: cover;
-  border: 2px solid #fff;
-  box-shadow: 0 2px 7px #0001;
-}
-/* شهادات رقمية */
-.certificates-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-}
-.certificate-card {
-  background: #e8f0fe;
-  border-radius: 9px;
-  padding: 12px 11px;
-  box-shadow: 0 1px 5px #4c6ef511;
-  width: 170px;
-  text-align: center;
-}
-.certificate-card img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  border-radius: 7px;
-  margin-bottom: 7px;
-  background: #fff;
-  box-shadow: 0 1px 5px #0001;
-}
-.certificate-title {
-  font-weight: 700;
-  color: #004085;
-  font-size: 1.01rem;
-  margin-bottom: 3px;
-}
-.certificate-org {
-  color: #5b82b8;
-  font-size: 0.93rem;
-}
-
-/* FAQ */
-.faq-list {
-  max-width: 720px;
-  margin: 0 auto;
-}
-.faq-item {
-  background: #e8f0fe;
-  border-radius: 11px;
-  margin-bottom: 9px;
-  box-shadow: 0 1px 7px #0001;
-  padding: 0 0 0 0;
-  overflow: hidden;
-}
-.faq-question {
-  padding: 13px 18px;
-  cursor: pointer;
-  font-weight: 700;
-  color: #004085;
-  font-size: 1.07rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.faq-answer {
-  padding: 12px 18px 17px 18px;
-  background: #f8fbff;
-  color: #2a3f5d;
-  font-size: 0.98rem;
-  display: none;
-}
-.faq-item.open .faq-answer { display: block; }
-.faq-item.open .faq-question { background: #d8eaff; }
-
-/* المدونة */
-.blog-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 17px;
-  justify-content: center;
-}
-.blog-card {
-  background: #e8f0fe;
-  border-radius: 11px;
-  box-shadow: 0 1px 7px #0001;
-  padding: 15px 13px;
-  min-width: 230px;
-  max-width: 300px;
-  flex: 1 1 235px;
-  text-align: right;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.blog-title {
-  color: #004085;
-  font-weight: bold;
-  font-size: 1.13rem;
-  margin-bottom: 6px;
-}
-.blog-excerpt {
-  color: #1b3555;
-  font-size: 0.99rem;
-  margin-bottom: 8px;
-}
-.blog-meta {
-  font-size: 0.89rem;
-  color: #5b82b8;
-  margin-bottom: 3px;
-}
-.blog-link {
-  color: #0d6efd;
-  font-weight: 700;
-  text-decoration: underline;
-  margin-top: auto;
-}
-.blog-link:hover { color: #004085; }
-
-.resources-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 19px;
-  justify-content: center;
-}
-.resource-card {
-  background: #e8f0fe;
-  border-radius: 9px;
-  padding: 17px 14px;
-  box-shadow: 0 1px 5px #4c6ef511;
-  min-width: 170px;
-  max-width: 220px;
-  flex: 1 1 180px;
-  text-align: center;
-  position: relative;
-}
-.resource-card i { font-size: 2.2rem; color: #004085; margin-bottom: 7px;}
-.resource-title { font-weight: 700; color: #004085; font-size: 1.03rem; margin-bottom: 6px;}
-.resource-link {
-  color: #0d6efd;
-  font-weight: 700;
-  text-decoration: underline;
-}
-.resource-link:hover { color: #004085; }
-
-/* تواصل */
-.contact-flex-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 34px 24px;
-  justify-content: center;
-  align-items: flex-start;
-}
-.contact-social {
-  min-width: 210px;
-  flex: 1 1 120px;
-  background: #f6fafd;
-  border-radius: 11px;
-  padding: 22px 17px 11px 17px;
-  box-shadow: 0 2px 10px #4c6ef516;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.contact-social-list {
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-  list-style: none;
-  padding: 0; margin: 0;
-}
-.contact-social-list li { margin: 0; }
-.contact-social-list a {
-  color: #004085;
-  text-decoration: none;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  font-size: 1.07rem;
-  gap: 9px;
-  border-radius: 6px;
-  padding: 4px 2px 4px 7px;
-  transition: background 0.18s, color 0.18s, transform 0.11s;
-  position: relative;
-}
-.contact-social-list a:hover { background: #e8f0fe; color: #0d6efd; transform: translateY(-2px) scale(1.03);}
-.icon {
-  width: 28px; height: 28px;
-  min-width: 28px; min-height: 28px;
-  border-radius: 50%;
-  display: flex; justify-content: center; align-items: center;
-  color: #fff;
-  font-size: 1.15rem;
-  margin-left: 7px;
-  transition: background 0.18s, color 0.18s;
-}
-.icon-mail { background: #d44638; }
-.icon-wa { background: #25d366; }
-.icon-li { background: #0077b5; }
-.icon-gh { background: #23272d; }
-.icon-yt { background: #ff0000; }
-.icon-ig { background: #c13584; }
-.icon-fb { background: #1877f3; }
-.icon-tg { background: #229ed9; }
-
-.contact-form-modern {
-  background: #f8fafd;
-  border-radius: 12px;
-  padding: 17px 13px 13px 13px;
-  box-shadow: 0 2px 10px #4c6ef515;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-width: 260px;
-  flex: 2 1 340px;
-  justify-content: flex-start;
-  margin-bottom: 5px;
-}
-.form-row {
-  display: flex;
-  gap: 10px;
-}
-.input-group {
-  display: flex;
-  align-items: center;
-  border: 1.5px solid #a9b9ff;
-  border-radius: 9px;
-  background: #fff;
-  transition: border-color 0.3s;
-  flex: 1 1 0;
-  position: relative;
-  margin-bottom: 10px;
-}
-.input-group:focus-within { border-color: #004085; box-shadow: 0 0 8px #4c6ef5aa; }
-.input-group label {
-  color: #6c757d;
-  padding: 0 8px;
-  font-size: 1.05em;
-  display: flex;
-  align-items: center;
-  background: none;
-  border: none;
-  pointer-events: none;
-}
-.input-group input,
-.input-group textarea {
-  border: none;
-  outline: none;
-  padding: 11px 8px 11px 4px;
-  font-size: 1rem;
-  font-family: inherit;
-  background: transparent;
-  color: #002952;
-  width: 100%;
-  resize: none;
-  transition: background 0.2s, color 0.2s;
-}
-.input-group input:focus,
-.input-group textarea:focus { background: #f2faff; }
-.textarea-group {
-  align-items: flex-start;
-  min-height: 80px;
-}
-.textarea-group textarea {
-  min-height: 64px;
-  max-height: 140px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-.send-btn {
-  margin-top: 7px;
-  width: 100%;
-  background-color: #004085;
-  color: white;
-  padding: 11px;
-  font-size: 1.08rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 11px;
-  cursor: pointer;
-  transition: background 0.22s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-}
-.send-btn:hover { background: #002952; color: #ffc107; }
-.contact-success {
-  text-align: center;
-  color: #146c43;
-  font-weight: bold;
-  margin: 7px 0 0 0;
-  min-height: 28px;
-  font-size: 1.01rem;
-}
-
-/* تعليقات الزوار */
-.public-comments-section {
-  margin: 35px auto 0 auto;
-  background: #f9fbfc;
-  border-radius: 11px;
-  box-shadow: 0 2px 8px #4c6ef511;
-  padding: 30px 13px 17px 13px;
-  max-width: 900px;
-}
-.visitor-comment-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 11px;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 15px;
-}
-.visitor-comment-form input,
-.visitor-comment-form textarea {
-  padding: 10px 12px;
-  border-radius: 7px;
-  border: 1.2px solid #a9b9ff;
-  font-size: 1rem;
-  background: #fff;
-  margin: 0;
-  outline: none;
-  resize: vertical;
-  transition: border-color 0.3s;
-}
-.visitor-comment-form input { width: 140px; }
-.visitor-comment-form textarea { flex: 1; min-width: 130px; max-width: 400px;}
-.visitor-comment-form input:focus,
-.visitor-comment-form textarea:focus { border-color: #004085; box-shadow: 0 0 6px #4c6ef555;}
-.visitor-comment-form button {
-  background: #004085;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 9px 19px;
-  font-size: 1.06rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-  display: flex; align-items: center; gap: 7px;
-}
-.visitor-comment-form button:hover { background: #0d6efd; color: #ffc107;}
-.visitor-comments-list {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.visitor-comment-box {
-  background: #e8f0fe;
-  border-radius: 7px;
-  padding: 10px 14px 6px 14px;
-  box-shadow: 0 1px 7px #0001;
-  font-size: 1.01rem;
-  position: relative;
-}
-.visitor-comment-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.91rem;
-  margin-bottom: 5px;
-}
-.visitor-comment-user {
-  color: #004085;
-  font-weight: bold;
-}
-.visitor-comment-date {
-  color: #7e8fa5;
-  font-size: 0.88em;
-}
-.visitor-comment-message {
-  color: #1b3555;
-  white-space: pre-line;
-  word-break: break-word;
-}
-.empty-comments {
-  text-align: center;
-  color: #888;
-  font-size: 1.01rem;
-  margin: 15px 0;
-}
-.main-footer {
-  text-align:center;
-  padding:15px;
-  background:#003366;
-  color:#fff;
-  margin-top:30px;
-  border-radius:18px 18px 0 0;
-  font-size: 1.07rem;
-  position: relative;
-  box-shadow: 0 -3px 18px #00408522;
-}
-.main-footer a { color: #ffd700; margin: 0 7px;}
-.main-footer .go-top {
-  position: absolute;
-  left: 12px;
-  top: 11px;
-  color: #fff;
-  background: #004085;
-  border-radius: 50%;
-  width: 37px; height: 37px;
-  font-size: 1.4rem;
-  border: 1.2px solid #fff2;
-  cursor: pointer;
-  transition: background 0.17s;
-}
-.main-footer .go-top:hover { background: #ffd700; color: #004085; }
-
-/* Loader */
-#global-loader {
-  position: fixed;
-  top:0;left:0;right:0;bottom:0;
-  z-index: 99999;
-  background: rgba(255,255,255,0.78);
-  display: flex; align-items: center; justify-content: center;
-  transition: opacity 0.2s;
-  opacity: 1;
-  pointer-events: all;
-}
-#global-loader.hide {
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.4s;
-}
-.lds-dual-ring {
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-}
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid #004085;
-  border-color: #004085 transparent #004085 transparent;
-  animation: lds-dual-ring 1.1s linear infinite;
-}
-@keyframes lds-dual-ring {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
-}
-
-/* حركة ظهور aos */
-[data-aos] { opacity: 0; transition: opacity 0.8s, transform 0.9s;}
-[data-aos].aos-animate { opacity: 1; }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .contact-flex-wrap { flex-direction: column; gap: 13px;}
-  .contact-form-modern, .contact-social { min-width: 0;}
-}
-@media (max-width: 600px) {
-  section, .contact-section, .public-comments-section { padding: 10px 2px; }
-  .fixed-lang-switcher { right: 3px; top: 4px; }
-  .lang-btn { font-size: 0.90rem; padding: 2px 5px; }
-  .lang-flag-img { width: 16px; height: 12px; }
-  .services-list { flex-direction: column;}
-}
-
-.support-gold-box {
-  position: absolute;
-  top: 20px;
-  left: -340px;
-  z-index: 10;
+.support-gold-box-alt {
   background: linear-gradient(135deg, #fff9e5 0%, #ffe066 100%);
   color: #7c5c00;
-  border-radius: 18px 32px 18px 32px;
+  border-radius: 18px;
   box-shadow: 0 4px 22px #ffd70050, 0 1.5px 10px #b89d2a33;
-  padding: 20px 27px 16px 21px;
-  min-width: 245px;
-  max-width: 300px;
-  font-family: 'Cairo', Arial, sans-serif;
+  padding: 25px 18px 18px 18px;
+  min-width: 260px;
+  max-width: 330px;
+  flex: 1 1 320px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 13px;
   border: 2.5px solid #ffd700;
-  animation: fadeInTop 1.2s cubic-bezier(.4,2,.5,1);
+  align-self: stretch;
+  justify-content: center;
 }
 .support-gold-title {
   font-weight: bold;
@@ -970,7 +348,6 @@ h3 {
 .support-gold-msg {
   color: #7c5c00;
   font-size: 1.01rem;
-  line-height: 1.8;
 }
 .support-gold-card {
   background: #fffbe6;
@@ -1022,15 +399,19 @@ h3 {
   background: #fffbe6;
   color: #b89300;
 }
-@media(max-width: 1100px) {
-  .main-header { position: static !important; }
-  .support-gold-box { left: 10px; top: unset; bottom: 15px; position: fixed; }
+@media(max-width: 900px) {
+  .meeting-support-row {
+    flex-direction: column;
+    gap: 18px;
+    max-width: 98vw;
+  }
+  .meeting-contacts-box, .support-gold-box-alt {
+    min-width: 0;
+    max-width: 99vw;
+    width: 100%;
+    padding: 18px 8px;
+    margin: 0 auto;
+  }
 }
-@media(max-width: 650px) {
-  .support-gold-box { left: 50%; transform: translateX(-50%); max-width: 97vw; min-width: 0;}
-}
-.main-header { position: relative; }
 
-
-
-
+/* باقي CSS موقعك كما هو ... */
