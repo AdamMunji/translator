@@ -235,69 +235,79 @@
       text-shadow: 0 1px 10px #000;
     }
 
-    /* ----------- أزرار زووم ومييت ----------- */
-    .meeting-links-box {
+    /* ----------- بطاقات حسابات زووم ومييت ----------- */
+    .meeting-contacts-box {
       display: flex;
       gap: 20px;
       justify-content: center;
-      margin: 32px auto 12px auto;
+      margin: 32px auto 18px auto;
       padding: 18px 0;
       background: #f6f8fa;
       border-radius: 18px;
-      max-width: 430px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      max-width: 550px;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.07);
     }
-    .meeting-btn {
+    .meeting-contact-card {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 8px;
-      font-size: 17px;
-      font-weight: bold;
-      padding: 13px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
-      transition: background 0.2s, transform 0.2s;
-      border: none;
-    }
-    .zoom-btn {
-      background: #2D8CFF;
-      color: #fff;
-    }
-    .zoom-btn:hover {
-      background: #1569c7;
-      transform: scale(1.05);
-    }
-    .meet-btn {
-      background: #00ac47;
-      color: #fff;
-    }
-    .meet-btn:hover {
-      background: #008037;
-      transform: scale(1.05);
-    }
-    .meeting-icon {
-      width: 26px;
-      height: 26px;
       background: #fff;
-      border-radius: 4px;
+      border-radius: 13px;
+      padding: 22px 18px 16px 18px;
+      min-width: 170px;
+      box-shadow: 0 1px 7px #00408513;
+      transition: box-shadow 0.19s;
+    }
+    .meeting-contact-card:hover { box-shadow: 0 4px 17px #00408524;}
+    .meeting-contact-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 5px;
+      margin-bottom: 7px;
+      background: #fff;
+      box-shadow: 0 2px 8px #0001;
       object-fit: contain;
     }
+    .meeting-contact-title {
+      font-weight: bold;
+      color: #0059b3;
+      font-size: 1.07rem;
+      margin-bottom: 3px;
+      display: block;
+    }
+    .meeting-contact-email {
+      color: #232c3e;
+      font-size: 0.98rem;
+      direction: ltr;
+      background: #e8f0fe;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 5px;
+      margin-top: 3px;
+      display: block;
+    }
+    .copy-btn {
+      background: #2D8CFF;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 7px 16px;
+      font-size: 0.98rem;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background 0.19s;
+      margin-top: 7px;
+    }
+    .copy-btn:hover { background: #0059b3; }
     @media(max-width: 600px) {
-      .meeting-links-box {
+      .meeting-contacts-box {
         flex-direction: column;
-        gap: 13px;
-        max-width: 96vw;
+        gap: 15px;
+        max-width: 98vw;
+        padding: 10px 0;
       }
-      .meeting-btn {
-        font-size: 15.7px;
-        padding: 11px 12px;
-        justify-content: center;
-      }
-      .meeting-icon {
-        width: 22px;
-        height: 22px;
-      }
+      .meeting-contact-card { min-width: 0;}
     }
   </style>
 </head>
@@ -345,18 +355,26 @@
     <button class="intro-video-btn" onclick="showIntroVideo()"><i class="fa-solid fa-play"></i> فيديو تعريفي</button>
   </header>
 
-  <!-- أزرار زووم وGoogle Meet في مكان مميز -->
-  <div class="meeting-links-box">
-    <a href="https://zoom.us/j/your_zoom_meeting_id" target="_blank" class="meeting-btn zoom-btn">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" class="meeting-icon">
-      دخول عبر Zoom
-    </a>
-    <a href="https://meet.google.com/your_meet_id" target="_blank" class="meeting-btn meet-btn">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_Meet_logo.png" alt="Meet" class="meeting-icon">
-      دخول عبر Google Meet
-    </a>
+  <!-- بطاقات حسابات التواصل عبر زووم ومييت -->
+  <div class="meeting-contacts-box">
+    <div class="meeting-contact-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" class="meeting-contact-icon">
+      <div class="meeting-contact-info">
+        <span class="meeting-contact-title">حساب Zoom</span>
+        <span class="meeting-contact-email">abamunji99@gmail.com</span>
+      </div>
+      <button class="copy-btn" onclick="copyToClipboard('abamunji99@gmail.com', this)">نسخ البريد</button>
+    </div>
+    <div class="meeting-contact-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_Meet_logo.png" alt="Google Meet" class="meeting-contact-icon">
+      <div class="meeting-contact-info">
+        <span class="meeting-contact-title">حساب Google Meet</span>
+        <span class="meeting-contact-email">abamunji99@gmail.com</span>
+      </div>
+      <button class="copy-btn" onclick="copyToClipboard('abamunji99@gmail.com', this)">نسخ البريد</button>
+    </div>
   </div>
-  <!-- نهاية أزرار الاجتماعات -->
+  <!-- نهاية بطاقات التواصل عبر زووم ومييت -->
 
   <!-- قسم مكتبة الصورة - ترجمة -->
   <section class="translation-gallery-section" id="translation-gallery">
@@ -691,6 +709,14 @@
         }
       };
     });
+
+    // ========== نسخ البريد ==========
+    function copyToClipboard(text, btn) {
+      navigator.clipboard.writeText(text).then(function() {
+        btn.innerText = "تم النسخ!";
+        setTimeout(() => { btn.innerText = "نسخ البريد"; }, 1500);
+      });
+    }
   </script>
 </body>
 </html>
