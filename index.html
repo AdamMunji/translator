@@ -384,26 +384,53 @@
     <button class="intro-video-btn" onclick="showIntroVideo()"><i class="fa-solid fa-play"></i> فيديو تعريفي</button>
   </header>
 
-  <!-- بطاقات حسابات التواصل عبر زووم ومييت -->
+<!-- بداية صف زووم ومييت والدعم المادي بشكل منفصل ومتقابل -->
+<div class="meeting-support-row">
+  <!-- الصندوق الأيمن: زووم ومييت -->
   <div class="meeting-contacts-box">
-    <div class="meeting-contact-card">
+    <a href="zoomus://zoom.us/join?action=join&confno=7111248717" target="_blank" class="meeting-contact-card" title="اتصل بي على Zoom">
       <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" class="meeting-contact-icon">
       <div class="meeting-contact-info">
-        <span class="meeting-contact-title">حساب Zoom</span>
-        <span class="meeting-contact-email">abamunji99@gmail.com</span>
+        <span class="meeting-contact-title">تواصل معي على Zoom</span>
+        <span class="meeting-contact-email" style="direction:ltr">abamunji99@gmail.com</span>
       </div>
-      <button class="copy-btn" onclick="copyToClipboard('abamunji99@gmail.com', this)">نسخ البريد</button>
-    </div>
-    <div class="meeting-contact-card">
+    </a>
+    <a href="mailto:abamunji99@gmail.com?subject=تواصل%20عبر%20Google%20Meet" class="meeting-contact-card" title="راسلني عبر Google Meet">
       <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_Meet_logo.png" alt="Google Meet" class="meeting-contact-icon">
       <div class="meeting-contact-info">
-        <span class="meeting-contact-title">حساب Google Meet</span>
-        <span class="meeting-contact-email">abamunji99@gmail.com</span>
+        <span class="meeting-contact-title">تواصل معي عبر Google Meet</span>
+        <span class="meeting-contact-email" style="direction:ltr">abamunji99@gmail.com</span>
       </div>
-      <button class="copy-btn" onclick="copyToClipboard('abamunji99@gmail.com', this)">نسخ البريد</button>
+    </a>
+  </div>
+  <!-- الصندوق الأيسر: الدعم المادي -->
+  <div class="support-gold-box-alt" id="supportGoldBox">
+    <div class="support-gold-title">
+      <i class="fa-solid fa-heart"></i>
+      <span>ادعم تطوير الموقع</span>
+    </div>
+    <div class="support-gold-msg">
+      دعمك يساهم في استمرار وتطوير المحتوى المجاني والتعليم للجميع.<br>
+      يمكنك التبرع بأي مبلغ عبر:
+    </div>
+    <div class="support-gold-card">
+      <span class="support-gold-label">
+        <i class="fa-brands fa-cc-mastercard"></i> ماستر كارد
+      </span>
+      <span class="support-gold-number" id="masterCardNum">7111248717</span>
+      <button class="support-gold-copy-btn" onclick="copyToClipboard('7111248717', this)">نسخ</button>
+    </div>
+    <div class="support-gold-card">
+      <span class="support-gold-label">
+        <img src="https://cdn.jsdelivr.net/gh/AdamMunji/temp-icons/zcash.svg" alt="زين كاش" style="width:20px;margin-left:2px"> زين كاش
+      </span>
+      <span class="support-gold-number" id="zainCashNum">07800021710</span>
+      <button class="support-gold-copy-btn" onclick="copyToClipboard('07800021710', this)">نسخ</button>
     </div>
   </div>
-  <!-- نهاية بطاقات التواصل عبر زووم ومييت -->
+</div>
+<!-- نهاية صف زووم ومييت والدعم المادي -->
+  
 
   <!-- قسم مكتبة الصورة - ترجمة -->
   <section class="translation-gallery-section" id="translation-gallery">
