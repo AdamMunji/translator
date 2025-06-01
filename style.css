@@ -307,7 +307,9 @@ h3 {
   background: #fffbe6;
   color: #b89300;
 }
-@media(max-width: 900px) {
+@media (max-width: 900px) {
+  .contact-flex-wrap { flex-direction: column; gap: 13px;}
+  .contact-form-modern, .contact-social { min-width: 0;}
   .meeting-support-row {
     flex-direction: column;
     gap: 18px;
@@ -320,6 +322,13 @@ h3 {
     padding: 18px 8px;
     margin: 0 auto;
   }
+}
+@media (max-width: 600px) {
+  section, .contact-section, .public-comments-section { padding: 10px 2px; }
+  .fixed-lang-switcher { right: 3px; top: 4px; }
+  .lang-btn { font-size: 0.90rem; padding: 2px 5px; }
+  .lang-flag-img { width: 16px; height: 12px; }
+  .services-list { flex-direction: column;}
 }
 
 /* معرض الأعمال */
