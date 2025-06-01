@@ -7,14 +7,11 @@ public_folder: "/images/uploads"
 
 collections:
   - name: "posts"
-    label: "مقالات"
+    label: "المقالات"
     folder: "posts"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - label: "عنوان"
-        name: "title"
-        widget: "string"
-      - label: "محتوى"
-        name: "body"
-        widget: "markdown"
+      - { label: "العنوان", name: "title", widget: "string" }
+      - { label: "التاريخ", name: "date", widget: "datetime" }
+      - { label: "المحتوى", name: "body", widget: "markdown" }
