@@ -1,0 +1,126 @@
+body {
+  background: #f7f9fb;
+  font-family: "Cairo", Tahoma, Arial, sans-serif;
+  color: #2c3e50;
+  margin: 0;
+  padding: 0;
+}
+.free-center-container {
+  max-width: 850px;
+  margin: 40px auto 30px auto;
+  background: #fff;
+  border-radius: 18px;
+  padding: 40px 22px 32px 22px;
+  box-shadow: 0 4px 28px #0001;
+  direction: rtl;
+}
+h1 {
+  text-align: center;
+  color: #004085;
+  margin-bottom: 12px;
+  font-size: 2.1rem;
+  letter-spacing: 0.5px;
+}
+.subtitle {
+  color: #222d;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.08rem;
+}
+.free-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+.free-cards a {
+  padding: 18px 16px;
+  background: #e0eaff;
+  color: #004085;
+  border-radius: 13px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.13rem;
+  box-shadow: 0 2px 12px #0001;
+  transition: background 0.18s;
+  min-width: 180px;
+  text-align: center;
+  letter-spacing: 0.1px;
+}
+.free-cards a:hover {
+  background: #b4d7ff;
+}
+.branch-section {
+  background: #f0f4ff;
+  border-radius: 11px;
+  padding: 19px 16px 13px 11px;
+  box-shadow: 0 1px 6px #0001;
+  margin-bottom: 20px;
+  margin-top: 18px;
+}
+.branch-section h2 {
+  color: #0a3a7b;
+  margin-top: 0;
+  font-size: 1.14rem;
+}
+.source-list {
+  margin: 0 0 0 0;
+  padding-right: 22px;
+  font-size: 1.08rem;
+}
+.source-list li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.go-source-btn {
+  display: inline-block;
+  margin-top: 9px;
+  background: #004085;
+  color: #fff;
+  border-radius: 8px;
+  padding: 9px 22px;
+  font-size: 1.01rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.go-source-btn:hover {
+  background: #0069d9;
+}
+.back-btn-wrap {
+  text-align: center;
+  margin-top: 32px;
+}
+.to-home-btn {
+  display: inline-block;
+  background: #004085;
+  color: #fff;
+  border-radius: 9px;
+  padding: 13px 34px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background 0.17s;
+}
+.to-home-btn:hover {
+  background: #0069d9;
+}
+@media (max-width: 900px) {
+  .free-center-container {
+    max-width: 98vw;
+    padding: 8vw 2vw 5vw 2vw;
+  }
+  .free-cards a { min-width: 120px; font-size: 1rem; }
+}
+@media (max-width: 600px) {
+  .free-cards {
+    gap: 8px;
+  }
+  .free-cards a {
+    padding: 10px 7px;
+    font-size: 0.99rem;
+    min-width: 90px;
+  }
+}
