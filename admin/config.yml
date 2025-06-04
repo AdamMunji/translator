@@ -1,7 +1,8 @@
 backend:
   name: git-gateway
   branch: main
-
+  auth_type: oauth
+  auth_endpoint: https://adorable-cajeta-7cf5b8.netlify.app/.netlify/functions/auth
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
